@@ -1,0 +1,170 @@
+/* App-specific styles */
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section z-index stacking */
+section {
+  will-change: transform;
+}
+
+/* Button hover animation */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Link hover animation */
+a, button {
+  transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Card hover effects */
+.card-glass {
+  transition: all 0.3s ease;
+}
+
+.card-glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Image hover zoom */
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Form input focus */
+input:focus {
+  box-shadow: 0 0 0 3px rgba(228, 171, 85, 0.2);
+}
+
+/* Dialog styling */
+[data-state="open"] {
+  animation: dialogFadeIn 0.2s ease-out;
+}
+
+@keyframes dialogFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile menu animation */
+.translate-x-full {
+  transform: translateX(100%);
+}
+
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #e4ab55 0%, #f5d491 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-gold {
+  box-shadow: 0 0 40px rgba(228, 171, 85, 0.3);
+}
+
+.glow-blue {
+  box-shadow: 0 0 40px rgba(24, 70, 237, 0.3);
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 768px) {
+  .headline-xl {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+  
+  .headline-lg {
+    font-size: clamp(28px, 7vw, 36px);
+  }
+  
+  .headline-md {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Print styles */
+@media print {
+  .grain-overlay,
+  nav,
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    display: none !important;
+  }
+  
+  section {
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Custom selection color */
+::selection {
+  background: rgba(228, 171, 85, 0.3);
+  color: white;
+}
+
+/* Scrollbar styling for webkit browsers */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(228, 171, 85, 0.4) #1a3a52;
+}
