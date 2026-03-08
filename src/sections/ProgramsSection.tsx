@@ -11,21 +11,21 @@ const programs = [
     location: 'Jeddah',
     date: 'August 2025',
     description: 'First youth-led Chinese-Saudi cultural exchange with 40+ participants.',
-    image: '/programs_left_mentorship.jpg',
+    image: 'programs_left_mentorship.jpg',
   },
   {
     title: 'Beijing Launch Event',
     location: 'Beijing',
     date: 'November 2025',
     description: 'Private networking lunch with scholars from PKU and Tsinghua.',
-    image: '/programs_right_workshop.jpg',
+    image: 'programs_right_workshop.jpg',
   },
   {
     title: 'UAE Union Day Exchange',
     location: 'Yenching Academy, PKU',
     date: 'December 2025',
     description: 'Cultural exchange introducing UAE history to international students.',
-    image: '/community_top_center_conversation.jpg',
+    image: 'community_top_center_conversation.jpg',
   },
 ];
 

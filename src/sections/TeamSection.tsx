@@ -12,12 +12,12 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-  { name: 'Leen Al-Rashid', role: 'Co-Founder & President', image: '/team_portrait_01.jpg' },
-  { name: 'Chen Wei', role: 'Co-Founder & Programs Lead', image: '/team_portrait_02.jpg' },
-  { name: 'Omar Al-Hashimi', role: 'Partnerships Director', image: '/team_portrait_03.jpg' },
-  { name: 'Noor Al-Farsi', role: 'Community Lead', image: '/team_portrait_04.jpg' },
-  { name: 'Zhang Yue', role: 'Communications Lead', image: '/team_portrait_05.jpg' },
-  { name: 'Saud Al-Qahtani', role: 'Events Producer', image: '/team_portrait_06.jpg' },
+  { name: 'Leen Al-Rashid', role: 'Co-Founder & President', image: 'team_portrait_01.jpg' },
+  { name: 'Chen Wei', role: 'Co-Founder & Programs Lead', image: 'team_portrait_02.jpg' },
+  { name: 'Omar Al-Hashimi', role: 'Partnerships Director', image: 'team_portrait_03.jpg' },
+  { name: 'Noor Al-Farsi', role: 'Community Lead', image: 'team_portrait_04.jpg' },
+  { name: 'Zhang Yue', role: 'Communications Lead', image: 'team_portrait_05.jpg' },
+  { name: 'Saud Al-Qahtani', role: 'Events Producer', image: 'team_portrait_06.jpg' },
 ];
 
 const TeamSection = () => {

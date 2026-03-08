@@ -92,7 +92,7 @@ const EventHighlightSection = () => {
         {/* Left Image */}
         <div className="event-image absolute left-0 top-0 w-1/2 h-full hidden md:block">
           <img 
-            src="/event_highlight_stage.jpg"
+            src="event_highlight_stage.jpg"
             alt="Sino-Gulf Youth Dialogue"
             className="w-full h-full object-cover"
           />
