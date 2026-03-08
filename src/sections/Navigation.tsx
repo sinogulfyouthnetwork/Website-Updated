@@ -50,7 +50,7 @@ const Navigation = () => {
             className="flex items-center gap-3"
           >
             <img 
-              src="/logo.png" 
+              src="logo.png" 
               alt="SGYN Logo" 
               className="h-10 md:h-12 w-auto object-contain"
             />
