@@ -128,11 +128,11 @@ const FooterSection = () => {
                 <ul className="space-y-2">
                   <li>
                     <a 
-                      href="mailto:hello@sgyn.org"
+                      href="mailto:info@signogulfyouthnetwork.com"
                       className="inline-flex items-center gap-2 text-white/60 hover:text-sgyn-gold transition-colors"
                     >
                       <Mail size={16} />
-                      hello@sgyn.org
+                      info@signogulfyouthnetwork.com
                     </a>
                   </li>
                   <li>
