@@ -132,7 +132,7 @@ const HeroSection = () => {
         {/* Logo Large */}
         <div className="mb-8">
           <img 
-            src="updatedLogo.jpg" 
+            src="updatedLogo.jpeg" 
             alt="SGYN" 
             className="h-24 md:h-32 w-auto object-contain"
           />
