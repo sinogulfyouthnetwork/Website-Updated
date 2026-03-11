@@ -53,9 +53,8 @@ const FooterSection = () => {
   }, []);
 
   const socialLinks = [
-    { icon: <Instagram size={20} />, href: '#', label: 'Instagram' },
-    { icon: <Linkedin size={20} />, href: '#', label: 'LinkedIn' },
-    { icon: <Twitter size={20} />, href: '#', label: 'Twitter' },
+    { icon: <Instagram size={20} />, href: 'https://www.instagram.com/sinogulfyouthnetwork/', label: 'Instagram' },
+    { icon: <Linkedin size={20} />, href: 'https://ae.linkedin.com/company/sino-gulf-youth-network', label: 'LinkedIn' },
   ];
 
   const quickLinks = [
