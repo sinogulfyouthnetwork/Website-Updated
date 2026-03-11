@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Instagram, Linkedin, Twitter, Mail, ExternalLink } from 'lucide-react';
+import { Instagram, Linkedin, Mail, ExternalLink } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
