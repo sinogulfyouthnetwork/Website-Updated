@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Toaster } from 'sonner';
@@ -12,22 +12,61 @@ import TeamSection from './sections/TeamSection';
 import PartnersSection from './sections/PartnersSection';
 import NewsletterSection from './sections/NewsletterSection';
 import FooterSection from './sections/FooterSection';
+import ArchivePage from './pages/ArchivePage.tsx';
+import EventsPage from './pages/EventsPage.tsx';
+import ProgramsTeaserSection from './sections/ProgramsTeaserSection.tsx';
+import LABPage from './pages/LABPage.tsx';
 import './App.css';
+
+type Page = 'home' | 'archive' | 'lab' | 'events';
+
+function useHashRoute() {
+  const getPage = (): Page => {
+    const hash = window.location.hash;
+    const path = window.location.pathname;
+    if (path.includes('/archive') || hash.includes('/archive')) return 'archive';
+    if (path.includes('/lab') || hash.includes('/lab')) return 'lab';
+    if (path.includes('/events') || hash.includes('/events')) return 'events';
+    return 'home';
+  };
+
+  const [page, setPage] = useState<Page>(getPage);
+
+  useEffect(() => {
+    const handler = () => setPage(getPage());
+    window.addEventListener('hashchange', handler);
+    window.addEventListener('popstate', handler);
+    return () => {
+      window.removeEventListener('hashchange', handler);
+      window.removeEventListener('popstate', handler);
+    };
+  }, []);
+
+  const navigate = (to: Page) => {
+    if (to === 'archive') window.history.pushState({}, '', '/#/archive');
+    else if (to === 'lab') window.history.pushState({}, '', '/#/lab');
+    else if (to === 'events') window.history.pushState({}, '', '/#/events');
+    else window.history.pushState({}, '', '/');
+    setPage(to);
+    // Use setTimeout to scroll after the new page has rendered
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 0);
+  };
+
+  return { page, navigate };
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
-function App() {
+function HomePage() {
   const mainRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Wait for all sections to mount before setting up global snap
     const timer = setTimeout(() => {
       const pinned = ScrollTrigger.getAll()
         .filter(st => st.vars.pin)
         .sort((a, b) => a.start - b.start);
-      
+
       const maxScroll = ScrollTrigger.maxScroll(window);
-      
       if (!maxScroll || pinned.length === 0) return;
 
       const pinnedRanges = pinned.map(st => ({
@@ -43,15 +82,11 @@ function App() {
               r => value >= r.start - 0.02 && value <= r.end + 0.02
             );
             if (!inPinned) return value;
-
-            const target = pinnedRanges.reduce(
+            return pinnedRanges.reduce(
               (closest, r) =>
-                Math.abs(r.center - value) < Math.abs(closest - value)
-                  ? r.center
-                  : closest,
+                Math.abs(r.center - value) < Math.abs(closest - value) ? r.center : closest,
               pinnedRanges[0]?.center ?? 0
             );
-            return target;
           },
           duration: { min: 0.15, max: 0.35 },
           delay: 0,
@@ -68,8 +103,29 @@ function App() {
 
   return (
     <div ref={mainRef} className="relative bg-sgyn-navy min-h-screen">
-      {/* Toast notifications */}
-      <Toaster 
+      <Navigation />
+      <main className="relative">
+        <HeroSection />
+        <ManifestoSection />
+        <ProgramsSection />
+        <CommunitySection />
+        <ProgramsTeaserSection />
+        <EventHighlightSection />
+        <TeamSection />
+        <PartnersSection />
+        <NewsletterSection />
+        <FooterSection />
+      </main>
+    </div>
+  );
+}
+
+function App() {
+  const { page, navigate } = useHashRoute();
+
+  return (
+    <>
+      <Toaster
         position="top-center"
         toastOptions={{
           style: {
@@ -79,23 +135,11 @@ function App() {
           },
         }}
       />
-      
-      {/* Navigation */}
-      <Navigation />
-      
-      {/* Main content */}
-      <main className="relative">
-        <HeroSection />
-        <ManifestoSection />
-        <ProgramsSection />
-        <CommunitySection />
-        <EventHighlightSection />
-        <TeamSection />
-        <PartnersSection />
-        <NewsletterSection />
-        <FooterSection />
-      </main>
-    </div>
+      {page === 'archive' && <ArchivePage onBack={() => navigate('home')} />}
+      {page === 'events' && <EventsPage onBack={() => navigate('home')} />}
+      {page === 'lab' && <LABPage onBack={() => navigate('home')} />}
+      {page === 'home' && <HomePage />}
+    </>
   );
 }
 
