@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Building2, GraduationCap, Landmark, Utensils, BookOpen, Globe } from 'lucide-react';
+import { Building2, GraduationCap, Landmark, Utensils, BookOpen, Globe, Coffee } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,17 +12,31 @@ interface Partner {
 }
 
 const partners: Partner[] = [
-  { name: 'Yenching Academy', type: 'Academic', icon: <GraduationCap size={28} /> },
-  { name: 'NYU Abu Dhabi', type: 'Academic', icon: <GraduationCap size={28} /> },
-  { name: 'NYU Shanghai', type: 'Academic', icon: <GraduationCap size={28} /> },
-  { name: 'Columbia University', type: 'Academic', icon: <GraduationCap size={28} /> },
-  { name: 'UAE Permanent Mission', type: 'Diplomatic', icon: <Landmark size={28} /> },
-  { name: 'UAE Youth Delegates', type: 'Diplomatic', icon: <Globe size={28} /> },
-  { name: 'UAE Society NYC', type: 'Community', icon: <Building2 size={28} /> },
-  { name: 'Qanateer', type: 'Cultural', icon: <BookOpen size={28} /> },
-  { name: 'House of Wisdom', type: 'Cultural', icon: <BookOpen size={28} /> },
-  { name: 'Al Khaleej Mandi', type: 'Cultural', icon: <Utensils size={28} /> },
+  // Academic
+  { name: 'Yenching Academy', type: 'Academic', icon: <GraduationCap size={26} /> },
+  { name: 'NYU Abu Dhabi', type: 'Academic', icon: <GraduationCap size={26} /> },
+  { name: 'NYU Shanghai', type: 'Academic', icon: <GraduationCap size={26} /> },
+  { name: 'Columbia University SIPA', type: 'Academic', icon: <GraduationCap size={26} /> },
+  { name: 'ECUST', type: 'Academic', icon: <GraduationCap size={26} /> },
+  // Diplomatic
+  { name: 'UAE Permanent Mission to the UN', type: 'Diplomatic', icon: <Landmark size={26} /> },
+  { name: 'UAE Embassy Beijing', type: 'Diplomatic', icon: <Landmark size={26} /> },
+  { name: 'UAE Youth Society', type: 'Diplomatic', icon: <Globe size={26} /> },
+  // Community & Cultural
+  { name: 'UAE Society NYC', type: 'Community', icon: <Building2 size={26} /> },
+  { name: 'Greater China Initiative', type: 'Community', icon: <Globe size={26} /> },
+  { name: 'Qanateer', type: 'Cultural', icon: <BookOpen size={26} /> },
+  { name: 'House of Wisdom', type: 'Cultural', icon: <BookOpen size={26} /> },
+  { name: 'Al Maqam Cafe', type: 'Cultural', icon: <Coffee size={26} /> },
+  { name: 'KoYee Korean Cafe', type: 'Cultural', icon: <Utensils size={26} /> },
 ];
+
+const typeColors: Record<string, string> = {
+  Academic: '#1846ed',
+  Diplomatic: '#e4ab55',
+  Community: '#1846ed',
+  Cultural: '#e4ab55',
+};
 
 const PartnersSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -34,7 +48,6 @@ const PartnersSection = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      // Header animation
       gsap.fromTo(
         headerRef.current,
         { y: 24, opacity: 0 },
@@ -51,7 +64,6 @@ const PartnersSection = () => {
         }
       );
 
-      // Logos animation
       logosRef.current.forEach((logo, index) => {
         if (!logo) return;
         gsap.fromTo(
@@ -61,7 +73,7 @@ const PartnersSection = () => {
             y: 0,
             opacity: 1,
             duration: 0.5,
-            delay: index * 0.05,
+            delay: index * 0.04,
             ease: 'power2.out',
             scrollTrigger: {
               trigger: logo,
@@ -93,29 +105,38 @@ const PartnersSection = () => {
           <h2 className="headline-lg text-white">Our Partners</h2>
         </div>
         <p className="body-text-lg text-white/60 max-w-md md:text-right mt-4 md:mt-0">
-          Organizations that help us open doors and create opportunities.
+          Governments, universities, embassies, and cultural institutions helping us open doors.
         </p>
       </div>
 
       {/* Partners Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-6xl mx-auto">
-        {partners.map((partner, index) => (
-          <div
-            key={partner.name}
-            ref={(el) => { logosRef.current[index] = el; }}
-            className="group flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-sgyn-gold/10 hover:border-sgyn-gold/30 transition-all duration-300"
-          >
-            <div className="text-sgyn-gold mb-3 group-hover:scale-110 transition-transform duration-300">
-              {partner.icon}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+        {partners.map((partner, index) => {
+          const color = typeColors[partner.type] ?? '#e4ab55';
+          return (
+            <div
+              key={partner.name}
+              ref={(el) => { logosRef.current[index] = el; }}
+              className="group flex flex-col items-center justify-center p-5 bg-white/5 rounded-2xl border border-white/10 hover:border-sgyn-gold/30 hover:bg-sgyn-gold/10 transition-all duration-300"
+            >
+              <div
+                className="mb-3 group-hover:scale-110 transition-transform duration-300"
+                style={{ color }}
+              >
+                {partner.icon}
+              </div>
+              <span className="text-sm font-medium text-white text-center leading-tight">
+                {partner.name}
+              </span>
+              <span
+                className="text-xs mt-1"
+                style={{ color: `${color}99` }}
+              >
+                {partner.type}
+              </span>
             </div>
-            <span className="text-sm font-medium text-white text-center leading-tight">
-              {partner.name}
-            </span>
-            <span className="text-xs text-white/40 mt-1">
-              {partner.type}
-            </span>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

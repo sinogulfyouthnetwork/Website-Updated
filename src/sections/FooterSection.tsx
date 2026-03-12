@@ -52,9 +52,27 @@ const FooterSection = () => {
     return () => ctx.revert();
   }, []);
 
+  // XHS (RedNote / Xiaohongshu) — Chinese characters in a rounded badge
+  const XHSIcon = () => (
+    <span style={{
+      fontSize: '11px',
+      fontWeight: 700,
+      lineHeight: 1,
+      letterSpacing: '-0.02em',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '22px',
+      height: '22px',
+    }}>
+      小红书
+    </span>
+  );
+
   const socialLinks = [
     { icon: <Instagram size={20} />, href: 'https://www.instagram.com/sinogulfyouthnetwork/', label: 'Instagram' },
     { icon: <Linkedin size={20} />, href: 'https://ae.linkedin.com/company/sino-gulf-youth-network', label: 'LinkedIn' },
+    { icon: <XHSIcon />, href: 'https://xhslink.com/m/8LjkMvEEZ95', label: 'RedNote (小红书)' },
   ];
 
   const quickLinks = [

@@ -1,25 +1,25 @@
 import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Target, MessageCircle, Briefcase } from 'lucide-react';
+import { Globe, BookOpen, Users } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const pillars = [
   {
-    icon: <Target size={32} />,
-    title: 'Cultural Bridges',
-    description: 'Bridging Chinese and Khaleeji cultures through community events, language study, and creative programming.',
+    icon: <Globe size={32} />,
+    title: 'Cultural Exchange',
+    description: 'From literary salons in Jeddah to cultural evenings in Shanghai and Beijing — we create spaces where Chinese and Gulf cultures meet, converse, and learn from each other.',
   },
   {
-    icon: <MessageCircle size={32} />,
-    title: 'Interregional Dialogue',
-    description: 'Hosting shared academic and informal spaces for youth diplomacy and cross-regional discussion.',
+    icon: <Users size={32} />,
+    title: 'Youth Diplomacy',
+    description: 'We convene students, scholars, and emerging leaders for dialogue at the highest levels — including at the UAE Mission to the United Nations in New York.',
   },
   {
-    icon: <Briefcase size={32} />,
-    title: 'Professional Development',
-    description: 'Building pathways for youth in China-GCC industries through mentorship, training, and collaboration.',
+    icon: <BookOpen size={32} />,
+    title: 'Language & Community',
+    description: 'Through our Language Across Borders (LAB) program, we connect Arabic and Mandarin speakers globally — building community one conversation at a time.',
   },
 ];
 
@@ -45,7 +45,6 @@ const ManifestoSection = () => {
         },
       });
 
-      // Phase 1: Entrance
       scrollTl.fromTo(
         '.manifesto-label',
         { y: 20, opacity: 0 },
@@ -74,7 +73,6 @@ const ManifestoSection = () => {
         0.15
       );
 
-      // Phase 3: Exit
       scrollTl.fromTo(
         '.manifesto-content',
         { opacity: 1, y: 0 },
@@ -104,7 +102,7 @@ const ManifestoSection = () => {
         <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-sgyn-gold blur-3xl" />
       </div>
 
-      <div 
+      <div
         ref={contentRef}
         className="manifesto-content relative z-10 h-full flex flex-col items-center justify-center px-6"
       >
@@ -115,25 +113,25 @@ const ManifestoSection = () => {
 
         {/* Title */}
         <h2 className="manifesto-title headline-lg text-white text-center max-w-4xl mb-6">
-          We Connect and Empower Young Leaders Across{' '}
+          A Youth-Led Bridge Between{' '}
           <span className="text-sgyn-gold">China</span> and the{' '}
           <span className="text-sgyn-gold">Gulf</span>
         </h2>
 
         {/* Description */}
         <p className="manifesto-desc text-center body-text-lg text-white/70 max-w-3xl mb-12">
-          Formed in December 2024 in Shanghai, SGYN has expanded to 8+ cities, 
-          leading initiatives that foster cultural understanding, professional exchange, 
-          and creative collaboration.
+          Founded in December 2024 in Shanghai, SGYN has grown to 8+ cities across China, the Gulf, 
+          and New York. We bring together students, scholars, cultural practitioners, and diplomats 
+          to build lasting connections between two of the world's most dynamic regions.
         </p>
 
         {/* Pillars */}
-        <div 
+        <div
           ref={cardsRef}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full"
         >
           {pillars.map((pillar, index) => (
-            <div 
+            <div
               key={index}
               className="pillar-card card-glass rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group"
             >

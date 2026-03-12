@@ -1,15 +1,14 @@
 import { useEffect, useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Globe, Users, Handshake } from 'lucide-react';
+import { ArrowRight,} from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-
+  //const statsRef = useRef<HTMLDivElement>(null);
   // Load animation
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -91,18 +90,13 @@ const HeroSection = () => {
   }, []);
 
   const scrollToPrograms = () => {
-    const element = document.querySelector('#programs');
+    const element = document.querySelector('#our-programs');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const stats = [
-    { icon: <Globe size={24} />, value: '8+', label: 'Cities' },
-    { icon: <Users size={24} />, value: '200+', label: 'Members' },
-    { icon: <Handshake size={24} />, value: '15+', label: 'Partners' },
-  ];
-
+//
   return (
     <section
       ref={sectionRef}
@@ -165,21 +159,7 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Stats */}
-        <div 
-          ref={statsRef}
-          className="hero-stat flex flex-wrap justify-center gap-8 md:gap-16"
-        >
-          {stats.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center">
-              <div className="text-sgyn-gold mb-2">{stat.icon}</div>
-              <div className="text-3xl md:text-4xl font-display font-bold text-white">
-                {stat.value}
-              </div>
-              <div className="text-sm text-white/60">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+
       </div>
     </section>
   );

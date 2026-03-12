@@ -27,7 +27,6 @@ const EventHighlightSection = () => {
         },
       });
 
-      // Phase 1: Entrance
       scrollTl.fromTo(
         '.event-image',
         { x: '-60vw', opacity: 0 },
@@ -63,7 +62,6 @@ const EventHighlightSection = () => {
         0.3
       );
 
-      // Phase 3: Exit
       scrollTl.fromTo(
         '.event-content',
         { opacity: 1, x: 0 },
@@ -91,9 +89,9 @@ const EventHighlightSection = () => {
       >
         {/* Left Image */}
         <div className="event-image absolute left-0 top-0 w-1/2 h-full hidden md:block">
-          <img 
+          <img
             src="event_highlight_stage.jpg"
-            alt="Sino-Gulf Youth Dialogue"
+            alt="Sino-Gulf Youth Dialogue at the UAE Mission to the UN"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-sgyn-navy-dark" />
@@ -108,61 +106,73 @@ const EventHighlightSection = () => {
           </div>
 
           {/* Title */}
-          <h2 className="event-title headline-lg text-white mb-6">
+          <h2 className="event-title headline-lg text-white mb-2">
             Sino-Gulf Youth{' '}
             <span className="text-sgyn-gold">Dialogue</span>
           </h2>
+          <p className="event-title text-white/50 text-lg mb-6 font-display italic">
+            Uniting Youth Voices for a Shared Future
+          </p>
 
           {/* Meta Info */}
           <div className="space-y-3 mb-8">
             <div className="event-meta flex items-center gap-3 text-white/70">
-              <MapPin size={18} className="text-sgyn-gold" />
+              <MapPin size={18} className="text-sgyn-gold flex-shrink-0" />
               <span>UAE Permanent Mission to the United Nations, New York City</span>
             </div>
             <div className="event-meta flex items-center gap-3 text-white/70">
-              <Calendar size={18} className="text-sgyn-gold" />
-              <span>December 2025</span>
+              <Calendar size={18} className="text-sgyn-gold flex-shrink-0" />
+              <span>November 19, 2025</span>
             </div>
             <div className="event-meta flex items-center gap-3 text-white/70">
-              <Users size={18} className="text-sgyn-gold" />
-              <span>70+ Attendees | Youth Leaders, Scholars & Diplomats</span>
+              <Users size={18} className="text-sgyn-gold flex-shrink-0" />
+              <span>100+ Attendees · Youth Leaders, Scholars & Diplomats</span>
             </div>
           </div>
 
           {/* Description */}
           <p className="event-meta body-text-lg text-white/60 max-w-lg mb-8">
-            A high-level youth dialogue bringing together voices from across the region 
-            to shape what's next. Featuring panels, workshops, and networking with 
-            senior UAE diplomats.
+            A landmark gathering at the United Nations, convening youth leaders and diplomats 
+            from China and the Gulf to shape the next chapter of bilateral cooperation — 
+            co-hosted with the UAE Mission to the UN, UAE Youth Society, Columbia University SIPA, 
+            and the Greater China Initiative.
           </p>
 
           {/* CTA */}
           <div className="event-cta flex flex-col sm:flex-row gap-4">
-            <button 
+            <button
               onClick={() => setDialogOpen(true)}
               className="btn-primary"
             >
-              Request an Invite
+              Get Involved
             </button>
-            <button className="btn-outline">
-              Learn More
-            </button>
+            <a
+              href="https://www.instagram.com/sinogulfyouthnetwork/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              Follow Our Journey
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Dialog */}
+      {/* Get Involved Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="bg-sgyn-navy border-sgyn-navy-light text-white max-w-md">
           <DialogHeader>
             <DialogTitle className="font-display text-2xl text-white">
-              Request an Invite
+              Get Involved with SGYN
             </DialogTitle>
             <DialogDescription className="text-white/60">
-              Join us at the Sino-Gulf Youth Dialogue. Fill out the form below and we'll be in touch.
+              Whether you want to attend future events, speak at a session, or explore a partnership — we'd love to hear from you.
             </DialogDescription>
           </DialogHeader>
-          <form className="space-y-4 mt-4" onSubmit={(e) => { e.preventDefault(); setDialogOpen(false); }}>
+          <form
+            className="space-y-4 mt-4"
+            onSubmit={(e) => { e.preventDefault(); setDialogOpen(false); }}
+          >
             <div>
               <label className="block text-sm font-medium text-white mb-1">Name</label>
               <input
@@ -180,15 +190,18 @@ const EventHighlightSection = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-white mb-1">Organization</label>
-              <input
-                type="text"
-                className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white focus:outline-none focus:ring-2 focus:ring-sgyn-gold placeholder:text-white/30"
-                placeholder="University or company"
-              />
+              <label className="block text-sm font-medium text-white mb-1">How would you like to get involved?</label>
+              <select className="w-full px-4 py-3 rounded-xl border border-white/10 bg-sgyn-navy text-white focus:outline-none focus:ring-2 focus:ring-sgyn-gold">
+                <option value="">Select an option</option>
+                <option value="attend">Attend future events</option>
+                <option value="speak">Speak at a session</option>
+                <option value="partner">Explore a partnership</option>
+                <option value="volunteer">Join as a volunteer</option>
+                <option value="other">Other</option>
+              </select>
             </div>
             <button type="submit" className="w-full btn-primary mt-2">
-              Submit Request
+              Submit
             </button>
           </form>
         </DialogContent>
