@@ -1,3 +1,69 @@
+
+Run actions/deploy-pages@v4
+Error: Error message: Failed to get ID Token. 
+ 
+        Error Code : undefined
+ 
+        Error Message: Request timeout: /138//idtoken/b5cee9d5-c5e6-483f-bf37-74834ce29613/d519c74c-5f35-552f-ab02-ac770a2bc427?api-version=2.0
+    at Function.<anonymous> (/home/runner/work/_actions/actions/deploy-pages/v4/node_modules/@actions/core/lib/oidc-utils.js:71:1)
+    at Generator.throw (<anonymous>)
+    at rejected (/home/runner/work/_actions/actions/deploy-pages/v4/node_modules/@actions/core/lib/oidc-utils.js:6:1)
+Error: Ensure GITHUB_TOKEN has permission "id-token: write".
+
+
+Thought for 9s
+actions/deploy-pages@v4 is trying to request an OIDC token, and your workflow/job token does not have the required permission. GitHub’s Pages docs and the action’s README both call out that the deploy job needs both pages: write and id-token: write. 
+
+Use this pattern:
+
+name: Deploy Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      # build your site here
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+A few things to check:
+
+If you set permissions: at the job level, it overrides the workflow-level permissions for that job. So your deploy job must still include id-token: write if you define job permissions there. 
+
+Make sure you are using the built-in GITHUB_TOKEN, not a PAT, for this step. The OIDC id-token permission is tied to GITHUB_TOKEN. 
+
+For Pages deployments, the official flow is configure-pages → build → upload-pages-artifact → deploy-pages. 
+
+About the Request timeout ... /idtoken/... line: that can happen as a transient failure while fetching the OIDC token, but the missing id-token: write permission is still the primary configuration problem here, and GitHub explicitly surfaces that in the final error. 
+
+If you paste your current workflow YAML, I’ll point to the exact line that needs changing.
+
+
 name: 'Deploy Website'
 
 # Trigger Configuration
@@ -42,3 +108,79 @@ jobs:
       - name: 'Deploy to GitHub Pages'
         id: deployment
         uses: actions/deploy-pages@v4
+
+provide me with the modified version
+
+name: 'Deploy Website'
+
+on:
+  push:
+    branches: ['main']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: 'Build'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Code'
+        uses: actions/checkout@v5
+
+      - name: 'Setup Pages'
+        uses: actions/configure-pages@v5
+
+      - name: 'Setup Node'
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: 'Build Website'
+        run: npm ci && npm run build
+
+      - name: 'Upload artifact'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist
+
+  deploy:
+    name: 'Deploy'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 'Deploy to GitHub Pages'
+        id: deployment
+        uses: actions/deploy-pages@v4
+The key fix is the top-level:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+and keeping this in the deploy job:
+
+permissions:
+  pages: write
+  id-token: write
+If your repo is still not deploying after this, check that GitHub Pages is configured to use GitHub Actions as the source in the repository’s Pages settings.
+
+Is this conversation helpful so far?
+
+
+
+
+
+
