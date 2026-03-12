@@ -38,8 +38,8 @@ const submissions: Submission[] = [
       'While walking through a park, Mariam discovers a group of locals dancing and practicing kung fu. What follows is a beautiful and spontaneous exchange — where strangers became teachers, warmly inviting her to join and experience their traditions firsthand. This video captures that meaningful moment of cultural connection and shared joy.',
     date: '2025',
     location: 'Shanghai, China',
-    videoFile: 'mariam_tradition_in_bloom.mp4',
-    thumbnail: 'archive_mariam_thumb.jpg',
+    videoFile: 'final.mov',
+    thumbnail: 'final.mov',
     tags: ['Culture', 'China', 'UAE', 'Community'],
   },
 ];

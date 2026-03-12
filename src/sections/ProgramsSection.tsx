@@ -30,7 +30,7 @@ const programs = [
 ];
 
 const ProgramsSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef(null);
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -49,7 +49,6 @@ const ProgramsSection = () => {
         },
       });
 
-      // Phase 1: Entrance
       scrollTl.fromTo(
         '.programs-label',
         { y: 20, opacity: 0 },
@@ -71,7 +70,6 @@ const ProgramsSection = () => {
         0.1
       );
 
-      // Phase 3: Exit
       scrollTl.fromTo(
         '.programs-header',
         { opacity: 1, y: 0 },
@@ -90,11 +88,9 @@ const ProgramsSection = () => {
     return () => ctx.revert();
   }, []);
 
-  const scrollToEvent = () => {
-    const element = document.querySelector('#event');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const goToEvent = () => {
+    window.location.href = '/#/events';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -103,13 +99,11 @@ const ProgramsSection = () => {
       id="programs"
       className="relative w-full h-screen bg-sgyn-navy overflow-hidden z-30"
     >
-      {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-sgyn-blue/20 to-transparent" />
       </div>
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 py-20">
-        {/* Header */}
         <div className="programs-header text-center mb-10">
           <span className="programs-label micro-label text-sgyn-gold mb-3 block">
             Programs | 项目 | البرامج
@@ -119,23 +113,20 @@ const ProgramsSection = () => {
           </h2>
         </div>
 
-        {/* Program Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
           {programs.map((program, index) => (
-            <div 
+            <div
               key={index}
               className="program-card group relative bg-sgyn-navy-light rounded-2xl overflow-hidden hover:shadow-glow transition-all duration-500"
             >
-              {/* Image */}
               <div className="aspect-[16/10] overflow-hidden">
-                <img 
+                <img
                   src={program.image}
                   alt={program.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              
-              {/* Content */}
+
               <div className="p-5">
                 <div className="flex items-center gap-4 text-xs text-white/50 mb-3">
                   <span className="flex items-center gap-1">
@@ -158,9 +149,8 @@ const ProgramsSection = () => {
           ))}
         </div>
 
-        {/* CTA */}
-        <button 
-          onClick={scrollToEvent}
+        <button
+          onClick={goToEvent}
           className="mt-10 inline-flex items-center gap-2 text-sgyn-gold font-medium hover:gap-3 transition-all"
         >
           View All Events

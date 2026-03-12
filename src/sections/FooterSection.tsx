@@ -76,10 +76,10 @@ const FooterSection = () => {
   ];
 
   const quickLinks = [
-    { label: 'About Us', href: '#manifesto' },
-    { label: 'Programs', href: '#programs' },
-    { label: 'Events', href: '#event' },
     { label: 'Team', href: '#team' },
+    { label: 'Events', href: '#event' },
+    { label: 'Programs', href: '#programs' },
+    { label: 'About Us', href: '#manifesto' },
   ];
 
   return (
@@ -120,7 +120,7 @@ const FooterSection = () => {
           </div>
 
           {/* Right Column */}
-          <div ref={rightRef} className="lg:w-1/2 lg:text-right">
+          <div ref={rightRef} className="lg:w-1/2 lg:text-left">
             <div className="grid grid-cols-2 gap-8">
               {/* Quick Links */}
               <div>
