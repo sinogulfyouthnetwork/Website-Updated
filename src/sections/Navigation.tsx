@@ -61,7 +61,7 @@ const Navigation = () => {
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             className="flex items-center gap-3"
           >
-            <img src="logo.png" alt="SGYN Logo" className="h-10 md:h-12 w-auto object-contain" />
+            <img src="SGYNBannerSmall.svg" alt="SGYN Logo" className="h-10 md:h-12 w-auto object-contain" />
           </a>
 
           {/* Desktop Navigation */}
