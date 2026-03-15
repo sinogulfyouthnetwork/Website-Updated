@@ -42,7 +42,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Salmeen Binmafooz',
     role: 'KSA Chief of Staff',
-    image: 'salmeen_headshot.jpg',
+    image: 'salmeen_headshot_2.JPG',
     initials: 'SB',
     accentColor: '#1846ed',
     linkedin: 'https://www.linkedin.com/in/salmeen-binmahfooz-84b046219/',
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Cindy',
     role: 'Shanghai Lead',
-    image: 'cindy_pfp_updated.jpg',
+    image: 'cindy_pfp_2.jpeg',
     initials: 'CI',
     accentColor: '#1846ed',
     linkedin: 'https://www.linkedin.com/in/itscindyli/',
