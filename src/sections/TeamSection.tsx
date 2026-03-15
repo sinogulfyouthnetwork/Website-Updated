@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Cindy',
     role: 'Shanghai Lead',
-    image: 'cindy_pfp.jpg',
+    image: 'cindy_pfp_updated.jpg',
     initials: 'CI',
     accentColor: '#1846ed',
     linkedin: 'https://www.linkedin.com/in/itscindyli/',
