@@ -21,7 +21,7 @@ const teamMembers: TeamMember[] = [
     image: 'gloria_headshot.JPG',
     initials: 'GT',
     accentColor: '#e4ab55',
-    linkedin: 'https://www.linkedin.com/in/gloria-tsang/',
+    linkedin: 'https://www.linkedin.com/in/g-tsang/',
   },
   {
     name: 'Abdulla Alhemiri',

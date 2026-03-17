@@ -138,7 +138,7 @@ const CommunitySection = () => {
             <div className="text-sm text-white/60">Regions</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-display font-bold text-sgyn-gold">200+</div>
+            <div className="text-4xl font-display font-bold text-sgyn-gold">100+</div>
             <div className="text-sm text-white/60">Members</div>
           </div>
         </div>
