@@ -11,7 +11,7 @@ const forms = [
     tag: 'Membership | عضوية | 会员',
     title: 'Join Us',
     description:
-      'Become part of a global community of young Saudi women making an impact. Fill out our membership form to get started.',
+      'Welcome to the Sino-Gulf Youth Network! We\'re excited to learn more about you and how we can best support you. Help us understand how your skills and passions align with our mission of building lasting bridges between China and the Gulf!',
     cta: 'Apply to Join',
     href: 'https://docs.google.com/forms/d/1sASQ_CiNdzEX7atE9oZQI8ua_qBSgBDhhMHn6rKJBFY/edit',
     accent: 'from-sgyn-gold/20 to-transparent',
@@ -22,7 +22,7 @@ const forms = [
     tag: 'Funding | تمويل | 赞助',
     title: 'Sponsor SGYN',
     description:
-      'Support our mission by sponsoring events, programs, and initiatives that empower the next generation of Saudi women leaders.',
+      'Sponsors, donors, and supporters who share our vision of empowering youth and building cross-regional ties between China and the Gulf are critical to our operations. Whether you\'re interested in financial sponsorship, resource sharing, or providing mentorship, we\'d love to hear from you!',
     cta: 'Become a Sponsor',
     href: 'https://docs.google.com/forms/d/1JbOUWm9ce2eXi_22SocMDWlzkHB8fFlx089hTFWsEB8/edit',
     accent: 'from-white/10 to-transparent',
@@ -33,7 +33,7 @@ const forms = [
     tag: 'Collaboration | تعاون | 合作',
     title: 'Partner with Us',
     description:
-      'Organisations and institutions are welcome to explore partnership opportunities that align with our vision and values.',
+      'Thank you for your interest in partnership opportunities with the Sino-Gulf Youth Network. We invite youth organizations, universities, NGOs, cross-regional businesses and other groups that align with our mission to collaborate on programs and events.',
     cta: 'Express Interest',
     href: 'https://docs.google.com/forms/d/1vK8upvdKtoODgaXJCRxug7XZr1MbnXTK7vB_ICIHlDU/edit',
     accent: 'from-white/10 to-transparent',

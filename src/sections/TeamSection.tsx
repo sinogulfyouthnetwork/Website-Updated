@@ -12,6 +12,7 @@ interface TeamMember {
   initials: string;
   accentColor: string;
   linkedin?: string;
+  bio: string;
 }
 
 const teamMembers: TeamMember[] = [
@@ -22,6 +23,7 @@ const teamMembers: TeamMember[] = [
     initials: 'GT',
     accentColor: '#e4ab55',
     linkedin: 'https://www.linkedin.com/in/g-tsang/',
+    bio: 'Write bio here.',
   },
   {
     name: 'Abdulla Alhemiri',
@@ -30,6 +32,7 @@ const teamMembers: TeamMember[] = [
     initials: 'AA',
     accentColor: '#1846ed',
     linkedin: 'https://www.linkedin.com/in/abdulla-alhemeiri-b46292215?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADZTFOYBC62QsRxTzOr9AwyXVP2lrNwcm_w&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_people%3BCh9c%2FFfsTCGzNde7w1EjIg%3D%3D',
+    bio: 'Write bio here.',
   },
   {
     name: 'Huayi Shen',
@@ -38,6 +41,7 @@ const teamMembers: TeamMember[] = [
     initials: 'HS',
     accentColor: '#e4ab55',
     linkedin: 'https://www.linkedin.com/in/huayishen/',
+    bio: 'Write bio here.',
   },
   {
     name: 'Salmeen Binmafooz',
@@ -46,6 +50,7 @@ const teamMembers: TeamMember[] = [
     initials: 'SB',
     accentColor: '#1846ed',
     linkedin: 'https://www.linkedin.com/in/salmeen-binmahfooz-84b046219/',
+    bio: 'Write bio here.',
   },
   {
     name: 'Ghalia',
@@ -54,6 +59,7 @@ const teamMembers: TeamMember[] = [
     initials: 'GH',
     accentColor: '#e4ab55',
     linkedin: 'https://www.linkedin.com/in/galiah-badokhon-648659202?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
+    bio: 'Write bio here.',
   },
   {
     name: 'Cindy',
@@ -62,6 +68,7 @@ const teamMembers: TeamMember[] = [
     initials: 'CI',
     accentColor: '#1846ed',
     linkedin: 'https://www.linkedin.com/in/itscindyli/',
+    bio: 'Write bio here.',
   },
   {
     name: 'Bowen',
@@ -70,19 +77,16 @@ const teamMembers: TeamMember[] = [
     initials: 'BW',
     accentColor: '#e4ab55',
     linkedin: 'https://www.linkedin.com/in/bowengucu/',
+    bio: 'Write bio here.',
   },
 ];
 
-// Fallback avatar component when image fails to load
 const AvatarFallback = ({ initials, accentColor }: { initials: string; accentColor: string }) => (
   <div
     className="w-full h-full flex items-center justify-center"
     style={{ background: `linear-gradient(135deg, ${accentColor}22 0%, ${accentColor}44 100%)` }}
   >
-    <span
-      className="font-display font-bold text-4xl"
-      style={{ color: accentColor }}
-    >
+    <span className="font-display font-bold text-4xl" style={{ color: accentColor }}>
       {initials}
     </span>
   </div>
@@ -90,6 +94,7 @@ const AvatarFallback = ({ initials, accentColor }: { initials: string; accentCol
 
 const TeamMemberCard = ({
   member,
+  index,
   cardRef,
 }: {
   member: TeamMember;
@@ -106,9 +111,9 @@ const TeamMemberCard = ({
 
   return (
     <div ref={cardRef} className="group">
-      {/* Image */}
+      {/* Image container */}
       <div className="aspect-[3/4] overflow-hidden rounded-2xl mb-4 relative bg-sgyn-navy-light">
-        {/* Fallback avatar (hidden by default) */}
+        {/* Fallback avatar */}
         <div ref={fallbackRef} className="absolute inset-0" style={{ display: 'none' }}>
           <AvatarFallback initials={member.initials} accentColor={member.accentColor} />
         </div>
@@ -122,20 +127,31 @@ const TeamMemberCard = ({
           className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
 
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-sgyn-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Bio overlay — slides up on hover */}
+        <div className="absolute inset-0 flex flex-col justify-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-400 ease-out"
+          style={{
+            background: `linear-gradient(to top, ${member.accentColor}ee 0%, ${member.accentColor}99 60%, transparent 100%)`,
+          }}
+        >
+          {/* Bio text */}
+          <p className="text-white text-xs leading-relaxed mb-3 line-clamp-5">
+            {member.bio}
+          </p>
 
-        {/* LinkedIn icon */}
-        {member.linkedin && (
-          <a
-            href={member.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute bottom-4 right-4 p-2.5 bg-sgyn-gold rounded-full text-sgyn-navy opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
-          >
-            <Linkedin size={18} />
-          </a>
-        )}
+          {/* LinkedIn */}
+          {member.linkedin && (
+            <a
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-white/90 hover:text-white transition-colors w-fit"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Linkedin size={14} />
+              View Profile
+            </a>
+          )}
+        </div>
       </div>
 
       {/* Info */}
@@ -219,7 +235,7 @@ const TeamSection = () => {
         </p>
       </div>
 
-      {/* Team Grid — 4 cols on large, 2 on medium, 1 on mobile */}
+      {/* Team Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {teamMembers.map((member, index) => (
           <TeamMemberCard
