@@ -276,14 +276,14 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
             <button onClick={onBack} className="inline-flex items-center gap-2 text-sm transition-colors"
               style={{ color: '#1a3a5250', fontWeight: 400 }}
               onMouseEnter={e => (e.currentTarget.style.color = '#e4ab55')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#1a3a5250')}>
+              onMouseLeave={e => (e.currentTarget.style.color = '#e4ab55')}>
               <ArrowLeft size={14} />
               Back to SGYN
             </button>
 
             <div className="flex items-center gap-2.5">
               <img src="SGYNBannerSmall.svg" alt="SGYN" className="h-8 md:h-10 w-auto" />
-              <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: '1.2rem', color: '#1a3a52' }}>
+              <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: '1.2rem', color: '#e4ab55' }}>
                 Media Lab
               </span>
             </div>
