@@ -94,7 +94,6 @@ const AvatarFallback = ({ initials, accentColor }: { initials: string; accentCol
 
 const TeamMemberCard = ({
   member,
-  index,
   cardRef,
 }: {
   member: TeamMember;
