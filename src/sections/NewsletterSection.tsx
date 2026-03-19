@@ -75,17 +75,29 @@ const NewsletterSection = () => {
 
     return () => ctx.revert();
   }, []);
+  
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3YtUhIdsBmWyHYt0LyWNWrSLnKWU6hfX13VJV_K-KPd4Wxx2B_0GQD0K1cpy82Us/exec';
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!email) return;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      toast.success('Welcome to SGYN!', {
-        description: 'You\'ll receive our next newsletter soon.',
-      });
-      setEmail('');
-    }
-  };
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors', // required for Apps Script
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+
+    setSubmitted(true);
+    toast.success('Welcome to SGYN!', {
+      description: "You'll receive our next newsletter soon.",
+    });
+    setEmail('');
+  } catch (err) {
+    toast.error('Something went wrong. Please try again.');
+  }
+};
 
   return (
     <section
