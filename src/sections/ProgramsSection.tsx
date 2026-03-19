@@ -17,7 +17,7 @@ const programs = [
     title: 'Beijing Launch Event',
     location: 'Beijing',
     date: 'November 2025',
-    description: 'Private networking lunch with scholars from PKU and Tsinghua.',
+    description: 'SGYN launched its Beijing presence with a private networking lunch in Sanlintun, hosting scholars from Peking and Tsinghua University.',
     image: 'Beijing-Launch-Event.JPG',
   },
   {

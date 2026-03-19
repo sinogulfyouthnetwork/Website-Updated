@@ -274,7 +274,7 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
           style={{ background: '#1a3a52', backdropFilter: 'blur(12px)', borderBottom: '1px solid #1a3a520e' }}>
           <div className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
             <button onClick={onBack} className="inline-flex items-center gap-2 text-sm transition-colors"
-              style={{ color: '#1a3a5250', fontWeight: 400 }}
+              style={{ color: '#e4ab55', fontWeight: 400 }}
               onMouseEnter={e => (e.currentTarget.style.color = '#e4ab55')}
               onMouseLeave={e => (e.currentTarget.style.color = '#e4ab55')}>
               <ArrowLeft size={14} />
