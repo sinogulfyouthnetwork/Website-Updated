@@ -96,7 +96,7 @@ const NewsletterSection = () => {
       {/* Left Image */}
       <div className="newsletter-image absolute left-0 top-0 w-1/2 h-full hidden lg:block">
         <img 
-          src="newsletter_image.jpg"
+          src="Pipa-Lady.JPG"
           alt="Join SGYN"
           className="w-full h-full object-cover"
         />
