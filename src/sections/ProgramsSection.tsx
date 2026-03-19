@@ -11,7 +11,7 @@ const programs = [
     location: 'Jeddah',
     date: 'August 2025',
     description: 'First youth-led Chinese-Saudi cultural exchange with 40+ participants.',
-    image: 'programs_left_mentorship.jpg',
+    image: 'Jeddah-Event.jpeg',
   },
   {
     title: 'Beijing Launch Event',
