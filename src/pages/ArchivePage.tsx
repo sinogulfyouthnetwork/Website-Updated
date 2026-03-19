@@ -282,8 +282,8 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
             </button>
 
             <div className="flex items-center gap-2.5">
-              <img src="logo.png" alt="SGYN" className="h-6 w-auto" style={{ filter: 'brightness(0) sepia(1) hue-rotate(170deg) saturate(3)' }} />
-              <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: '0.9rem', color: '#1a3a52' }}>
+              <img src="SGYNBannerSmall.svg" alt="SGYN" className="h-8 md:h-10 w-auto" style={{ filter: 'brightness(0) sepia(1) hue-rotate(170deg) saturate(3)' }} />
+              <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: '1.2rem', color: '#1a3a52' }}>
                 Media Lab
               </span>
             </div>

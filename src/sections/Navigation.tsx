@@ -142,7 +142,7 @@ const Navigation = () => {
             </div>
 
             <button onClick={() => scrollToSection('#newsletter')} className="btn-secondary text-sm py-2.5 px-5">
-              Join Us
+              Get Involved
             </button>
           </div>
 
