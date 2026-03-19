@@ -543,7 +543,7 @@ const EventsPage = ({ onBack }: { onBack: () => void }) => {
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}>
               <ArrowLeft size={14} /> Back to SGYN
             </button>
-            <img src="SGYNBannerSmall" alt="SGYN" className="h-8 w-auto object-contain" />
+            <img src="SGYNBannerSmall.svg" alt="SGYN" className="h-8 w-auto object-contain" />
             <a href="mailto:info@sinogulfyouthnetwork.com"
               className="text-sm font-semibold px-4 py-2 rounded-full"
               style={{ background: '#e4ab55', color: '#1a3a52' }}>

@@ -214,7 +214,7 @@ const TeamSection = () => {
           </span>
           <h2 className="headline-lg text-white">Our Team</h2>
         </div>
-        <p className="body-text-lg text-white/60 max-w-md md:text-right mt-4 md:mt-0">
+        <p className="body-text-lg text-white/60 max-w-md md:text-left mt-4 md:mt-0">
           A team across Beijing, Jeddah, Shanghai, and New York — united by one mission.
         </p>
       </div>
