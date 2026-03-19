@@ -25,7 +25,7 @@ const programs = [
     location: 'Yenching Academy, PKU',
     date: 'December 2025',
     description: 'Cultural exchange introducing UAE history to international students.',
-    image: 'community_top_center_conversation.jpg',
+    image: 'UAE-Union-Day-Exchange.jpeg',
   },
 ];
 
