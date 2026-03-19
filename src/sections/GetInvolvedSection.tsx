@@ -121,7 +121,7 @@ const GetInvolvedSection = () => {
   return (
     <section
       ref={sectionRef}
-      id="get-involved"
+      id="GetInvolved"
       className="relative w-full min-h-screen bg-sgyn-navy overflow-hidden py-24 px-6"
     >
       {/* Background texture / radial glow */}
