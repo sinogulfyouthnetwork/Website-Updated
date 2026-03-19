@@ -91,7 +91,7 @@ const CommunitySection = () => {
       {/* Background Image */}
       <div className="community-image absolute inset-0">
         <img 
-          src="community_bottom_wide_event.jpg"
+          src="Members-Image.JPG"
           alt="SGYN Community"
           className="w-full h-full object-cover opacity-40"
         />
