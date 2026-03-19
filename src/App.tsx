@@ -16,6 +16,7 @@ import ArchivePage from './pages/ArchivePage.tsx';
 import EventsPage from './pages/EventsPage.tsx';
 import ProgramsTeaserSection from './sections/ProgramsTeaserSection.tsx';
 import LABPage from './pages/LABPage.tsx';
+import GetInvolvedSection from './sections/GetInvolvedSection.tsx';
 import './App.css';
 
 type Page = 'home' | 'archive' | 'lab' | 'events';
@@ -113,6 +114,7 @@ function HomePage() {
         <EventHighlightSection />
         <TeamSection />
         <PartnersSection />
+        <GetInvolvedSection />
         <NewsletterSection />
         <FooterSection />
       </main>
