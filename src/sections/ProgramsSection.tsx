@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const programs = [
   {
-    title: 'Saudi-Chinese Cultural Exchange',
+    title: 'Saudi-Chinese Cultural Exchange Connections',
     location: 'Jeddah',
     date: 'August 2025',
     description: 'First youth-led Chinese-Saudi cultural exchange with 40+ participants.',
@@ -21,9 +21,9 @@ const programs = [
     image: 'Beijing-Launch-Event.JPG',
   },
   {
-    title: 'UAE Union Day Exchange',
-    location: 'Yenching Academy, PKU',
-    date: 'December 2025',
+    title: 'Chinese-Emirati Cultural Exchange Connections',
+    location: 'NYU Shanghai',
+    date: 'December 2024',
     description: 'Cultural exchange introducing UAE history to international students.',
     image: 'UAE-Union-Day-Exchange.jpeg',
   },
@@ -109,7 +109,7 @@ const ProgramsSection = () => {
             Programs | 项目 | البرامج
           </span>
           <h2 className="programs-title headline-lg text-white">
-            Our <span className="text-sgyn-gold">2025</span> Activities
+            Our <span className="text-sgyn-gold">Events</span> 
           </h2>
         </div>
 
