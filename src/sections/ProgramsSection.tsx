@@ -18,7 +18,7 @@ const programs = [
     location: 'Beijing',
     date: 'November 2025',
     description: 'Private networking lunch with scholars from PKU and Tsinghua.',
-    image: 'programs_right_workshop.jpg',
+    image: 'Beijing-Launch-Event.JPG',
   },
   {
     title: 'UAE Union Day Exchange',
