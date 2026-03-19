@@ -85,6 +85,7 @@ const FooterSection = () => {
   return (
     <footer
       ref={sectionRef}
+      id="footer"
       className="relative w-full bg-sgyn-navy-dark pt-16 pb-8 px-6 lg:px-12 z-90 border-t border-white/10"
     >
       <div className="max-w-6xl mx-auto">

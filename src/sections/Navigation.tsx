@@ -30,7 +30,7 @@ const Navigation = () => {
     { label: 'Events', href: '#programs', external: true },
     { label: 'Archive', href: '/#/archive', external: true },
     { label: 'Team', href: '#team' },
-    { label: 'Contact', href: '#newsletter' },
+    { label: 'Contact', href: '#footer' },
   ];
 
   // Programs dropdown items — add more here when they get their own pages
