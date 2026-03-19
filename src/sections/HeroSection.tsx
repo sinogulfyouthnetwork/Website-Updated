@@ -152,7 +152,7 @@ const HeroSection = () => {
             <ArrowRight size={18} className="ml-2" />
           </button>
           <button 
-            onClick={() => document.querySelector('#newsletter')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.querySelector('#GetInvolved')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-outline"
           >
             Join the Network
