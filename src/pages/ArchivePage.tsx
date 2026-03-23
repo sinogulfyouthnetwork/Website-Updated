@@ -38,7 +38,7 @@ const submissions: Submission[] = [
       'While walking through a park, Mariam discovers a group of locals dancing and practicing kung fu. What follows is a beautiful and spontaneous exchange — where strangers became teachers, warmly inviting her to join and experience their traditions firsthand. This video captures that meaningful moment of cultural connection and shared joy.',
     date: '2025',
     location: 'Shanghai, China',
-    videoFile: 'finalfinal11.mp4',
+    videoEmbed: 'https://drive.google.com/file/d/1Ctzcnyik-7FV6ZanFnjP2mZNgDtft5Sp/view?usp=sharing',
     thumbnail: 'UAE-Union-Day-Exchange.jpeg',
     tags: ['Culture', 'China', 'UAE', 'Community'],
   },
