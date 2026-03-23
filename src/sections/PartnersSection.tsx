@@ -32,9 +32,9 @@ const partners: Partner[] = [
 ];
 
 const typeColors: Record<string, string> = {
-  Academic: '#1846ed',
+  Academic: '#a8c5b0',
   Diplomatic: '#e4ab55',
-  Community: '#1846ed',
+  Community: '#b8a8d4',
   Cultural: '#e4ab55',
 };
 
@@ -104,7 +104,7 @@ const PartnersSection = () => {
           </span>
           <h2 className="headline-lg text-white">Our Partners</h2>
         </div>
-        <p className="body-text-lg text-white/60 max-w-md md:text-right mt-4 md:mt-0">
+        <p className="body-text-lg text-white/60 max-w-md md:text-left mt-4 md:mt-0">
           Governments, universities, embassies, and cultural institutions helping us open doors.
         </p>
       </div>
@@ -130,7 +130,7 @@ const PartnersSection = () => {
               </span>
               <span
                 className="text-xs mt-1"
-                style={{ color: `${color}99` }}
+                style={{ color: `${color}cc` }}
               >
                 {partner.type}
               </span>
