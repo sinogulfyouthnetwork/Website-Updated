@@ -93,7 +93,7 @@ const CommunitySection = () => {
         <img 
           src="Members-Image.JPG"
           alt="SGYN Community"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-65"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-sgyn-navy via-sgyn-navy/80 to-sgyn-navy/60" />
       </div>

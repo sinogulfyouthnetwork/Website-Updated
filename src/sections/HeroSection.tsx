@@ -103,9 +103,13 @@ const HeroSection = () => {
       className="relative w-full min-h-screen bg-gradient-hero overflow-hidden z-10"
     >
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-sgyn-blue blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-sgyn-gold blur-3xl" />
+      <div className="absolute inset-0">
+        <img
+          src="GridImage.jpeg"
+          alt="background"
+          className="w-full h-full object-contain opacity-65"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-sgyn-navy/80 via-sgyn-navy/40 to-sgyn-navy/20" />
       </div>
 
       {/* Mountain silhouette decoration */}
