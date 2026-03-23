@@ -39,9 +39,11 @@ const ManifestoSection = () => {
           start: 'top top',
           end: '+=130%',
           pin: true,
-          scrub: 0.6,
+          scrub: 1,
           anticipatePin: 1,
           invalidateOnRefresh: true,
+          fastScrollEnd: true,
+          preventOverlaps: true,
         },
       });
 
@@ -76,14 +78,14 @@ const ManifestoSection = () => {
       scrollTl.fromTo(
         '.manifesto-content',
         { opacity: 1, y: 0 },
-        { opacity: 0, y: '-6vh', ease: 'power2.in' },
+        { opacity: 0, y: '-6vh', ease: 'none' },
         0.7
       );
 
       scrollTl.fromTo(
         '.pillar-card',
         { opacity: 1, y: 0 },
-        { opacity: 0, y: '8vh', ease: 'power2.in' },
+        { opacity: 0, y: '8vh', ease: 'none' },
         0.7
       );
     }, section);
@@ -96,6 +98,7 @@ const ManifestoSection = () => {
       ref={sectionRef}
       id="manifesto"
       className="relative w-full h-screen bg-sgyn-navy overflow-hidden z-20"
+      style={{ willChange: 'transform' }}
     >
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full opacity-5">
