@@ -46,14 +46,14 @@ const recentSessions = [
     title: 'Language Across Borders: Jeddah',
     venue: 'Al Maqam Cafe',
     location: 'Jeddah, KSA',
-    date: 'January 31, 2026',
+    date: 'October 25, 2026',
     theme: 'Arabic–Mandarin Exchange',
   },
   {
     title: 'Language Across Borders: Khobar',
     venue: 'KoYee Korean Cafe & Cuisine',
     location: 'Dammam / Khobar, KSA',
-    date: 'January 31, 2026',
+    date: 'February 7, 2026',
     theme: 'Arabic–Mandarin Exchange',
   },
 ];
@@ -83,11 +83,9 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
 
           <div className="flex items-center gap-2.5">
             <img src="SGYNBannerSmall.svg" alt="SGYN" className="h-8 md:h-10 w-auto" />
-            <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: '0.95rem', color: '#e4ab55' }}>
-            </span>
           </div>
 
-          <a href="mailto:huayi.f.shen@gmail.com"
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScPbFZsWS1Z1TS-DiETnqUfgkI-aStQj92Bic3aQL0fIspxWA/viewform?usp=send_form"
             className="inline-flex items-center gap-1 text-sm font-medium"
             style={{ color: '#e4ab55' }}>
             Apply to Speak <ArrowUpRight size={13} />
@@ -118,48 +116,20 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
             </p>
           </div>
 
-          {/* Right: photo with left-to-right fade */}
+          {/* Right: hero image */}
           <div className="relative hidden md:block h-80 lg:h-96">
-            {/* Placeholder — replace src with your LAB session photo: lab_session_hero.jpg in public/ */}
-            <div
-              className="absolute inset-0 w-full h-full"
-              style={{
-                background: 'linear-gradient(135deg, #1a3a5215 0%, #e4ab5525 50%, #1a3a5210 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: 'column',
-                gap: '8px',
-              }}
-            >
-              <div style={{
-                width: 64, height: 64, borderRadius: '50%',
-                background: '#e4ab5530',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e4ab55" strokeWidth="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-                  <polyline points="21 15 16 10 5 21"/>
-                </svg>
-              </div>
-              <span style={{ color: '#1a3a52', fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.08em' }}>
-                Add lab_session_hero.jpg
-              </span>
-            </div>
-            {/* Fade from background color on the left, transparent on the right */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: 'linear-gradient(to right, #f5f0e8 0%, #f5f0e8 10%, transparent 55%)',
-              }}
+            <img
+              src="huayi_headshot.JPG"
+              alt="Language Across Borders session"
+              className="absolute inset-0 w-full h-full object-cover rounded-2xl"
             />
-            {/* Soft fade at top and bottom */}
+            {/* Fade from background color on the left */}
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 rounded-2xl"
               style={{
-                background: 'linear-gradient(to bottom, #f5f0e8 0%, transparent 15%, transparent 85%, #f5f0e8 100%)',
+                background: 'linear-gradient(to right, #f5f0e8 0%, #f5f0e8 10%, transparent 20%)',
               }}
-            />
+            /> 
           </div>
         </div>
       </div>
@@ -204,7 +174,6 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {sessionFormat.map((step) => (
               <div key={step.step} className="flex gap-5">
-                {/* Step number */}
                 <div className="flex-shrink-0">
                   <span style={{
                     fontFamily: "'Playfair Display', serif",
