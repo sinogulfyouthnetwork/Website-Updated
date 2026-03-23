@@ -283,7 +283,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
               Speaker applications for 2026 are now open. Select a date, leave your 
               contact info, and our team will be in touch.
             </p>
-            <a href="mailto:huayi.f.shen@gmail.com"
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScPbFZsWS1Z1TS-DiETnqUfgkI-aStQj92Bic3aQL0fIspxWA/viewform?usp=send_form"
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-medium text-sm"
               style={{ background: '#e4ab55', color: '#1a3a52' }}>
               Apply Now <ArrowUpRight size={14} />
