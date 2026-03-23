@@ -38,8 +38,8 @@ const submissions: Submission[] = [
       'While walking through a park, Mariam discovers a group of locals dancing and practicing kung fu. What follows is a beautiful and spontaneous exchange — where strangers became teachers, warmly inviting her to join and experience their traditions firsthand. This video captures that meaningful moment of cultural connection and shared joy.',
     date: '2025',
     location: 'Shanghai, China',
-    videoFile: 'final.mov',
-    thumbnail: 'final.mov',
+    videoFile: 'finalfinal11.mp4',
+    thumbnail: 'UAE-Union-Day-Exchange.jpeg',
     tags: ['Culture', 'China', 'UAE', 'Community'],
   },
 ];
@@ -94,7 +94,13 @@ const Modal = ({ item, onClose }: { item: Submission; onClose: () => void }) => 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen />
             ) : item.videoFile ? (
-              <video src={item.videoFile} controls className="w-full h-full object-contain" poster={item.thumbnail} />
+              <video
+                src={item.videoFile}
+              controls
+              className="w-full h-full object-contain"
+              poster={item.thumbnail}
+              onPlay={e => (e.currentTarget as HTMLVideoElement).removeAttribute('poster')}
+              />
             ) : null}
           </div>
         )}
