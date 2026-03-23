@@ -344,7 +344,7 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
             <>
               {featured && (
                 <div className="mb-10">
-                  <p className="text-xs font-semibold uppercase tracking-widest mb-5" style={{ color: '#1a3a5238' }}>Featured</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-5" style={{ color: '#1a3a5238',fontSize: "1.2rem" }}>Featured</p>
                   <FeaturedCard item={featured} onClick={() => setSelected(featured)} />
                 </div>
               )}

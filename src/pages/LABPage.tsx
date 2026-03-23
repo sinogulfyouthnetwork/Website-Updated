@@ -122,6 +122,14 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
               src="huayi_headshot.JPG"
               alt="Language Across Borders session"
               className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+              style={{
+              width: '100%',
+              height: 400,
+              objectFit: 'cover',
+              objectPosition: 'center 20%',
+              display: 'block',
+              filter: 'contrast(1.02) saturate(0.95)',
+              }}
             />
             {/* Fade from background color on the left */}
             <div
@@ -136,7 +144,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
 
       {/* ── Two programs ── */}
       <div className="max-w-6xl mx-auto px-6 lg:px-10 py-14">
-        <p className="text-xs font-semibold uppercase tracking-widest mb-8" style={{ color: '#1a3a5238' }}>
+        <p className="text-xs font-semibold uppercase tracking-widest mb-8" style={{ color: '#1a3a5238', fontSize: "1.2rem" }}>
           Two Parallel Programs
         </p>
 
@@ -202,7 +210,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
 
         {/* ── Recent sessions ── */}
         <div className="mb-16" style={{ borderTop: '1px solid #1a3a520c', paddingTop: '4rem' }}>
-          <p className="text-xs font-semibold uppercase tracking-widest mb-8" style={{ color: '#1a3a5238' }}>
+          <p className="text-xs font-semibold uppercase tracking-widest mb-8" style={{ color: '#1a3a5238', fontSize: "1.2rem" }}>
             Recent Sessions
           </p>
 
