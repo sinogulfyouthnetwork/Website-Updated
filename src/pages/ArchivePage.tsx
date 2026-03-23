@@ -38,7 +38,7 @@ const submissions: Submission[] = [
       'While walking through a park, Mariam discovers a group of locals dancing and practicing kung fu. What follows is a beautiful and spontaneous exchange — where strangers became teachers, warmly inviting her to join and experience their traditions firsthand. This video captures that meaningful moment of cultural connection and shared joy.',
     date: '2025',
     location: 'Shanghai, China',
-    videoEmbed: 'https://drive.google.com/file/d/1Ctzcnyik-7FV6ZanFnjP2mZNgDtft5Sp/view?usp=sharing',
+    videoFile: 'https://drive.google.com/file/d/1Ctzcnyik-7FV6ZanFnjP2mZNgDtft5Sp/view?usp=drive_link',
     thumbnail: 'UAE-Union-Day-Exchange.jpeg',
     tags: ['Culture', 'China', 'UAE', 'Community'],
   },
@@ -88,19 +88,46 @@ const Modal = ({ item, onClose }: { item: Submission; onClose: () => void }) => 
         </button>
 
         {item.type === 'video' && (
-          <div className="aspect-video w-full rounded-t-2xl overflow-hidden bg-black">
+          <div className="aspect-video w-full rounded-t-2xl overflow-hidden bg-black relative">
             {item.videoEmbed ? (
-              <iframe src={item.videoEmbed} className="w-full h-full"
+              <iframe
+                src={item.videoEmbed}
+                className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen />
-            ) : item.videoFile ? (
-              <video
-                src={item.videoFile}
-              controls
-              className="w-full h-full object-contain"
-              poster={item.thumbnail}
-              onPlay={e => (e.currentTarget as HTMLVideoElement).removeAttribute('poster')}
+                allowFullScreen
               />
+            ) : item.videoFile ? (
+              item.videoFile.includes('drive.google.com') ? (
+                <a
+                  href={item.videoFile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-full flex flex-col items-center justify-center gap-4 cursor-pointer absolute inset-0"
+                  style={{ background: '#1a3a52' }}
+                >
+                  {item.thumbnail && (
+                    <img
+                      src={item.thumbnail}
+                      alt={item.title}
+                      className="absolute inset-0 w-full h-full object-cover opacity-40"
+                    />
+                  )}
+                  <div className="relative z-10 flex flex-col items-center gap-3">
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: '#e4ab55' }}>
+                      <Play size={26} className="ml-1" style={{ color: '#1a3a52' }} />
+                    </div>
+                    <span className="text-white text-sm font-medium">Watch on Google Drive</span>
+                  </div>
+                </a>
+              ) : (
+                <video
+                  src={item.videoFile}
+                  controls
+                  className="w-full h-full object-contain"
+                  poster={item.thumbnail}
+                  onPlay={e => (e.currentTarget as HTMLVideoElement).removeAttribute('poster')}
+                />
+              )
             ) : null}
           </div>
         )}
@@ -280,20 +307,19 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
           style={{ background: '#1a3a52', backdropFilter: 'blur(12px)', borderBottom: '1px solid #1a3a520e' }}>
           <div className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
             <button onClick={onBack} className="inline-flex items-center gap-2 text-sm transition-colors"
-              style={{ color: '#e4ab55', fontWeight: 400 }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#e4ab55')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#e4ab55')}>
+              style={{ color: '#e4ab55', fontWeight: 400 }}>
               <ArrowLeft size={14} />
               Back to SGYN
             </button>
 
             <div className="flex items-center gap-2.5">
               <img src="SGYNBannerSmall.svg" alt="SGYN" className="h-8 md:h-10 w-auto" />
-              <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: '1.2rem', color: '#e4ab55' }}>
-              </span>
             </div>
 
-            <a href="https://forms.gle/hP856wgmD7PJuvNA9 "
+            <a
+              href="https://forms.gle/hP856wgmD7PJuvNA9"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-sm font-medium"
               style={{ color: '#e4ab55' }}>
               Submit Work <ArrowUpRight size={13} />
@@ -350,7 +376,7 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
             <>
               {featured && (
                 <div className="mb-10">
-                  <p className="text-xs font-semibold uppercase tracking-widest mb-5" style={{ color: '#1a3a5238',fontSize: "1.2rem" }}>Featured</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-5" style={{ color: '#1a3a5238', fontSize: '1.2rem' }}>Featured</p>
                   <FeaturedCard item={featured} onClick={() => setSelected(featured)} />
                 </div>
               )}
@@ -380,7 +406,10 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
               We welcome video, photography, writing, audio, and art from anyone in the SGYN community.
               Share your experience — in any language, from any city.
             </p>
-            <a href="https://forms.gle/hP856wgmD7PJuvNA9 "
+            <a
+              href="https://forms.gle/hP856wgmD7PJuvNA9"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm"
               style={{ background: '#e4ab55', color: '#1a3a52' }}>
               Submit Your Work <ArrowUpRight size={14} />
