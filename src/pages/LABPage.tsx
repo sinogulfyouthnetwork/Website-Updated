@@ -302,7 +302,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
               We partner with venues, universities, cultural organisations, and technology 
               platforms. Reach out to explore how we can collaborate.
             </p>
-            <a href="mailto:huayi.f.shen@gmail.com"
+            <a href="mailto:huayi@sinogulfyouthnetwork.com"
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-medium text-sm"
               style={{ background: '#1a3a52', color: '#f5f0e8' }}>
               Get in Touch <ArrowUpRight size={14} />
