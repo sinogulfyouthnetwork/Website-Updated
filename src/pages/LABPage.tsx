@@ -70,13 +70,13 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
 
       {/* ── Header ── */}
       <header className="sticky top-0 z-50"
-        style={{ background: '#f5f0e8f0', backdropFilter: 'blur(12px)', borderBottom: '1px solid #1a3a520e' }}>
+        style={{ background: '#1a3a52', backdropFilter: 'blur(12px)', borderBottom: '1px solid #1a3a520e' }}>
         <div className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
           <button onClick={onBack}
             className="inline-flex items-center gap-2 text-sm transition-colors"
-            style={{ color: '#1a3a52' }}
+            style={{ color: '##e4ab55' }}
             onMouseEnter={e => (e.currentTarget.style.color = '#e4ab55')}
-            onMouseLeave={e => (e.currentTarget.style.color = '#1a3a5250')}>
+            onMouseLeave={e => (e.currentTarget.style.color = '#e4ab55')}>
             <ArrowLeft size={14} />
             Back to SGYN
           </button>
