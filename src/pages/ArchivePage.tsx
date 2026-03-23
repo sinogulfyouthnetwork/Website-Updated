@@ -287,7 +287,7 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
               </span>
             </div>
 
-            <a href="mailto:info@sinogulfyouthnetwork.com"
+            <a href="https://forms.gle/hP856wgmD7PJuvNA9 "
               className="inline-flex items-center gap-1 text-sm font-medium"
               style={{ color: '#e4ab55' }}>
               Submit Work <ArrowUpRight size={13} />
@@ -374,7 +374,7 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
               We welcome video, photography, writing, audio, and art from anyone in the SGYN community.
               Share your experience — in any language, from any city.
             </p>
-            <a href="mailto:info@sinogulfyouthnetwork.com"
+            <a href="https://forms.gle/hP856wgmD7PJuvNA9 "
               className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm"
               style={{ background: '#e4ab55', color: '#1a3a52' }}>
               Submit Your Work <ArrowUpRight size={14} />
