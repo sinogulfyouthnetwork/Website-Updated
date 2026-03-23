@@ -284,7 +284,6 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
             <div className="flex items-center gap-2.5">
               <img src="SGYNBannerSmall.svg" alt="SGYN" className="h-8 md:h-10 w-auto" />
               <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: '1.2rem', color: '#e4ab55' }}>
-                Media Lab
               </span>
             </div>
 
