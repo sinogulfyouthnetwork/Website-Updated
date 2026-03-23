@@ -74,7 +74,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
         <div className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
           <button onClick={onBack}
             className="inline-flex items-center gap-2 text-sm transition-colors"
-            style={{ color: '##e4ab55' }}
+            style={{ color: '#e4ab55' }}
             onMouseEnter={e => (e.currentTarget.style.color = '#e4ab55')}
             onMouseLeave={e => (e.currentTarget.style.color = '#e4ab55')}>
             <ArrowLeft size={14} />
@@ -83,7 +83,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
 
           <div className="flex items-center gap-2.5">
             <img src="SGYNBannerSmall.svg" alt="SGYN" className="h-8 md:h-10 w-auto" style={{ filter: 'brightness(0) sepia(1) hue-rotate(170deg) saturate(3)' }} />
-            <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: '0.95rem', color: '#1a3a52' }}>
+            <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: '0.95rem', color: '#e4ab55' }}>
             </span>
           </div>
 
