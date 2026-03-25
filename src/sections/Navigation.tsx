@@ -27,7 +27,7 @@ const Navigation = () => {
 
   const navLinks = [
     { label: 'About', href: '#manifesto' },
-    { label: 'Events', href: '#programs', external: true },
+    { label: 'Events', href: '/#/events', external: true },
     { label: 'Archive', href: '/#/archive', external: true },
     { label: 'Team', href: '#team' },
     { label: 'Contact', href: '#footer' },

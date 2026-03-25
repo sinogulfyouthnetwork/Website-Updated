@@ -117,27 +117,19 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
           </div>
 
           {/* Right: hero image */}
-          <div className="relative hidden md:block h-80 lg:h-96">
+          <div className="hidden md:block rounded-2xl overflow-hidden" style={{ height: 400, marginRight: '-12rem', marginLeft: '6rem' }}>
             <img
-              src="huayi_headshot.JPG"
+              src="JeddahLab.jpg"
               alt="Language Across Borders session"
-              className="absolute inset-0 w-full h-full object-cover rounded-2xl"
               style={{
-              width: '100%',
-              height: 400,
-              objectFit: 'cover',
-              objectPosition: 'center 20%',
-              display: 'block',
-              filter: 'contrast(1.02) saturate(0.95)',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'left 20%',
+                display: 'block',
+                filter: 'contrast(1.02) saturate(0.95)',
               }}
             />
-            {/* Fade from background color on the left */}
-            <div
-              className="absolute inset-0 rounded-2xl"
-              style={{
-                background: 'linear-gradient(to right, #f5f0e8 0%, #f5f0e8 10%, transparent 20%)',
-              }}
-            /> 
           </div>
         </div>
       </div>
