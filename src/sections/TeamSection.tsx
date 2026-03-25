@@ -68,7 +68,7 @@ const teamMembers: TeamMember[] = [
     initials: 'CI',
     accentColor: '#1846ed',
     linkedin: 'https://www.linkedin.com/in/itscindyli/',
-    bio: 'Write bio here.',
+    bio: "",
   },
   {
     name: 'Bowen',

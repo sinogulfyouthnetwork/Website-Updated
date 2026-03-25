@@ -128,7 +128,7 @@ const HeroSection = () => {
         className="hero-content relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-24"
       >
         {/* Logo Large */}
-        <div className="mb-8">
+        <div className="mb-8" style={{ marginLeft: '-90px' }}>
           <img 
             src="SGYNBanner.svg" 
             alt="SGYN" 
