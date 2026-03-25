@@ -125,7 +125,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                objectPosition: 'left 20%',
+                objectPosition: 'center 100%',
                 display: 'block',
                 filter: 'contrast(1.02) saturate(0.95)',
               }}

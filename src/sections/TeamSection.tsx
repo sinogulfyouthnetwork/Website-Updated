@@ -23,7 +23,7 @@ const teamMembers: TeamMember[] = [
     initials: 'GT',
     accentColor: '#e4ab55',
     linkedin: 'https://www.linkedin.com/in/g-tsang/',
-    bio: "Gloria leads SGYN with over eight years of experience in global youth advocacy, and a background spanning fintech at Morgan Stanley and industries across the UAE and Saudi Arabia. A NYC native with Hong Kong roots, she has studied and worked across London, the GCC, and Southeast Asia. She's currently a Yenching Scholar at Peking University, furthering her research on China-MENA relations and Gulf geopolitics. Her youth leadership has been recognised by organisations including WFUNA and Gulf Intelligence, which named her one of the Top 100 Sustainability Voices in the Middle East for her role in organizing the Student Energy Summit 2023 in Abu Dhabi, held adjacent to COP28.",
+    bio: "Gloria leads SGYN with 8+ of experience in global youth advocacy, recognised by organisations including WFUNA and Gulf Intelligence, which named her one of the Top 100 Sustainability Voices in the Middle East. Her professional experience spans fintech at Morgan Stanley in NYC, and various industries across the GCC, Hong Kong, and Southeast Asia. She's currently a Yenching Scholar at Peking University, furthering her research on China-MENA relations, Gulf geopolitics and tech cooperation.", 
   },
   {
     name: 'Abdulla Alhemiri',
