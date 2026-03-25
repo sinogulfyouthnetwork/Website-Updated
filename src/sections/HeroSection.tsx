@@ -105,14 +105,14 @@ const HeroSection = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0">
         <img
-          src="GridImage.jpeg"
+          src="GridImage2.jpeg"
           alt="background"
-          className="w-full h-full object-contain opacity-65"
+          className="w-full h-full object-cover opacity-65"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-sgyn-navy/80 via-sgyn-navy/40 to-sgyn-navy/20" />
       </div>
 
-      {/* Mountain silhouette decoration */}
+      {/* Mountain silhouette decoration
       <div className="absolute bottom-0 left-0 right-0 h-32 opacity-20">
         <svg viewBox="0 0 1440 120" fill="none" className="w-full h-full">
           <path 
@@ -120,7 +120,7 @@ const HeroSection = () => {
             fill="white"
           />
         </svg>
-      </div>
+      </div> */}
 
       {/* Main Content */}
       <div 

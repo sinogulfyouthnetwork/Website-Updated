@@ -23,7 +23,7 @@ const teamMembers: TeamMember[] = [
     initials: 'GT',
     accentColor: '#e4ab55',
     linkedin: 'https://www.linkedin.com/in/g-tsang/',
-    bio: 'Write bio here.',
+    bio: "Gloria leads SGYN with over eight years of experience in global youth advocacy, and a background spanning fintech at Morgan Stanley and industries across the UAE and Saudi Arabia. A NYC native with Hong Kong roots, she has studied and worked across London, the GCC, and Southeast Asia. She's currently a Yenching Scholar at Peking University, furthering her research on China-MENA relations and Gulf geopolitics. Her youth leadership has been recognised by organisations including WFUNA and Gulf Intelligence, which named her one of the Top 100 Sustainability Voices in the Middle East for her role in organizing the Student Energy Summit 2023 in Abu Dhabi, held adjacent to COP28.",
   },
   {
     name: 'Abdulla Alhemiri',
@@ -32,7 +32,7 @@ const teamMembers: TeamMember[] = [
     initials: 'AA',
     accentColor: '#1846ed',
     linkedin: 'https://www.linkedin.com/in/abdulla-alhemeiri-b46292215?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADZTFOYBC62QsRxTzOr9AwyXVP2lrNwcm_w&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_people%3BCh9c%2FFfsTCGzNde7w1EjIg%3D%3D',
-    bio: 'Write bio here.',
+    bio: "Abdulla is one of the few Emirati professionals with deep on-the-ground experience on both sides of the China-Gulf relationship. He joined SGYN’s leadership team as a Yenching Scholar at Peking University, studying Economics and Management and was the first GCC national admitted to the programme. His research examines China's economic reach into the Gulf through the UAE as a strategic intermediary. He also previously served as a Political Analyst at the UAE Embassy in Beijing.",
   },
   {
     name: 'Huayi Shen',
@@ -41,7 +41,7 @@ const teamMembers: TeamMember[] = [
     initials: 'HS',
     accentColor: '#e4ab55',
     linkedin: 'https://www.linkedin.com/in/huayishen/',
-    bio: 'Write bio here.',
+    bio: "Huayi designed and leads SGYN's LAB programme and oversees partnerships across China and Saudi Arabia. He holds a degree in Arabic with studies at UIBE, Cairo University, and AUC, and has experience in communications and media through internships at China Media Group and the UIBE Media Center. Based in Saudi Arabia, he works in logistics for a Chinese-Saudi joint venture. He also founded one of RedNote's growing communities for Chinese expats in the Gulf.",
   },
   {
     name: 'Salmeen Binmafooz',
@@ -50,16 +50,16 @@ const teamMembers: TeamMember[] = [
     initials: 'SB',
     accentColor: '#1846ed',
     linkedin: 'https://www.linkedin.com/in/salmeen-binmahfooz-84b046219/',
-    bio: 'Write bio here.',
+    bio: "Salmeen has been at the centre of SGYN's Saudi operations since the beginning — co-organising the network's first events in the Kingdom and building its entire digital infrastructure from the ground up. He studies Management Information Systems at KFUPM. Outside of SGYN, he's a former Youth Brazilian Jiu-Jitsu World Champion and competes with the Saudi Dodgeball Federation.",
   },
   {
-    name: 'Ghalia',
+    name: 'Ghalia Badokhon',
     role: 'Jeddah Lead',
     image: 'ghalia_headshot.jpg',
     initials: 'GH',
     accentColor: '#e4ab55',
     linkedin: 'https://www.linkedin.com/in/galiah-badokhon-648659202?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
-    bio: 'Write bio here.',
+    bio: "Ghalia leads SGYN's on-the-ground presence in Jeddah, driving outreach, event logistics, and community organising in the city. She is currently a Computer Science student at Effat University, with a background in graphic design and social media.",
   },
   {
     name: 'Cindy',
@@ -77,7 +77,7 @@ const teamMembers: TeamMember[] = [
     initials: 'BW',
     accentColor: '#e4ab55',
     linkedin: 'https://www.linkedin.com/in/bowengucu/',
-    bio: 'Write bio here.',
+    bio: "Bowen handles SGYN's operations in NYC, including the annual Sino-Gulf Youth Dialogue in partnership with the UAE Mission to the United Nations. He is an investment banker based between New York and Shanghai, with prior experience at a PIF-affiliated private equity firm and as the founder of an e-commerce venture in Saudi Arabia. He holds a Master's from Columbia University and a Bachelor's from Central South University. Outside of finance, he's a musician and DJ.",
   },
 ];
 
@@ -129,11 +129,11 @@ const TeamMemberCard = ({
         {/* Bio overlay — slides up on hover */}
         <div className="absolute inset-0 flex flex-col justify-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-400 ease-out"
           style={{
-            background: `linear-gradient(to top, ${member.accentColor}ee 0%, ${member.accentColor}99 60%, transparent 100%)`,
+            background: `linear-gradient(to top, ${member.accentColor}ee 0%, ${member.accentColor}ee 80%, transparent 100%)`,
           }}
         >
           {/* Bio text */}
-          <p className="text-white text-xs leading-relaxed mb-3 line-clamp-5">
+          <p className="text-white text-xs leading-relaxed mb-3 overflw-y-auto">
             {member.bio}
           </p>
 
