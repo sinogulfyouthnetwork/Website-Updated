@@ -107,7 +107,7 @@ const HeroSection = () => {
         <img
           src="GridImage2.jpeg"
           alt="background"
-          className="w-full h-full object-cover opacity-65"
+          className="w-full h-full object-cover opacity-55"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-sgyn-navy/80 via-sgyn-navy/40 to-sgyn-navy/20" />
       </div>

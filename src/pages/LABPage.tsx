@@ -117,9 +117,9 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
           </div>
 
           {/* Right: hero image */}
-          <div className="hidden md:block rounded-2xl overflow-hidden" style={{ height: 400, marginRight: '-12rem', marginLeft: '6rem' }}>
+          <div className="hidden md:block rounded-2xl overflow-hidden" style={{ height: 400, marginRight: '-16rem', marginLeft: '10rem' }}>
             <img
-              src="JeddahLab.jpg"
+              src="JeddahLab3.jpg"
               alt="Language Across Borders session"
               style={{
                 width: '100%',
