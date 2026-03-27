@@ -105,7 +105,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
     src="JeddahLab3.jpg"
     alt="Language Across Borders session"
     className="absolute inset-0 w-full h-full object-cover"
-    style={{ objectPosition: 'center', filter: 'contrast(1.02) saturate(0.95)',}}
+    style={{ objectPosition: 'center', filter: 'contrast(1.02) saturate(0.95)', marginLeft: "14rem"}}
   />
   {/* Fade left */}
   <div className="absolute inset-0" style={{
