@@ -98,25 +98,23 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
 {/* ── Hero ── */}
 <div className="relative overflow-hidden" style={{ borderBottom: '1px solid #1a3a520c', minHeight: 420 }}>
   <style>{`
-    .hero-img { object-position: center ; }
-    @media (max-width: 768px) { .hero-img { object-position: center center; } }
+    .hero-img { object-position: 45% center; }
+    @media (max-width: 768px) { .hero-img { object-position: 60% center; } }
   `}</style>
-<img
+  <img
     src="JeddahLab3.jpg"
     alt="Language Across Borders session"
-    className="absolute inset-0 w-full h-full object-cover"
-    style={{ objectPosition: 'center', filter: 'contrast(1.02) saturate(0.95)', marginLeft: "14rem"}}
+    className="absolute inset-0 w-full h-full object-cover hero-img"
+    style={{ filter: 'contrast(1.02) saturate(0.95)', marginLeft: '%'}}
   />
-  {/* Fade left */}
   <div className="absolute inset-0" style={{
     background: 'linear-gradient(to right, #f5f0e8 35%, transparent 40%, #f5f0e880 0%, transparent 25%)',
   }} />
-  {/* Fade bottom */}
   <div className="absolute inset-0" style={{
     background: 'linear-gradient(to top, #f5f0e8 0%, transparent 0%)',
   }} />
 
-  <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 pt-16 pb-16" style={{ marginLeft: '8rem' }}>
+  <div className="relative z-10 px-8 md:px-16 lg:px-24 pt-16 pb-16" style={{ maxWidth: '50%' }}>
     <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: '#e4ab55' }}>
       Language Program · Monthly · Global
     </p>
@@ -128,7 +126,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
       Language<br />
       <em style={{ fontWeight: 400, color: '#e4ab55' }}>Across Borders</em>
     </h1>
-    <p className="max-w-md leading-relaxed" style={{ color: '#1a3a52', fontSize: '0.95rem', lineHeight: 1.8 }}>
+    <p className="leading-relaxed" style={{ color: '#1a3a52', fontSize: '0.95rem', lineHeight: 1.8 }}>
       A global monthly roundtable connecting native and non-native speakers of Mandarin 
       and Arabic — online and in-person, across continents. Open to all levels, 
       all dialects, all backgrounds.
