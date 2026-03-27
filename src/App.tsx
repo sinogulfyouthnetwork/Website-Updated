@@ -17,9 +17,10 @@ import EventsPage from './pages/EventsPage.tsx';
 import ProgramsTeaserSection from './sections/ProgramsTeaserSection.tsx';
 import LABPage from './pages/LABPage.tsx';
 import GetInvolvedSection from './sections/GetInvolvedSection.tsx';
+import LiterarySalonPage from './pages/LiterarySalonPage.tsx';
 import './App.css';
 
-type Page = 'home' | 'archive' | 'lab' | 'events';
+type Page = 'home' | 'archive' | 'lab' | 'events' | 'literary-salon';
 
 function useHashRoute() {
   const getPage = (): Page => {
@@ -28,6 +29,7 @@ function useHashRoute() {
     if (path.includes('/archive') || hash.includes('/archive')) return 'archive';
     if (path.includes('/lab') || hash.includes('/lab')) return 'lab';
     if (path.includes('/events') || hash.includes('/events')) return 'events';
+    if (path.includes('/literary-salon') || hash.includes('/literary-salon')) return 'literary-salon';
     return 'home';
   };
 
@@ -140,6 +142,7 @@ function App() {
       {page === 'archive' && <ArchivePage onBack={() => navigate('home')} />}
       {page === 'events' && <EventsPage onBack={() => navigate('home')} />}
       {page === 'lab' && <LABPage onBack={() => navigate('home')} />}
+      {page === 'literary-salon' && <LiterarySalonPage onBack={() => navigate('home')} /> }
       {page === 'home' && <HomePage />}
     </>
   );

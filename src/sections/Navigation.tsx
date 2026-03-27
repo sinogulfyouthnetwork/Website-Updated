@@ -36,6 +36,7 @@ const Navigation = () => {
   // Programs dropdown items — add more here when they get their own pages
   const programLinks = [
     { label: 'Language Across Borders (LAB)', href: '/#/lab' },
+    { label: 'Literary Salon', href: '/#/literary-salon' },
   ];
 
   const scrollToSection = (href: string) => {
