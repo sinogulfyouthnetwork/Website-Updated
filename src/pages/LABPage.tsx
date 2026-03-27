@@ -94,45 +94,42 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
       </header>
 
       {/* ── Hero ── */}
-      <div className="relative overflow-hidden" style={{ borderBottom: '1px solid #1a3a520c' }}>
-        <div className="max-w-6xl mx-auto px-6 lg:px-10 pt-16 pb-12 grid md:grid-cols-2 gap-0 items-center">
-          {/* Left: text */}
-          <div className="relative z-10">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: '#e4ab55' }}>
-              Language Program · Monthly · Global
-            </p>
-            <h1 className="mb-5" style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: 'clamp(2.2rem, 6vw, 4rem)',
-              fontWeight: 700, lineHeight: 1.02, color: '#1a3a52', letterSpacing: '-0.02em',
-            }}>
-              Language<br />
-              <em style={{ fontWeight: 400, color: '#e4ab55' }}>Across Borders</em>
-            </h1>
-            <p className="max-w-xl leading-relaxed" style={{ color: '#1a3a52', fontSize: '0.95rem', lineHeight: 1.8 }}>
-              A global monthly roundtable connecting native and non-native speakers of Mandarin 
-              and Arabic — online and in-person, across continents. Open to all levels, 
-              all dialects, all backgrounds.
-            </p>
-          </div>
+{/* ── Hero ── */}
+<div className="relative overflow-hidden" style={{ borderBottom: '1px solid #1a3a520c', minHeight: 420 }}>
+  <img
+    src="JeddahLab3.jpg"
+    alt="Language Across Borders session"
+    className="absolute inset-0 w-full h-full object-cover"
+    style={{ objectPosition: 'center', filter: 'contrast(1.02) saturate(0.95)', marginLeft: '14rem', marginTop: "rem"}}
+  />
+  {/* Fade left */}
+  <div className="absolute inset-0" style={{
+    background: 'linear-gradient(to right, #f5f0e8 35%, transparent 50%, #f5f0e880 0%, transparent 25%)',
+  }} />
+  {/* Fade bottom */}
+  <div className="absolute inset-0" style={{
+    background: 'linear-gradient(to top, #f5f0e8 0%, transparent 0%)',
+  }} />
 
-          {/* Right: hero image */}
-          <div className="hidden md:block rounded-2xl overflow-hidden" style={{ height: 400, marginRight: '-16rem', marginLeft: '10rem' }}>
-            <img
-              src="JeddahLab3.jpg"
-              alt="Language Across Borders session"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center 100%',
-                display: 'block',
-                filter: 'contrast(1.02) saturate(0.95)',
-              }}
-            />
-          </div>
-        </div>
-      </div>
+  <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 pt-16 pb-16">
+    <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: '#e4ab55' }}>
+      Language Program · Monthly · Global
+    </p>
+    <h1 className="mb-5" style={{
+      fontFamily: "'Playfair Display', Georgia, serif",
+      fontSize: 'clamp(2.2rem, 6vw, 4rem)',
+      fontWeight: 700, lineHeight: 1.02, color: '#1a3a52', letterSpacing: '-0.02em',
+    }}>
+      Language<br />
+      <em style={{ fontWeight: 400, color: '#e4ab55' }}>Across Borders</em>
+    </h1>
+    <p className="max-w-md leading-relaxed" style={{ color: '#1a3a52', fontSize: '0.95rem', lineHeight: 1.8 }}>
+      A global monthly roundtable connecting native and non-native speakers of Mandarin 
+      and Arabic — online and in-person, across continents. Open to all levels, 
+      all dialects, all backgrounds.
+    </p>
+  </div>
+</div>
 
       {/* ── Two programs ── */}
       <div className="max-w-6xl mx-auto px-6 lg:px-10 py-14">
