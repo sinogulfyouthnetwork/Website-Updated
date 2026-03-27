@@ -95,16 +95,21 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
 
       {/* ── Hero ── */}
 {/* ── Hero ── */}
+{/* ── Hero ── */}
 <div className="relative overflow-hidden" style={{ borderBottom: '1px solid #1a3a520c', minHeight: 420 }}>
-  <img
+  <style>{`
+    .hero-img { object-position: center ; }
+    @media (max-width: 768px) { .hero-img { object-position: center center; } }
+  `}</style>
+<img
     src="JeddahLab3.jpg"
     alt="Language Across Borders session"
     className="absolute inset-0 w-full h-full object-cover"
-    style={{ objectPosition: 'center', filter: 'contrast(1.02) saturate(0.95)', marginLeft: '14rem', marginTop: "rem"}}
+    style={{ objectPosition: 'center', filter: 'contrast(1.02) saturate(0.95)',}}
   />
   {/* Fade left */}
   <div className="absolute inset-0" style={{
-    background: 'linear-gradient(to right, #f5f0e8 35%, transparent 50%, #f5f0e880 0%, transparent 25%)',
+    background: 'linear-gradient(to right, #f5f0e8 35%, transparent 40%, #f5f0e880 0%, transparent 25%)',
   }} />
   {/* Fade bottom */}
   <div className="absolute inset-0" style={{
