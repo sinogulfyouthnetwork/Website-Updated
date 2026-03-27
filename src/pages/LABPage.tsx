@@ -116,7 +116,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
     background: 'linear-gradient(to top, #f5f0e8 0%, transparent 0%)',
   }} />
 
-  <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 pt-16 pb-16">
+  <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 pt-16 pb-16" style={{ marginLeft: '8rem' }}>
     <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: '#e4ab55' }}>
       Language Program · Monthly · Global
     </p>
