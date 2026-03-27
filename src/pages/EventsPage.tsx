@@ -37,11 +37,11 @@ const events: SGYNEvent[] = [
     theme: 'Cultural Exchange',
     description: 'The inaugural SGYN event — a cultural evening co-hosted with NYU Shanghai and NYU Abu Dhabi Global Outreach, bringing together Chinese and Emirati students for an evening of exchange and connection.',
     partners: ['NYU Shanghai', 'NYU Abu Dhabi Global Outreach'],
-    cover: 'events/chinese-emirati-shanghai-2024/cover.jpg',
+    cover: 'Chinese-Emirati_Cultural_3.jpg',
     photos: [
-      'events/chinese-emirati-shanghai-2024/photo-1.jpg',
-      'events/chinese-emirati-shanghai-2024/photo-2.jpg',
-      'events/chinese-emirati-shanghai-2024/photo-3.jpg',
+      'Chinese-Emirati_Cultural_1.jpg',
+      'Chinese-Emirati_Cultural_2.jpg',
+      'Chinese-Emirati_Cultural_3.jpg',
     ],
   },
   {
@@ -55,11 +55,12 @@ const events: SGYNEvent[] = [
     theme: 'Cultural Exchange',
     description: 'The first youth-led Chinese-Saudi cultural exchange evening, hosted at the Saudi Ministry of Culture\'s House of Wisdom venue. An evening of performance, dialogue, and cross-cultural celebration.',
     partners: ['Qanateer', 'House of Wisdom'],
-    cover: 'events/chinese-saudi-jeddah-2025/cover.jpg',
+    cover: 'Chinese-Saudi_Cultural_Exchange_Evening_2025_1.JPG',
     photos: [
-      'events/chinese-saudi-jeddah-2025/photo-1.jpg',
-      'events/chinese-saudi-jeddah-2025/photo-2.jpg',
-      'events/chinese-saudi-jeddah-2025/photo-3.jpg',
+      'Chinese-Saudi_Cultural_Exchange_Evening_2025_1.JPG',
+      'Chinese-Saudi_Cultural_Exchange_Evening_2025_2.jpg',
+      'Chinese-Saudi_Cultural_Exchange_Evening_2025_3.jpg',
+      'Chinese-Saudi_Cultural_Exchange_Evening_2025_4.jpg',
     ],
   },
   {
@@ -72,11 +73,11 @@ const events: SGYNEvent[] = [
     theme: 'Literary Salon',
     description: 'The first of our Jeddah Literary Salon series, celebrating Mid-Autumn Festival through Chinese literature and cross-cultural discussion. An intimate gathering exploring poetry, storytelling, and the art of translation.',
     partners: ['Al Maqam Cafe'],
-    cover: 'events/literary-salon-1-jeddah-2025/cover.jpg',
+    cover: 'Literary_Salon_Session_1_1.jpg',
     photos: [
-      'events/literary-salon-1-jeddah-2025/photo-1.jpg',
-      'events/literary-salon-1-jeddah-2025/photo-2.jpg',
-      'events/literary-salon-1-jeddah-2025/photo-3.jpg',
+      'Literary_Salon_Session_1_1.jpg',
+      'Literary_Salon_Session_1_2.jpg',
+      'Literary_Salon_Session_1_3.jpg',
     ],
   },
   {
@@ -91,11 +92,11 @@ const events: SGYNEvent[] = [
     partners: ['UAE Embassy Beijing'],
     participants: 62,
     tag: 'Launch',
-    cover: 'events/sgyn-launch-beijing-2025/cover.jpg',
+    cover: 'SGYN_Launch_Event_2.JPG',
     photos: [
-      'events/sgyn-launch-beijing-2025/photo-1.jpg',
-      'events/sgyn-launch-beijing-2025/photo-2.jpg',
-      'events/sgyn-launch-beijing-2025/photo-3.jpg',
+      'SGYN_Launch_Event_1.JPG',
+      'SGYN_Launch_Event_2.JPG',
+      'SGYN_Launch_Event_3.JPG',
     ],
   },
   {
@@ -109,11 +110,11 @@ const events: SGYNEvent[] = [
     description: '34 scholars and guests joined the UAE Embassy to celebrate UAE National Day at one of China\'s most prestigious international academic institutions, celebrating bilateral heritage and cultural identity.',
     partners: ['UAE Embassy Beijing', 'Yenching Academy (Peking University)'],
     participants: 34,
-    cover: 'events/uae-national-day-yenching-2025/cover.jpg',
+    cover: 'UAE_National_Day_1.jpg',
     photos: [
-      'events/uae-national-day-yenching-2025/photo-1.jpg',
-      'events/uae-national-day-yenching-2025/photo-2.jpg',
-      'events/uae-national-day-yenching-2025/photo-3.jpg',
+      'UAE_National_Day_1.jpg',
+      'UAE_National_Day_2.png',
+      'UAE_National_Day_3.png',
     ],
   },
   {
@@ -128,12 +129,12 @@ const events: SGYNEvent[] = [
     partners: ['UAE Permanent Mission to the UN', 'UAE Youth Society', 'Columbia University SIPA', 'Greater China Initiative'],
     participants: 100,
     tag: 'Flagship',
-    cover: 'events/sino-gulf-dialogue-nyc-2025/cover.jpg',
+    cover: 'Sino_Gulf_Youth_Dialogue_2.jpeg',
     photos: [
-      'events/sino-gulf-dialogue-nyc-2025/photo-1.jpg',
-      'events/sino-gulf-dialogue-nyc-2025/photo-2.jpg',
-      'events/sino-gulf-dialogue-nyc-2025/photo-3.jpg',
-      'events/sino-gulf-dialogue-nyc-2025/photo-4.jpg',
+      'Sino_Gulf_Youth_Dialogue_1.jpg',
+      'Sino_Gulf_Youth_Dialogue_2.jpeg',
+      'Sino_Gulf_Youth_Dialogue_3.jpg',
+      // 'events/sino-gulf-dialogue-nyc-2025/photo-4.jpg',
     ],
   },
   {
@@ -146,11 +147,11 @@ const events: SGYNEvent[] = [
     theme: 'Academic',
     description: 'SGYN represented at ECUST\'s National Day Celebration, co-attended with the UAE Consulate in Shanghai — strengthening ties between the university community and Gulf diplomatic presence in China.',
     partners: ['ECUST', 'UAE Consulate Shanghai'],
-    cover: 'events/ecust-national-day-shanghai-2025/cover.jpg',
+    cover: 'ECUST_2.JPG',
     photos: [
-      'events/ecust-national-day-shanghai-2025/photo-1.jpg',
-      'events/ecust-national-day-shanghai-2025/photo-2.jpg',
-      'events/ecust-national-day-shanghai-2025/photo-3.jpg',
+      'ECUST_1.jpg',
+      'ECUST_2.JPG',
+      'ECUST_3.JPG',
     ],
   },
   {
@@ -163,11 +164,11 @@ const events: SGYNEvent[] = [
     theme: 'Literary Salon',
     description: 'The second Literary Salon session exploring Lu Xun\'s landmark work — bridging Chinese modernist literature with Gulf audiences through discussion, interpretation, and cultural reflection.',
     partners: ['Al Maqam Cafe'],
-    cover: 'events/literary-salon-2-jeddah-2025/cover.jpg',
+    cover: 'Literary_Salon_Session 2_1.JPG',
     photos: [
-      'events/literary-salon-2-jeddah-2025/photo-1.jpg',
-      'events/literary-salon-2-jeddah-2025/photo-2.jpg',
-      'events/literary-salon-2-jeddah-2025/photo-3.jpg',
+      'Literary_Salon_Session 2_1.JPG',
+      'Literary_Salon_Session 2_2.JPG',
+      // 'events/literary-salon-2-jeddah-2025/photo-3.jpg',
     ],
   },
   {
@@ -181,11 +182,11 @@ const events: SGYNEvent[] = [
     description: 'The first in-person LAB roundtable in Jeddah — bringing together Arabic and Mandarin speakers for talks, ice-breakers, and open language exchange. Part of the LAB 2026 in-person expansion across Saudi Arabia.',
     partners: ['Al Maqam Cafe'],
     participants: 25,
-    cover: 'events/lab-jeddah-2026/cover.jpg',
+    cover: 'LAB_Jeddah_3.jpg',
     photos: [
-      'events/lab-jeddah-2026/photo-1.jpg',
-      'events/lab-jeddah-2026/photo-2.jpg',
-      'events/lab-jeddah-2026/photo-3.jpg',
+      'LAB_Jeddah_1.jpg',
+      'LAB_Jeddah_2.jpg',
+      'LAB_Jeddah_3.jpg',
     ],
   },
   {
@@ -199,11 +200,11 @@ const events: SGYNEvent[] = [
     description: 'The first in-person LAB roundtable in Khobar — connecting local Arabic and Chinese speakers through language, conversation, and community. A companion event to the Jeddah LAB session.',
     partners: ['KoYee Korean Cafe & Cuisine'],
     participants: 25,
-    cover: 'events/lab-khobar-2026/cover.jpg',
+    cover: 'LAB_Khobar_1.JPG',
     photos: [
-      'events/lab-khobar-2026/photo-1.jpg',
-      'events/lab-khobar-2026/photo-2.jpg',
-      'events/lab-khobar-2026/photo-3.jpg',
+      'LAB_Khobar_1.JPG',
+      'LAB_Khobar_2.jpg',
+      'LAB_Khobar_3.jpg',
     ],
   },
 ];
@@ -239,16 +240,16 @@ const EventsHeroPhoto = () => {
           </p>
         </div>
       ) : (
-        <img src="events_hero.jpg" alt="SGYN Events"
+        <img src="Chinese-Saudi_Cultural_Exchange_Evening_2025_4.jpg" alt="SGYN Events"
           className="absolute inset-0 w-full h-full object-cover"
           onError={() => setError(true)} />
       )}
       {/* Left fade into navy background */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(to right, #0f2438 0%, #0f2438 8%, transparent 50%)' }} />
+        style={{ background: 'linear-gradient(to right, #0f2438 0%, #0f2438 8%, transparent 10%)' }} />
       {/* Top and bottom fade */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, #0f2438 0%, transparent 15%, transparent 85%, #0f2438 100%)' }} />
+        style={{ background: 'linear-gradient(to bottom, #0f2438 0%, transparent 10%, transparent 85%, #0f2438 100%)' }} />
     </div>
   );
 };
