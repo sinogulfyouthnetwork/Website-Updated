@@ -39,7 +39,7 @@ const submissions: Submission[] = [
     date: '2025',
     location: 'Shanghai, China',
     videoFile: 'https://drive.google.com/file/d/1Ctzcnyik-7FV6ZanFnjP2mZNgDtft5Sp/view?usp=drive_link',
-    thumbnail: 'UAE-Union-Day-Exchange.jpeg',
+    thumbnail: 'thumbnail.jpeg',
     tags: ['Culture', 'China', 'UAE', 'Community'],
   },
 ];

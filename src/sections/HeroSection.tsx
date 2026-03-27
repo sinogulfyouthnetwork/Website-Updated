@@ -105,7 +105,7 @@ const HeroSection = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0">
         <img
-          src="GridImage3.jpeg"
+          src="GridImage4.jpeg"
           alt="background"
           className="w-full h-full object-cover opacity-55"
         />
