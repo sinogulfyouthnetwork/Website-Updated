@@ -91,6 +91,7 @@ const PartnersSection = () => {
   return (
     <section
       ref={sectionRef}
+      id="partnersections"
       className="relative w-full bg-sgyn-navy py-20 px-6 lg:px-12 z-70"
     >
       {/* Header */}

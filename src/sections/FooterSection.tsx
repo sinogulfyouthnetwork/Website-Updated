@@ -10,6 +10,13 @@ const FooterSection = () => {
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
+    //setIsMobileMenuOpen(false);
+    //setProgramsOpen(false);
+  };
+
   useLayoutEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -154,13 +161,10 @@ const FooterSection = () => {
                     </a>
                   </li>
                   <li>
-                    <a 
-                      href="#"
-                      className="inline-flex items-center gap-2 text-white/60 hover:text-sgyn-gold transition-colors"
-                    >
+            <button onClick={() => scrollToSection('#partnersections')} className="inline-flex items-center gap-2 text-white/60 hover:text-sgyn-gold transition-colors">
                       <ExternalLink size={16} />
                       Partnerships
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </div>
