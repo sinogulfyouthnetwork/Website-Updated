@@ -545,11 +545,13 @@ const EventsPage = ({ onBack }: { onBack: () => void }) => {
               <ArrowLeft size={14} /> Back to SGYN
             </button>
             <img src="SGYNBannerSmall.svg" alt="SGYN" className="h-10 md:h-12 w-auto object-contain" />
-            <a href="mailto:info@sinogulfyouthnetwork.com"
-              className="text-sm font-semibold px-4 py-2 rounded-full"
-              style={{ background: '#e4ab55', color: '#1a3a52' }}>
-              Get Involved
-            </a>
+            <button
+            onClick={() => { onBack(); setTimeout(() => document.querySelector('#GetInvolved')?.scrollIntoView({ behavior: 'smooth' }), 100); }}
+            className="text-sm font-semibold px-4 py-2 rounded-full"
+            style={{ background: '#e4ab55', color: '#1a3a52' }}
+            >
+            Get Involved
+            </button>
           </div>
         </header>
 
