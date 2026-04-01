@@ -526,7 +526,7 @@ const EventsPage = ({ onBack }: { onBack: () => void }) => {
 
   const [filter, setFilter] = useState<EventTheme | 'all'>('all');
   const [selected, setSelected] = useState<SGYNEvent | null>(null);
-  
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.hash.split('?')[1] ?? '');
     const eventId = params.get('event');
@@ -583,7 +583,7 @@ const EventsPage = ({ onBack }: { onBack: () => void }) => {
 
               {/* Stats */}
               <div className="flex flex-wrap gap-8 pb-10" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                {[['10+', 'Events'], ['200+', 'Participants'], ['7', 'Cities']].map(([val, label]) => (
+                {[['10+', 'Events'], ['200+', 'Participants'], ['8', 'Cities']].map(([val, label]) => (
                   <div key={label}>
                     <div className="font-bold" style={{ color: '#e4ab55', fontSize: '1.8rem', fontFamily: "'Playfair Display', Georgia, serif" }}>{val}</div>
                     <div className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{label}</div>

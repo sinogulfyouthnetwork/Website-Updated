@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
-import { ArrowLeft, ArrowUpRight, BookOpen, Users, MessageCircle, MapPin, Calendar } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, BookOpen, Users, MessageCircle, MapPin, Calendar, User } from 'lucide-react';
+
+
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -18,6 +20,8 @@ type PastSession = {
   location: string;
   date: string;
   tag: string | null;
+  host: string;
+  hostUrl: string;
 };
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -50,6 +54,8 @@ const pastSessions: PastSession[] = [
   {
     number: '01',
     title: 'Mid-Autumn Festival',
+    host: 'Rahaf Al-Rozah',
+    hostUrl: "https://www.linkedin.com/in/rahafal-rozah/",
     text: null,
     venue: 'Al Maqam Cafe',
     location: 'Jeddah, KSA',
@@ -59,6 +65,8 @@ const pastSessions: PastSession[] = [
   {
     number: '02',
     title: 'The True Story of Ah-Q',
+    host: 'Rahaf Al-Rozah',
+    hostUrl: "https://www.linkedin.com/in/rahafal-rozah/",
     text: 'Lu Xun',
     venue: 'Al Maqam Cafe',
     location: 'Jeddah, KSA',
@@ -92,13 +100,15 @@ const LiterarySalonPage = ({ onBack }: { onBack: () => void }) => {
               <ArrowLeft size={14} /> Home
             </button>
             <img src="SGYNBannerSmall.svg" alt="SGYN" className="h-10 md:h-12 w-auto object-contain" />
-            <button
-            onClick={() => { onBack(); setTimeout(() => document.querySelector('#GetInvolved')?.scrollIntoView({ behavior: 'smooth' }), 100); }}
+
+            <a
+            href="https://forms.gle/QnSHHC7KtoHM9WzT6"
+            //onClick={() => { onBack(); setTimeout(() => document.querySelector('#GetInvolved')?.scrollIntoView({ behavior: 'smooth' }), 100); }}
             className="text-sm font-semibold px-4 py-2 rounded-full"
             style={{ background: '#e4ab55', color: '#1a3a52' }}
             >
-            Get Involved
-            </button>
+            Suggest a Story
+            </a>
           </div>
         </header>
 
@@ -136,10 +146,10 @@ const LiterarySalonPage = ({ onBack }: { onBack: () => void }) => {
             </div>
 
             {/* Right: photo placeholder */}
-            <div className="relative hidden md:block h-80 lg:h-96">
+            <div className="relative hidden md:block h-80 lg:h-96" style={{ background: 'transparent' }}>
               <div
                 className="absolute inset-0 w-full h-full flex flex-col items-center justify-center gap-2"
-                style={{ background: 'linear-gradient(135deg, #1a3a5215 0%, #e4ab5525 50%, #1a3a5210 100%)' }}
+                style={{marginLeft: '60%', borderTop: '300px solid #f5f0e8',}}
               >
                 <div style={{
                   width: 64, height: 64, borderRadius: '50%',
@@ -149,19 +159,11 @@ const LiterarySalonPage = ({ onBack }: { onBack: () => void }) => {
                   <BookOpen size={26} color="#e4ab55" strokeWidth={1.5} />
                 </div>
                 <span style={{ color: '#1a3a5260', fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.08em' }}>
-                  Add literary_salon_hero.jpg
+                <img src='TheTrueStoryofAhQPoster.png' style={{ width: '70%', height: 'auto' }} />                
                 </span>
               </div>
-              {/* Left fade */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: 'linear-gradient(to right, #f5f0e8 0%, #f5f0e8 10%, transparent 55%)' }}
-              />
-              {/* Top/bottom fade */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: 'linear-gradient(to bottom, #f5f0e8 0%, transparent 15%, transparent 85%, #f5f0e8 100%)' }}
-              />
+
+              
             </div>
           </div>
         </div>
@@ -267,6 +269,20 @@ const LiterarySalonPage = ({ onBack }: { onBack: () => void }) => {
                           <Calendar size={11} style={{ color: '#e4ab55' }} />
                           {session.date}
                         </span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <User size={11} style={{ color: '#e4ab55' }} />
+                          Hosted by{' '}
+                          <a
+                            href={session.hostUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: '#e4ab55', textDecoration: 'bold', textDecorationColor: '#e4ab5560' }}
+                            onMouseEnter={e => (e.currentTarget.style.textDecorationColor = '#e4ab55')}
+                            onMouseLeave={e => (e.currentTarget.style.textDecorationColor = '#e4ab5560')}
+                          >
+                            {session.host}
+                          </a>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -299,15 +315,15 @@ const LiterarySalonPage = ({ onBack }: { onBack: () => void }) => {
             </h2>
             <p className="mb-6" style={{ color: '#ffffff99', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '480px' }}>
               The Literary Salon meets monthly in Jeddah. Sessions are open to anyone with
-              an interest in literature, language, and cross-cultural exchange. Get in touch
-              to find out when the next one is.
+              an interest in literature, language, and cross-cultural exchange. Click below 
+              to submit a piece you'd like the Salon to read!
             </p>
             <a
-              href="mailto:info@sinogulfyouthnetwork.com"
+              href="https://forms.gle/QnSHHC7KtoHM9WzT6"
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-medium text-sm"
               style={{ background: '#e4ab55', color: '#1a3a52' }}
             >
-              Get in Touch <ArrowUpRight size={14} />
+              Suggest a Story <ArrowUpRight size={14} />
             </a>
           </div>
 
