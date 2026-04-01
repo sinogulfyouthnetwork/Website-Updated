@@ -80,6 +80,11 @@ const EventHighlightSection = () => {
     return () => ctx.revert();
   }, []);
 
+  const goToEvent = () => {
+    window.location.href = '/#/events?event=uae-national-day-yenching-2025';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       <section
@@ -141,19 +146,19 @@ const EventHighlightSection = () => {
           {/* CTA */}
           <div className="event-cta flex flex-col sm:flex-row gap-4">
             <button
-              onClick={() => setDialogOpen(true)}
+              onClick={goToEvent}
               className="btn-primary"
             >
-              Get Involved
+             Event Details
             </button>
-            <a
+            {/* { <a
               href="https://www.instagram.com/sinogulfyouthnetwork/"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"
             >
               Follow Our Journey
-            </a>
+            </a> } */}
           </div>
         </div>
       </section>

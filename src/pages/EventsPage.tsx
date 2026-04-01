@@ -526,6 +526,16 @@ const EventsPage = ({ onBack }: { onBack: () => void }) => {
 
   const [filter, setFilter] = useState<EventTheme | 'all'>('all');
   const [selected, setSelected] = useState<SGYNEvent | null>(null);
+  
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.hash.split('?')[1] ?? '');
+    const eventId = params.get('event');
+    if (eventId) {
+      const match = events.find(e => e.id === eventId);
+      if (match) setSelected(match);
+    }
+  }, []);
+
 
   const filtered = filter === 'all' ? events : events.filter(e => e.theme === filter);
 
