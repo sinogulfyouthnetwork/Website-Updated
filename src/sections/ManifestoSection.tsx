@@ -18,7 +18,7 @@ const pillars = [
   },
   {
     icon: <BookOpen size={32} />,
-    title: 'Language & Community',
+    title: 'Professional Development',
     description: 'Through our Language Across Borders (LAB) program, we connect Arabic and Mandarin speakers globally — building community one conversation at a time.',
   },
 ];
@@ -122,12 +122,19 @@ const ManifestoSection = () => {
         </h2>
 
         {/* Description */}
-        <p className="manifesto-desc text-center body-text-lg text-white/70 max-w-3xl mb-12">
+        <p className="manifesto-desc text-center body-text-lg text-white/70 max-w-3xl mb-6">
           Founded in December 2024 in Shanghai, SGYN has grown to 8+ cities across China, the Gulf, 
           and New York. We bring together students, scholars, cultural practitioners, and diplomats 
           to build lasting connections between two of the world's most dynamic regions.
         </p>
-
+             {<a
+              href="https://www.instagram.com/sinogulfyouthnetwork/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline mb-6"
+            >
+              Follow Our Journey
+            </a>}
         {/* Pillars */}
         <div
           ref={cardsRef}

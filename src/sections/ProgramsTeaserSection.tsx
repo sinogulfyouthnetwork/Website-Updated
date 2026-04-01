@@ -7,7 +7,7 @@ const programs = [
     id: 'lab',
     status: 'active',
     label: 'Active Program',
-    tag: 'LAB',
+    tag: 'Language',
     title: 'Language Across Borders',
     subtitle: '无界中文 · اللغة العربية بلا حدود',
     description:
@@ -21,13 +21,13 @@ const programs = [
     id: 'literary-salon',
     status: 'active',
     label: 'Active Program',
-    tag: 'Literary Salon',
+    tag: 'Literature',
     title: 'The Literary Salon',
     subtitle: null,
     description:
       'Our monthly book club and literary gathering, currently running in Jeddah. Each session explores a work of Chinese or Arab literature — bringing readers together for discussion, interpretation, and cross-cultural reflection.',
-    cta: null,
-    href: null,
+    cta: "Learn More",
+    href: '/#/literary-salon',
     accent: '#e4ab55',
     icon: '书',
   },
@@ -35,7 +35,7 @@ const programs = [
     id: 'sgi',
     status: 'soon',
     label: 'Launching Soon',
-    tag: 'Sino-Gulf Institute',
+    tag: 'Think Tank',
     title: 'Sino-Gulf Institute',
     subtitle: null,
     description:
@@ -49,7 +49,7 @@ const programs = [
     id: 'talent-track',
     status: 'soon',
     label: 'Launching Soon',
-    tag: 'Talent Track',
+    tag: 'Professional Development',
     title: 'China-GCC Talent Track',
     subtitle: null,
     description:
@@ -63,7 +63,7 @@ const programs = [
     id: 'dhow-art',
     status: 'soon',
     label: 'Launching Soon',
-    tag: 'Dhow Art Exchange',
+    tag: 'Art',
     title: 'The Dhow Art Exchange',
     subtitle: null,
     description:
