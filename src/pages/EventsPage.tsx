@@ -542,7 +542,7 @@ const EventsPage = ({ onBack }: { onBack: () => void }) => {
               style={{ color: 'rgba(255,255,255,0.5)' }}
               onMouseEnter={e => (e.currentTarget.style.color = '#e4ab55')}
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}>
-              <ArrowLeft size={14} /> Back to SGYN
+              <ArrowLeft size={14} /> Home
             </button>
             <img src="SGYNBannerSmall.svg" alt="SGYN" className="h-10 md:h-12 w-auto object-contain" />
             <button

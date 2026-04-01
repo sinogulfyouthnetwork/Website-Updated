@@ -78,7 +78,7 @@ const LABPage = ({ onBack }: { onBack: () => void }) => {
             onMouseEnter={e => (e.currentTarget.style.color = '#e4ab55')}
             onMouseLeave={e => (e.currentTarget.style.color = '#e4ab55')}>
             <ArrowLeft size={14} />
-            Back to SGYN
+            Home
           </button>
 
           <div className="flex items-center gap-2.5">

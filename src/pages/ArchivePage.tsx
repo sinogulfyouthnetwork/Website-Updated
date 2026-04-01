@@ -309,7 +309,7 @@ const ArchivePage = ({ onBack }: { onBack: () => void }) => {
             <button onClick={onBack} className="inline-flex items-center gap-2 text-sm transition-colors"
               style={{ color: '#e4ab55', fontWeight: 400 }}>
               <ArrowLeft size={14} />
-              Back to SGYN
+              Home
             </button>
 
             <div className="flex items-center gap-2.5">
