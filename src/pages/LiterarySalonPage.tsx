@@ -305,7 +305,7 @@ const LiterarySalonPage = ({ onBack }: { onBack: () => void }) => {
   style={{ background: '#1a3a52', color: '#f5f0e8' }}
 >
   {/* LEFT SIDE (existing content) */}
-  <div className="max-w-[520px]">
+  <div className="max-w-[400px]">
     <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#ffffff80' }}>
       Jeddah · Monthly
     </p>
@@ -338,7 +338,7 @@ const LiterarySalonPage = ({ onBack }: { onBack: () => void }) => {
   </div>
 
   {/* RIGHT SIDE (About the host) */}
-  <div className="md:w-[280px] ml-20">
+  <div className="mb-3 ml-20 md:mt-6 ">
     <h3
       className="mb-2"
       style={{
@@ -350,7 +350,7 @@ const LiterarySalonPage = ({ onBack }: { onBack: () => void }) => {
       About the host
     </h3>
 
-    <p style={{ color: '#ffffff99', fontSize: '0.95rem', lineHeight: 1.6 }}>
+    <p className="mb-6" style={{ color: '#ffffff99', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '480px' }}>
     Rahaf Al-Rozah served as a Program Lead with the Sino-Gulf Youth Network, where she curated and presented Jeddah’s Literary Salon sessions that promoted cross-cultural dialogue. A published writer in both English and Arabic, Rahaf is passionate about literature, research, and fostering meaningful cultural exchange.
 
     </p>
