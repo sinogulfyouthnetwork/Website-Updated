@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Instagram, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Instagram, Linkedin, Mail, ExternalLink, BookOpen } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,7 +79,7 @@ const FooterSection = () => {
   const socialLinks = [
     { icon: <Instagram size={20} />, href: 'https://www.instagram.com/sinogulfyouthnetwork/', label: 'Instagram' },
     { icon: <Linkedin size={20} />, href: 'https://ae.linkedin.com/company/sino-gulf-youth-network', label: 'LinkedIn' },
-    { icon: <XHSIcon />, href: 'https://xhslink.com/m/8LjkMvEEZ95', label: 'RedNote (小红书)' },
+    { icon: <BookOpen size={20}/>, href: 'https://xhslink.com/m/8LjkMvEEZ95', label: 'RedNote (小红书)' },
   ];
 
   const quickLinks = [
@@ -103,7 +103,7 @@ const FooterSection = () => {
             <img 
               src="SGYNBannerSmallFooter.svg" 
               alt="SGYN Logo" 
-              className="h-16 w-auto object-contain mb-6 -ml-8 "
+              className="h-16 w-auto object-contain mb-6 -ml-9 "
             />
 
             {/* Tagline */}

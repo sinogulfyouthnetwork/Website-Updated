@@ -300,33 +300,62 @@ const LiterarySalonPage = ({ onBack }: { onBack: () => void }) => {
           </div>
 
           {/* ── CTA block ── */}
-          <div className="rounded-2xl p-8 md:p-10" style={{ background: '#1a3a52', color: '#f5f0e8' }}>
-            <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#ffffff80' }}>
-              Jeddah · Monthly
-            </p>
-            <h2
-              className="mb-3"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: '1.6rem', fontWeight: 700, color: '#f5f0e8', lineHeight: 1.2,
-              }}
-            >
-              Come to the next session.
-            </h2>
-            <p className="mb-6" style={{ color: '#ffffff99', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '480px' }}>
-              The Literary Salon meets monthly in Jeddah. Sessions are open to anyone with
-              an interest in literature, language, and cross-cultural exchange. Click below 
-              to submit a piece you'd like the Salon to read!
-            </p>
-            <a
-              href="https://forms.gle/QnSHHC7KtoHM9WzT6"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-medium text-sm"
-              style={{ background: '#e4ab55', color: '#1a3a52' }}
-            >
-              Suggest a Story <ArrowUpRight size={14} />
-            </a>
-          </div>
+          <div
+  className="rounded-2xl p-8 md:p-10 flex flex-col md:flex-row gap-8"
+  style={{ background: '#1a3a52', color: '#f5f0e8' }}
+>
+  {/* LEFT SIDE (existing content) */}
+  <div className="max-w-[520px]">
+    <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#ffffff80' }}>
+      Jeddah · Monthly
+    </p>
 
+    <h2
+      className="mb-3"
+      style={{
+        fontFamily: "'Playfair Display', serif",
+        fontSize: '1.6rem',
+        fontWeight: 700,
+        lineHeight: 1.2,
+      }}
+    >
+      Come to the next session.
+    </h2>
+
+    <p className="mb-6" style={{ color: '#ffffff99', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '480px' }}>
+      The Literary Salon meets monthly in Jeddah. Sessions are open to anyone with
+      an interest in literature, language, and cross-cultural exchange. Click below 
+      to submit a piece you'd like the Salon to read!
+    </p>
+
+    <a
+      href="https://forms.gle/QnSHHC7KtoHM9WzT6"
+      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-medium text-sm"
+      style={{ background: '#e4ab55', color: '#1a3a52' }}
+    >
+      Suggest a Story <ArrowUpRight size={14} />
+    </a>
+  </div>
+
+  {/* RIGHT SIDE (About the host) */}
+  <div className="md:w-[280px] ml-20">
+    <h3
+      className="mb-2"
+      style={{
+        fontFamily: "'Playfair Display', serif",
+        fontSize: '1.4rem',
+        fontWeight: 700,
+      }}
+    >
+      About the host
+    </h3>
+
+    <p style={{ color: '#ffffff99', fontSize: '0.95rem', lineHeight: 1.6 }}>
+    Rahaf Al-Rozah served as a Program Lead with the Sino-Gulf Youth Network, where she curated and presented Jeddah’s Literary Salon sessions that promoted cross-cultural dialogue. A published writer in both English and Arabic, Rahaf is passionate about literature, research, and fostering meaningful cultural exchange.
+
+    </p>
+  </div>
+</div>
         </div>
       </div>
     </>
