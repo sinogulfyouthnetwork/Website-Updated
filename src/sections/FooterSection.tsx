@@ -101,9 +101,9 @@ const FooterSection = () => {
           <div ref={leftRef} className="lg:w-1/2">
             {/* Logo */}
             <img 
-              src="SGYNBannerSmall.svg" 
+              src="SGYNBannerSmallFooter.svg" 
               alt="SGYN Logo" 
-              className="h-16 w-auto object-contain mb-6"
+              className="h-16 w-auto object-contain mb-6 -ml-8 "
             />
 
             {/* Tagline */}
