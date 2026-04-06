@@ -60,21 +60,21 @@ const FooterSection = () => {
   }, []);
 
   // XHS (RedNote / Xiaohongshu) — Chinese characters in a rounded badge
-  const XHSIcon = () => (
-    <span style={{
-      fontSize: '11px',
-      fontWeight: 700,
-      lineHeight: 1,
-      letterSpacing: '-0.02em',
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '22px',
-      height: '22px',
-    }}>
-      小红书
-    </span>
-  );
+  // const XHSIcon = () => (
+  //   <span style={{
+  //     fontSize: '11px',
+  //     fontWeight: 700,
+  //     lineHeight: 1,
+  //     letterSpacing: '-0.02em',
+  //     display: 'inline-flex',
+  //     alignItems: 'center',
+  //     justifyContent: 'center',
+  //     width: '22px',
+  //     height: '22px',
+  //   }}>
+  //     小红书
+  //   </span>
+  // );
 
   const socialLinks = [
     { icon: <Instagram size={20} />, href: 'https://www.instagram.com/sinogulfyouthnetwork/', label: 'Instagram' },
