@@ -19,7 +19,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Gloria Tsang',
     role: 'Founder & Executive Director',
-    image: 'gloria_headshot.JPG',
+    image: 'GloriaHeadshot2.jpeg',
     initials: 'GT',
     accentColor: '#e4ab55',
     linkedin: 'https://www.linkedin.com/in/g-tsang/',
