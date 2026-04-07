@@ -123,7 +123,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         </span>
 
         {/* Title */}
-        <h2 className="newsletter-title headline-lg text-white mb-4">
+        <h2 className="newsletter-title headline-lg text-white mb-4 -ml-2">
           Stay in the <span className="text-sgyn-gold">Loop</span>
         </h2>
 

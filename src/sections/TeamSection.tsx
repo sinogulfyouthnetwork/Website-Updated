@@ -62,7 +62,7 @@ const teamMembers: TeamMember[] = [
     bio: "Ghalia leads SGYN's on-the-ground presence in Jeddah, driving outreach, event logistics, and community organising in the city. She is currently a Computer Science student at Effat University, with a background in graphic design and social media.",
   },
   {
-    name: 'Cindy',
+    name: 'Cindy Li',
     role: 'Shanghai Lead',
     image: 'cindy_pfp_2.jpeg',
     initials: 'CI',
@@ -71,7 +71,7 @@ const teamMembers: TeamMember[] = [
     bio: "",
   },
   {
-    name: 'Bowen',
+    name: 'Bowen Gu',
     role: 'NYC Lead',
     image: 'Bowen_pfp.jpg',
     initials: 'BW',

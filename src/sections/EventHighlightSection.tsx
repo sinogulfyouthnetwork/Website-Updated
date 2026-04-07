@@ -81,7 +81,7 @@ const EventHighlightSection = () => {
   }, []);
 
   const goToEvent = () => {
-    window.location.href = '/#/events?event=uae-national-day-yenching-2025';
+    window.location.href = '/#/events?event=sino-gulf-dialogue-nyc-2025';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -139,8 +139,7 @@ const EventHighlightSection = () => {
           <p className="event-meta body-text-lg text-white/60 max-w-lg mb-8">
             A landmark gathering at the United Nations, convening youth leaders and diplomats 
             from China and the Gulf to shape the next chapter of bilateral cooperation — 
-            co-hosted with the UAE Mission to the UN, UAE Youth Society, Columbia University SIPA, 
-            and the Greater China Initiative.
+            co-hosted with the UAE Mission to the UN and UAE Youth Society.
           </p>
 
           {/* CTA */}
