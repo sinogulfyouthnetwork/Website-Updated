@@ -32,58 +32,82 @@ const programs = [
 const ProgramsSection = () => {
   const sectionRef = useRef(null);
 
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
+useLayoutEffect(() => {
+  const section = sectionRef.current;
+  if (!section) return;
 
-    const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
+  const ctx = gsap.context(() => {
+    // Label animation
+    gsap.fromTo(
+      '.programs-label',
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power3.out',
         scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
+          trigger: '.programs-label',
+          start: 'top 90%',
+          toggleActions: 'play reverse play reverse',
         },
-      });
+      }
+    );
 
-      scrollTl.fromTo(
-        '.programs-label',
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0
-      );
+    // Title animation
+    gsap.fromTo(
+      '.programs-title',
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.programs-title',
+          start: 'top 90%',
+          toggleActions: 'play reverse play reverse',
+        },
+        },
+    );
 
-      scrollTl.fromTo(
-        '.programs-title',
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.05
-      );
+    // Cards staggered reveal
+    gsap.fromTo(
+      '.program-card',
+      { y: 80, opacity: 0, scale: 0.95 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.program-card',
+          start: 'top 85%',
+          toggleActions: 'play reverse play reverse',
+        },
+        },
+    );
 
-      scrollTl.fromTo(
-        '.program-card',
-        { x: (i) => (i % 2 === 0 ? -60 : 60), opacity: 0 },
-        { x: 0, opacity: 1, stagger: 0.04, ease: 'none' },
-        0.1
-      );
-
-      scrollTl.fromTo(
-        '.programs-header',
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: '-6vh', ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        '.program-card',
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: '8vh', ease: 'power2.in' },
-        0.7
-      );
-    }, section);
+    // Button reveal
+    gsap.fromTo(
+      '.programs-btn',
+      { y: 20, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power3.out',
+        delay: 0.6,
+        scrollTrigger: {
+          trigger: '.programs-btn',
+          start: 'top 95%',
+toggleActions: 'play reverse play reverse',
+        },
+        },
+    );
+  }, section);
 
     return () => ctx.revert();
   }, []);
@@ -97,7 +121,7 @@ const ProgramsSection = () => {
     <section
       ref={sectionRef}
       id="programs"
-      className="relative w-full h-screen bg-sgyn-navy overflow-hidden z-30"
+      className="relative w-full min-h-screen bg-sgyn-navy z-30 py-24"
     >
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-sgyn-blue/20 to-transparent" />
@@ -151,7 +175,7 @@ const ProgramsSection = () => {
 
         <button
           onClick={goToEvent}
-          className="mt-10 inline-flex items-center gap-2 text-sgyn-gold font-medium hover:gap-3 transition-all"
+          className="programs-btn mt-10 inline-flex items-center gap-2 text-sgyn-gold font-medium hover:gap-3 transition-all"
         >
           View All Events
           <ArrowRight size={18} />
