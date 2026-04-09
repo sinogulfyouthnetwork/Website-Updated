@@ -32,24 +32,20 @@ const programs = [
 const ProgramsSection = () => {
   const sectionRef = useRef(null);
 
-useLayoutEffect(() => {
-  const section = sectionRef.current;
-  if (!section) return;
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
 
-  const ctx = gsap.context(() => {
-    // Label animation
-    gsap.fromTo(
-      '.programs-label',
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        ease: 'power3.out',
+    const ctx = gsap.context(() => {
+      const scrollTl = gsap.timeline({
         scrollTrigger: {
-          trigger: '.programs-label',
-          start: 'top 90%',
-          toggleActions: 'play reverse play reverse',
+          trigger: section,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.6,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
         },
       }
     );
@@ -79,7 +75,7 @@ useLayoutEffect(() => {
         y: 0,
         opacity: 1,
         scale: 1,
-        duration: 0.5,
+        duration: 0.8,
         stagger: 0.2,
         ease: 'power3.out',
         scrollTrigger: {
@@ -90,24 +86,13 @@ useLayoutEffect(() => {
         },
     );
 
-    // Button reveal
-    gsap.fromTo(
-      '.programs-btn',
-      { y: 20, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: 'power3.out',
-        delay: 0.6,
-        scrollTrigger: {
-          trigger: '.programs-btn',
-          start: 'top 95%',
-toggleActions: 'play reverse play reverse',
-        },
-        },
-    );
-  }, section);
+      scrollTl.fromTo(
+        '.program-card',
+        { opacity: 1, y: 0 },
+        { opacity: 0, y: '8vh', ease: 'power2.in' },
+        0.7
+      );
+    }, section);
 
     return () => ctx.revert();
   }, []);
@@ -121,7 +106,7 @@ toggleActions: 'play reverse play reverse',
     <section
       ref={sectionRef}
       id="programs"
-      className="relative w-full min-h-screen bg-sgyn-navy z-30 pt-6 pb-6"
+      className="relative w-full min-h-screen bg-sgyn-navy z-30 py-24"
     >
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-sgyn-blue/20 to-transparent" />
@@ -175,7 +160,7 @@ toggleActions: 'play reverse play reverse',
 
         <button
           onClick={goToEvent}
-          className="programs-btn mt-10 inline-flex items-center gap-2 text-sgyn-gold font-medium hover:gap-3 transition-all"
+          className="mt-10 inline-flex items-center gap-2 text-sgyn-gold font-medium hover:gap-3 transition-all"
         >
           View All Events
           <ArrowRight size={18} />
