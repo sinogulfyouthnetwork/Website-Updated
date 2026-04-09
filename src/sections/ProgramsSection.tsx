@@ -79,7 +79,7 @@ useLayoutEffect(() => {
         y: 0,
         opacity: 1,
         scale: 1,
-        duration: 0.8,
+        duration: 0.5,
         stagger: 0.2,
         ease: 'power3.out',
         scrollTrigger: {
@@ -121,7 +121,7 @@ toggleActions: 'play reverse play reverse',
     <section
       ref={sectionRef}
       id="programs"
-      className="relative w-full min-h-screen bg-sgyn-navy z-30 py-24"
+      className="relative w-full min-h-screen bg-sgyn-navy z-30 pt-6 pb-6"
     >
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-sgyn-blue/20 to-transparent" />

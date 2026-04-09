@@ -33,60 +33,91 @@ const ManifestoSection = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          fastScrollEnd: true,
-          preventOverlaps: true,
-        },
-      });
-
-      scrollTl.fromTo(
+      // Label
+      gsap.fromTo(
         '.manifesto-label',
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.manifesto-label',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Title
+      gsap.fromTo(
         '.manifesto-title',
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.05
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.manifesto-title',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Description
+      gsap.fromTo(
         '.manifesto-desc',
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.1
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.manifesto-desc',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Button
+      gsap.fromTo(
+        '.manifesto-btn',
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.manifesto-btn',
+            start: 'top 92%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
+      );
+
+      // Pillar cards staggered
+      gsap.fromTo(
         '.pillar-card',
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.03, ease: 'none' },
-        0.15
-      );
-
-      scrollTl.fromTo(
-        '.manifesto-content',
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: '-6vh', ease: 'none' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        '.pillar-card',
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: '8vh', ease: 'none' },
-        0.7
+        { y: 80, opacity: 0, scale: 0.95 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.pillar-card',
+            start: 'top 85%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
     }, section);
 
@@ -97,8 +128,7 @@ const ManifestoSection = () => {
     <section
       ref={sectionRef}
       id="manifesto"
-      className="relative w-full h-screen bg-sgyn-navy overflow-hidden z-20"
-      style={{ willChange: 'transform' }}
+      className="relative w-full min-h-screen bg-sgyn-navy z-20 pt-12 pb-12"
     >
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full opacity-5">
@@ -109,24 +139,23 @@ const ManifestoSection = () => {
         ref={contentRef}
         className="manifesto-content relative z-10 h-full flex flex-col items-center justify-center px-6"
       >
-        {/* Label */}
         <span className="manifesto-label micro-label text-sgyn-gold mb-4">
           About Us | 关于我们 | نبذة عنا
         </span>
 
-        {/* Title */}
         <h2 className="manifesto-title headline-lg text-white text-center max-w-4xl mb-6">
           A Youth-Led Bridge Between{' '}
           <span className="text-sgyn-gold">China</span> and the{' '}
           <span className="text-sgyn-gold">Gulf</span>
         </h2>
 
-        {/* Description */}
         <p className="manifesto-desc text-center body-text-lg text-white/70 max-w-3xl mb-6">
-          Founded in December 2024 in Shanghai, SGYN has grown to 8+ cities across China, the Gulf, 
-          and New York. We bring together students, scholars, cultural practitioners, and diplomats 
+          Founded in December 2024 in Shanghai, SGYN has grown to 8+ cities across China, the Gulf,
+          and New York. We bring together students, scholars, cultural practitioners, and diplomats
           to build lasting connections between two of the world's most dynamic regions.
         </p>
+
+        
              {<a
               href="https://www.instagram.com/sinogulfyouthnetwork/"
               target="_blank"
@@ -135,7 +164,7 @@ const ManifestoSection = () => {
             >
               Follow Our Journey
             </a>}
-        {/* Pillars */}
+
         <div
           ref={cardsRef}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full"

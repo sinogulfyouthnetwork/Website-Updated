@@ -23,60 +23,91 @@ const CommunitySection = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      // Phase 1: Entrance
-      scrollTl.fromTo(
-        '.community-label',
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0
-      );
-
-      scrollTl.fromTo(
-        '.community-title',
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.05
-      );
-
-      scrollTl.fromTo(
+      // Background image
+      gsap.fromTo(
         '.community-image',
         { scale: 1.1, opacity: 0 },
-        { scale: 1, opacity: 1, ease: 'none' },
-        0.1
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.community-image',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Label
+      gsap.fromTo(
+        '.community-label',
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.community-label',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
+      );
+
+      // Title
+      gsap.fromTo(
+        '.community-title',
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.community-title',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
+      );
+
+      // City tags staggered
+      gsap.fromTo(
         '.city-tag',
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.02, ease: 'none' },
-        0.2
+        { y: 30, opacity: 0, scale: 0.9 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          stagger: 0.07,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.city-tag',
+            start: 'top 85%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
 
-      // Phase 3: Exit
-      scrollTl.fromTo(
-        '.community-content',
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: '-6vh', ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        '.community-image',
-        { opacity: 1, scale: 1 },
-        { opacity: 0, scale: 1.05, ease: 'power2.in' },
-        0.7
+      // Stats
+      gsap.fromTo(
+        '.community-stats',
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.community-stats',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
     }, section);
 
@@ -86,11 +117,11 @@ const CommunitySection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen bg-sgyn-navy overflow-hidden z-40"
+      className="relative w-full min-h-screen bg-sgyn-navy z-40 py-24"
     >
       {/* Background Image */}
       <div className="community-image absolute inset-0">
-        <img 
+        <img
           src="Members-Image.JPG"
           alt="SGYN Community"
           className="w-full h-full object-cover opacity-65"
@@ -98,28 +129,24 @@ const CommunitySection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-sgyn-navy via-sgyn-navy/80 to-sgyn-navy/60" />
       </div>
 
-      <div className="community-content relative z-10 h-full flex flex-col items-center justify-center px-6">
-        {/* Label */}
+      <div className="community-content relative z-10 min-h-screen flex flex-col items-center justify-start px-6 pt-40">
         <span className="community-label micro-label text-sgyn-gold mb-4">
           Presence | 活跃于 | الحضور
         </span>
 
-        {/* Title */}
         <h2 className="community-title headline-lg text-white text-center max-w-3xl mb-8">
           Find Our Members <span className="text-sgyn-gold">Around the World</span>
         </h2>
 
-        {/* Cities Grid */}
         <div className="flex flex-wrap justify-center gap-3 max-w-4xl">
           {cities.map((city, index) => (
-            <div 
+            <div
               key={index}
               className="city-tag group relative px-5 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-sgyn-gold/20 hover:border-sgyn-gold/50 transition-all duration-300 cursor-default"
             >
               <span className="font-display font-semibold text-white group-hover:text-sgyn-gold transition-colors">
                 {city.name}
               </span>
-              {/* Tooltip */}
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-sgyn-navy-light rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                 <span className="text-xs text-white/80">{city.nameCn} | {city.nameAr}</span>
               </div>
@@ -127,8 +154,7 @@ const CommunitySection = () => {
           ))}
         </div>
 
-        {/* Stats */}
-        <div className="mt-12 flex gap-12">
+        <div className="community-stats mt-12 flex gap-12">
           <div className="text-center">
             <div className="text-4xl font-display font-bold text-sgyn-gold">8+</div>
             <div className="text-sm text-white/60">Cities</div>

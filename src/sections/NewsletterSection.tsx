@@ -16,98 +16,128 @@ const NewsletterSection = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      // Phase 1: Entrance
-      scrollTl.fromTo(
+      // Image slides in from left
+      gsap.fromTo(
         '.newsletter-image',
-        { x: '-50vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0
+        { x: '-60vw', opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.newsletter-image',
+            start: 'top 85%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Label
+      gsap.fromTo(
         '.newsletter-label',
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.1
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.newsletter-label',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Title slides in from right (same as event-title)
+      gsap.fromTo(
         '.newsletter-title',
         { x: '8vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0.15
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.newsletter-title',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Form fades up
+      gsap.fromTo(
         '.newsletter-form',
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.2
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.newsletter-form',
+            start: 'top 92%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
 
-      // Phase 3: Exit
-      scrollTl.fromTo(
-        '.newsletter-content',
-        { opacity: 1, x: 0 },
-        { opacity: 0, x: '6vw', ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        '.newsletter-image',
-        { opacity: 1, x: 0 },
-        { opacity: 0, x: '-30vw', ease: 'power2.in' },
-        0.7
+      // Social proof
+      gsap.fromTo(
+        '.newsletter-social',
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.newsletter-social',
+            start: 'top 95%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
     }, section);
 
     return () => ctx.revert();
   }, []);
-  
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3YtUhIdsBmWyHYt0LyWNWrSLnKWU6hfX13VJV_K-KPd4Wxx2B_0GQD0K1cpy82Us/exec';
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (!email) return;
 
-  try {
-    await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors', // required for Apps Script
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
-    });
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3YtUhIdsBmWyHYt0LyWNWrSLnKWU6hfX13VJV_K-KPd4Wxx2B_0GQD0K1cpy82Us/exec';
 
-    setSubmitted(true);
-    toast.success('Welcome to SGYN!', {
-      description: "You'll receive our next newsletter soon.",
-    });
-    setEmail('');
-  } catch (err) {
-    toast.error('Something went wrong. Please try again.');
-  }
-};
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      setSubmitted(true);
+      toast.success('Welcome to SGYN!', {
+        description: "You'll receive our next newsletter soon.",
+      });
+      setEmail('');
+    } catch (err) {
+      toast.error('Something went wrong. Please try again.');
+    }
+  };
 
   return (
     <section
       ref={sectionRef}
       id="newsletter"
-      className="relative w-full h-screen bg-sgyn-navy overflow-hidden z-80"
+      className="relative w-full min-h-screen bg-sgyn-navy z-80 py-24"
     >
       {/* Left Image */}
       <div className="newsletter-image absolute left-0 top-0 w-1/2 h-full hidden lg:block">
-        <img 
+        <img
           src="Pipa-Lady.JPG"
           alt="Join SGYN"
           className="w-full h-full object-cover"
@@ -117,26 +147,19 @@ const handleSubmit = async (e: React.FormEvent) => {
 
       {/* Content */}
       <div className="newsletter-content relative z-10 h-full flex flex-col justify-center px-6 lg:pl-[55%] lg:pr-12">
-        {/* Label */}
         <span className="newsletter-label micro-label text-sgyn-gold mb-4">
           Connect | 联系 | تواصل
         </span>
 
-        {/* Title */}
         <h2 className="newsletter-title headline-lg text-white mb-4 -ml-2">
           Stay in the <span className="text-sgyn-gold">Loop</span>
         </h2>
 
-        {/* Description */}
         <p className="body-text-lg text-white/60 max-w-md mb-8">
           Get event invites, program updates, and community highlights—delivered monthly to your inbox.
         </p>
 
-        {/* Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="newsletter-form max-w-md"
-        >
+        <form onSubmit={handleSubmit} className="newsletter-form max-w-md">
           {!submitted ? (
             <div className="flex flex-col sm:flex-row gap-3">
               <div className="relative flex-1">
@@ -150,10 +173,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   required
                 />
               </div>
-              <button
-                type="submit"
-                className="btn-primary whitespace-nowrap"
-              >
+              <button type="submit" className="btn-primary whitespace-nowrap">
                 <Send size={18} className="mr-2" />
                 Subscribe
               </button>
@@ -164,17 +184,13 @@ const handleSubmit = async (e: React.FormEvent) => {
               <span className="text-white">Thank you for subscribing!</span>
             </div>
           )}
-          
-          <p className="text-sm text-white/40 mt-4">
-            No spam. Unsubscribe anytime.
-          </p>
+          <p className="text-sm text-white/40 mt-4">No spam. Unsubscribe anytime.</p>
         </form>
 
-        {/* Social Proof */}
-        <div className="mt-12 flex items-center gap-4">
+        <div className="newsletter-social mt-12 flex items-center gap-4">
           <div className="flex -space-x-3">
             {[1, 2, 3, 4].map((i) => (
-              <div 
+              <div
                 key={i}
                 className="w-10 h-10 rounded-full bg-sgyn-navy-light border-2 border-sgyn-navy flex items-center justify-center text-xs text-white/60"
               >
