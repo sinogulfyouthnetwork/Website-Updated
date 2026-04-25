@@ -194,13 +194,13 @@ const GetInvolvedSection = () => {
         {/* Bottom divider / tagline */}
         <div className="mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-white/30 text-sm">
-            Not sure where to start?{' '}
+            {' '} 
             <a href="#newsletter" className="text-sgyn-gold hover:underline underline-offset-4 transition-all">
-              Subscribe to our newsletter
+              
             </a>{' '}
-            and we'll guide you.
+            
           </p>
-          <span className="text-white/20 text-xs tracking-widest uppercase">SGYN · سجين · 沙特女青</span>
+          <span className="text-white/20 text-xs tracking-widest uppercase"></span>
         </div>
       </div>
     </section>

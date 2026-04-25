@@ -128,7 +128,7 @@ const ManifestoSection = () => {
     <section
       ref={sectionRef}
       id="manifesto"
-      className="relative w-full min-h-screen bg-sgyn-navy z-20 pt-12 pb-12"
+      className="relative w-full bg-sgyn-navy z-20 pt-12 pb-12"
     >
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full opacity-5">

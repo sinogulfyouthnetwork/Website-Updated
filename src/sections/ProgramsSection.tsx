@@ -37,60 +37,40 @@ const ProgramsSection = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      }
-    );
+      // Title animation
+      gsap.fromTo(
+        '.programs-title',
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.programs-title',
+            start: 'top 90%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
+      );
 
-    // Title animation
-    gsap.fromTo(
-      '.programs-title',
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.9,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.programs-title',
-          start: 'top 90%',
-          toggleActions: 'play reverse play reverse',
-        },
-        },
-    );
-
-    // Cards staggered reveal
-    gsap.fromTo(
-      '.program-card',
-      { y: 80, opacity: 0, scale: 0.95 },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.program-card',
-          start: 'top 85%',
-          toggleActions: 'play reverse play reverse',
-        },
-        },
-    );
-
-      scrollTl.fromTo(
+      // Cards staggered reveal
+      gsap.fromTo(
         '.program-card',
-        { opacity: 1, y: 0 },
-        { opacity: 0, y: '8vh', ease: 'power2.in' },
-        0.7
+        { y: 80, opacity: 0, scale: 0.95 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.program-card',
+            start: 'top 85%',
+            toggleActions: 'play reverse play reverse',
+          },
+        }
       );
     }, section);
 
@@ -106,19 +86,19 @@ const ProgramsSection = () => {
     <section
       ref={sectionRef}
       id="programs"
-      className="relative w-full min-h-screen bg-sgyn-navy z-30 py-24"
+      className="relative w-full bg-sgyn-navy z-30 py-24"
     >
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-sgyn-blue/20 to-transparent" />
       </div>
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 py-20">
+      <div className="relative z-10 flex flex-col items-center justify-center px-6 py-12">
         <div className="programs-header text-center mb-10">
           <span className="programs-label micro-label text-sgyn-gold mb-3 block">
             Programs | 项目 | البرامج
           </span>
           <h2 className="programs-title headline-lg text-white">
-            Our <span className="text-sgyn-gold">Events</span> 
+            Our <span className="text-sgyn-gold">Events</span>
           </h2>
         </div>
 
