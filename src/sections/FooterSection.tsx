@@ -87,6 +87,7 @@ const FooterSection = () => {
     { label: 'Events', href: '#event' },
     { label: 'Programs', href: '#programs' },
     { label: 'About Us', href: '#manifesto' },
+    { label: 'Donate', href: 'https://buymeacoffee.com/sinogulfyouthnetwork' },
   ];
 
   return (

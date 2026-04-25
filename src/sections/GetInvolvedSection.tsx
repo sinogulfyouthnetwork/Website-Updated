@@ -192,16 +192,27 @@ const GetInvolvedSection = () => {
         </div>
 
         {/* Bottom divider / tagline */}
-        <div className="mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="text-white/30 text-sm">
-            {' '} 
-            <a href="#newsletter" className="text-sgyn-gold hover:underline underline-offset-4 transition-all">
-              
-            </a>{' '}
-            
-          </p>
-          <span className="text-white/20 text-xs tracking-widest uppercase"></span>
-        </div>
+{/* Bottom divider / tagline */}
+{/* Bottom divider / tagline */}
+<div className="mt-20 pt-8 border-t border-white/10">
+ <h3 className="headline-md text-white mb-4">
+  Buy Us <span className="text-sgyn-gold">Coffee</span>
+</h3>
+<p className="body-text-lg text-white/60 max-w-xl mb-6">
+  SGYN's operations are entirely self-funded by our leadership team, and all our events
+  and resources are free for our youth community. If you'd like to contribute to our
+  initiative, you can "buy us a coffee" here:
+</p>
+  <a      
+    href="https://buymeacoffee.com/sinogulfyouthnetwork"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
+    style={{ backgroundColor: '#6F4E37', color: '#ffffff' }}
+  >
+    ☕ Buy Us a Coffee
+  </a>
+</div>
       </div>
     </section>
   );
