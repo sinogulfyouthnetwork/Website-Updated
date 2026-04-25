@@ -133,8 +133,7 @@ const NewsletterSection = () => {
     <section
       ref={sectionRef}
       id="newsletter"
-      className="relative w-full min-h-screen bg-sgyn-navy z-80 py-24"
-    >
+      className="relative w-full min-h-screen bg-sgyn-navy z-80 flex items-center">
       {/* Left Image */}
       <div className="newsletter-image absolute left-0 top-0 w-1/2 h-full hidden lg:block">
         <img
@@ -146,7 +145,7 @@ const NewsletterSection = () => {
       </div>
 
       {/* Content */}
-      <div className="newsletter-content relative z-10 h-full flex flex-col justify-center px-6 lg:pl-[55%] lg:pr-12">
+      <div className="newsletter-content relative z-10 h-full flex flex-col justify-center px-6 lg:pl-[52%] lg:pr-12 py-24">
         <span className="newsletter-label micro-label text-sgyn-gold mb-4">
           Connect | 联系 | تواصل
         </span>
