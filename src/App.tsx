@@ -105,7 +105,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div ref={mainRef} className="relative bg-sgyn-navy min-h-screen">
+    <div ref={mainRef} className="relative bg-sgyn-navy min-h-screen overflow-x-hidden">
       <Navigation />
       <main className="relative">
         <HeroSection />

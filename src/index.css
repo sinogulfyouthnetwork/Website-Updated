@@ -104,10 +104,12 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   body {
     @apply bg-[#1a3a52] text-white antialiased;
     font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    overflow-x: hidden;
   }
 }
 
