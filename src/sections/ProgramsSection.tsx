@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const programs = [
   {
+    id: 'chinese-saudi-jeddah-2025',
     title: 'Saudi-Chinese Cultural Exchange Connections',
     location: 'Jeddah',
     date: 'August 2025',
@@ -14,6 +15,7 @@ const programs = [
     image: 'Jeddah-Event.jpeg',
   },
   {
+    id: 'sgyn-launch-beijing-2025',
     title: 'Beijing Launch Event',
     location: 'Beijing',
     date: 'November 2025',
@@ -21,6 +23,7 @@ const programs = [
     image: 'Beijing-Launch-Event.JPG',
   },
   {
+    id: 'chinese-emirati-shanghai-2024',
     title: 'Chinese-Emirati Cultural Exchange Connections',
     location: 'NYU Shanghai',
     date: 'December 2024',
@@ -37,7 +40,6 @@ const ProgramsSection = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      // Title animation
       gsap.fromTo(
         '.programs-title',
         { y: 50, opacity: 0 },
@@ -54,7 +56,6 @@ const ProgramsSection = () => {
         }
       );
 
-      // Cards staggered reveal
       gsap.fromTo(
         '.program-card',
         { y: 80, opacity: 0, scale: 0.95 },
@@ -82,6 +83,11 @@ const ProgramsSection = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const goToEventDetail = (eventId: string) => {
+    window.location.href = `/#/events?event=${eventId}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -106,7 +112,8 @@ const ProgramsSection = () => {
           {programs.map((program, index) => (
             <div
               key={index}
-              className="program-card group relative bg-sgyn-navy-light rounded-2xl overflow-hidden hover:shadow-glow transition-all duration-500"
+              onClick={() => goToEventDetail(program.id)}
+              className="program-card group relative bg-sgyn-navy-light rounded-2xl overflow-hidden hover:shadow-glow transition-all duration-500 cursor-pointer"
             >
               <div className="aspect-[16/10] overflow-hidden">
                 <img
@@ -133,6 +140,9 @@ const ProgramsSection = () => {
                 <p className="text-white/60 text-sm">
                   {program.description}
                 </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sgyn-gold text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  View Event <ArrowRight size={12} />
+                </span>
               </div>
             </div>
           ))}
