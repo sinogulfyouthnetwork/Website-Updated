@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Events — Sino-Gulf Youth Network</title>
+<meta name="description" content="Every SGYN event since December 2024 — dialogues, cultural evenings, salons, and language roundtables across China, the Gulf, and New York." />
+<link rel="icon" href="assets/SGYNBannerSmall.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<header class="site">
+  <div class="navbar">
+    <a class="logo" href="index.html"><img src="assets/SGYNBannerNavy.svg" alt="Sino-Gulf Youth Network"/></a>
+    <nav class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="media-lab.html">Media Lab</a>
+      <div class="dd">
+        <a href="programs.html">Programs <i>▾</i></a>
+        <div class="dd-menu">
+          <a href="silk-road-roundtable.html">Silk-Road Roundtable<small>Flagship dialogue platform</small></a>
+          <a href="language-across-borders.html">Language Across Borders<small>Mandarin–Arabic exchange</small></a>
+          <a href="literary-salon.html">Literary Salon<small>Books, translation, identity</small></a>
+          <a href="talent-pipeline.html">Talent Pipeline<small>China–Gulf careers</small></a>
+        </div>
+      </div>
+      <a href="events.html" class="active">Events</a>
+      <a href="team.html">Team</a>
+      <a href="partner.html">Partner / Sponsor</a>
+    </nav>
+    <a class="btn gold" href="mailto:info@sinogulfyouthnetwork.com?subject=Joining%20SGYN">Join SGYN</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="media-lab.html">Media Lab</a>
+    <a href="programs.html">Programs</a>
+    <a class="sub" href="silk-road-roundtable.html">Silk-Road Roundtable</a>
+    <a class="sub" href="language-across-borders.html">Language Across Borders</a>
+    <a class="sub" href="literary-salon.html">Literary Salon</a>
+    <a class="sub" href="talent-pipeline.html">Talent Pipeline</a>
+    <a href="events.html">Events</a>
+    <a href="team.html">Team</a>
+    <a href="partner.html">Partner / Sponsor</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Home</a><i>→</i>Events</p>
+    <h1>Real rooms. <em>Real cities.</em></h1>
+    <p class="lead">Every SGYN event since December 2024 — from a cultural evening in Shanghai to a hundred youth leaders at the United Nations. Click any event for the full story.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="filters rv" id="filters">
+      <button class="active" data-f="all">All</button>
+      <button data-f="Roundtables">Roundtables</button>
+      <button data-f="Cultural Exchange">Cultural Exchange</button>
+      <button data-f="Language">Language Across Borders</button>
+      <button data-f="Literary Salon">Literary Salons</button>
+      <button data-f="Community">Community</button>
+      <button data-f="Partner">Partner Events</button>
+    </div>
+    <div class="grid-3" id="evGrid"></div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-band rv">
+      <h2>Want SGYN in your city — or your name <em>on the next event?</em></h2>
+      <div class="ctas">
+        <a class="btn gold" href="mailto:info@sinogulfyouthnetwork.com?subject=Hosting%20an%20SGYN%20Event">Host an event</a>
+        <a class="btn ghost" href="mailto:info@sinogulfyouthnetwork.com?subject=Sponsoring%20an%20SGYN%20Event">Sponsor an event</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- event modal -->
+<div class="modal-veil" id="veil" role="dialog" aria-modal="true">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <img class="cover" id="mImg" src="" alt=""/>
+    <div class="inner">
+      <p class="meta" id="mMeta"></p>
+      <h3 id="mTitle"></h3>
+      <p id="mDesc"></p>
+      <div class="facts" id="mFacts"></div>
+      <div class="shots" id="mShots"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="assets/SGYNBannerSmall.svg" alt="Sino-Gulf Youth Network"/></div>
+        <p>The room where China meets the Gulf.<br/>桥 · جسر · bridge</p>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="mailto:info@sinogulfyouthnetwork.com">info@sinogulfyouthnetwork.com</a>
+        <a href="https://www.instagram.com/sinogulfyouthnetwork/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://ae.linkedin.com/company/sino-gulf-youth-network" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <a href="silk-road-roundtable.html">Silk-Road Roundtable</a>
+        <a href="language-across-borders.html">Language Across Borders</a>
+        <a href="literary-salon.html">Literary Salon</a>
+        <a href="talent-pipeline.html">Talent Pipeline</a>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <a href="mailto:info@sinogulfyouthnetwork.com?subject=Joining%20SGYN">Join SGYN</a>
+        <a href="media-lab.html">Submit to the Media Lab</a>
+        <a href="partner.html">Partner / Sponsor</a>
+        <a href="events.html">Events</a>
+        <a href="https://buymeacoffee.com/sinogulfyouthnetwork" target="_blank" rel="noopener">Buy us a coffee ☕</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sino-Gulf Youth Network</span>
+      <span>Community · Culture · Exchange</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* Event data — edit here to add events; newest first.
+   cat must match a filter button's data-f value. */
+var EVENTS=[
+  {
+    title:"Language Across Borders Goes In-Person Across Saudi Arabia",
+    date:"Jan–Feb 2026", city:"Jeddah & Khobar", venue:"Multiple venues",
+    cat:"Language", badge:"Language",
+    img:"assets/JeddahLab3.jpg",
+    desc:"The first in-person Language Across Borders roundtables — talks, ice-breakers, and open language exchange connecting Arabic, Mandarin, and Korean speakers. Part of the LAB 2026 expansion.",
+    facts:["Program: Language Across Borders","2 cities","3 languages in one room"],
+    shots:["assets/JeddahLab3.jpg"]
+  },
+  {
+    title:"Sino-Gulf Youth Dialogue at the UAE Mission to the UN",
+    date:"Dec 12, 2025", city:"New York City", venue:"UAE Permanent Mission to the UN",
+    cat:"Roundtables", badge:"Flagship",
+    img:"assets/SGYN-Flagship-Event.jpeg",
+    desc:"A landmark gathering convening over one hundred youth leaders, scholars, artists, and diplomats from China and the Gulf — co-hosted with the UAE Permanent Mission to the UN and the UAE Youth Society.",
+    facts:["100+ participants","Partners: UAE Mission to the UN · UAE Youth Society","Flagship dialogue"],
+    shots:["assets/SGYN-Flagship-Event.jpeg"]
+  },
+  {
+    title:"UAE National Day at Yenching Academy & ECUST",
+    date:"Dec 2025", city:"Beijing & Shanghai", venue:"Yenching Academy, PKU · ECUST",
+    cat:"Partner", badge:"Partner",
+    img:"assets/UAE-Union-Day-Exchange.jpeg",
+    desc:"SGYN led a UAE National Day celebration at the Yenching Academy of Peking University, and joined ECUST's celebration alongside the UAE Consulate in Shanghai.",
+    facts:["2 cities, one week","Partners: Yenching Academy · ECUST · UAE Consulate in Shanghai"],
+    shots:["assets/UAE-Union-Day-Exchange.jpeg"]
+  },
+  {
+    title:"SGYN Beijing Launch",
+    date:"Nov 19, 2025", city:"Beijing", venue:"Private lunch, Sanlitun",
+    cat:"Community", badge:"Community",
+    img:"assets/Beijing-Launch-Event.JPG",
+    desc:"SGYN officially launched its Beijing presence with a private networking lunch in Sanlitun, hosting scholars from Peking and Tsinghua University and guests from the China-Gulf community.",
+    facts:["New hub: Beijing","Scholars from PKU & Tsinghua"],
+    shots:["assets/Beijing-Launch-Event.JPG"]
+  },
+  {
+    title:"Literary Salon I — Mid-Autumn Festival",
+    date:"Oct 10, 2025", city:"Jeddah", venue:"Al Maqam Cafe",
+    cat:"Literary Salon", badge:"Salon",
+    img:"assets/OctLitSalonImg/OctLitSalon1.jpg",
+    desc:"The first Jeddah Literary Salon: Su Shi's “Prelude to Water Melody,” mooncakes, and the art of translation — an intimate gathering at Al Maqam Cafe.",
+    facts:["Program: Literary Salon","Theme: Su Shi · Mid-Autumn","Launched the monthly series"],
+    shots:["assets/OctLitSalonImg/OctLitSalon1.jpg","assets/OctLitSalonImg/OctLitSalon2.jpg"]
+  },
+  {
+    title:"Chinese-Saudi Cultural Exchange Evening · 中沙之夜",
+    date:"Aug 16, 2025", city:"Jeddah", venue:"Qanateer",
+    cat:"Cultural Exchange", badge:"Cultural",
+    img:"assets/QanateerImg/QanateerEvent1.JPG",
+    desc:"The first ever youth-led Chinese-Saudi cultural exchange evening, hosted at Qanateer with 40+ participants — the beginning of a new chapter of youth-led bilateral engagement in the Kingdom.",
+    facts:["40+ participants","First youth-led CN–SA evening in KSA"],
+    shots:["assets/QanateerImg/QanateerEvent1.JPG"]
+  },
+  {
+    title:"Chinese-Emirati Cultural Connections Evening",
+    date:"Dec 18, 2024", city:"Shanghai", venue:"NYU Shanghai",
+    cat:"Cultural Exchange", badge:"Inaugural",
+    img:"assets/ChinaEmaritiEventImg/ChinaEmaritiEvent1.jpeg",
+    desc:"The inaugural SGYN event — international, Chinese, and Emirati students together for an evening of exchange. Supported by NYU Shanghai, NYU Abu Dhabi Global Outreach, and H.E. UAE Ambassador Hussain Alhammadi.",
+    facts:["The event that started SGYN","Partners: NYU Shanghai · NYU Abu Dhabi","Guest: H.E. Ambassador Alhammadi"],
+    shots:["assets/ChinaEmaritiEventImg/ChinaEmaritiEvent1.jpeg","assets/Pipa-Lady.JPG"]
+  }
+];
+
+(function(){
+  var grid=document.getElementById('evGrid');
+  EVENTS.forEach(function(e,i){
+    var el=document.createElement('button');
+    el.className='ev rv'; el.dataset.cat=e.cat; el.dataset.i=i;
+    el.innerHTML='<figure><span class="cat">'+e.badge+'</span><img src="'+e.img+'" alt="" loading="lazy"/></figure>'+
+      '<div class="body"><span class="meta">'+e.date+' · '+e.city+'</span><h3>'+e.title+'</h3><p>'+e.desc.slice(0,110)+'…</p></div>';
+    el.addEventListener('click',function(){openModal(e)});
+    grid.appendChild(el);
+  });
+  // re-observe the injected cards for reveal
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.08});
+    grid.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+    setTimeout(function(){grid.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})},6000);
+  }else{
+    grid.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+  }
+
+  /* filters */
+  var btns=document.querySelectorAll('#filters button');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('active')});
+      b.classList.add('active');
+      var f=b.dataset.f;
+      grid.querySelectorAll('.ev').forEach(function(c){
+        c.classList.toggle('hiding', f!=='all' && c.dataset.cat!==f);
+      });
+    });
+  });
+
+  /* modal */
+  var veil=document.getElementById('veil');
+  function openModal(e){
+    document.getElementById('mImg').src=e.img;
+    document.getElementById('mMeta').textContent=e.date+' · '+e.city+' · '+e.venue;
+    document.getElementById('mTitle').textContent=e.title;
+    document.getElementById('mDesc').textContent=e.desc;
+    document.getElementById('mFacts').innerHTML=e.facts.map(function(f){return '<span>'+f+'</span>'}).join('');
+    document.getElementById('mShots').innerHTML=e.shots.length>1?e.shots.map(function(s){return '<img src="'+s+'" alt="" loading="lazy"/>'}).join(''):'';
+    veil.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){veil.classList.remove('open');document.body.style.overflow=''}
+  document.getElementById('modalClose').addEventListener('click',closeModal);
+  veil.addEventListener('click',function(ev){if(ev.target===veil)closeModal()});
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape')closeModal()});
+})();
+</script>
+</body>
+</html>
