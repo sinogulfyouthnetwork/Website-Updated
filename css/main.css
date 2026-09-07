@@ -105,10 +105,19 @@ html.js .film .col.in{opacity:1;transform:none}
 .hero-inner{position:relative;z-index:2;width:100%;padding:150px 0 clamp(40px,6vh,72px)}
 .hero-inner .wrap{display:flex;flex-direction:column;gap:22px;pointer-events:none}
 .hero-inner a{pointer-events:auto}
-.hero-inner h1{color:#fff;font-size:clamp(40px,6.4vw,82px);font-weight:800;line-height:.98;max-width:14ch;text-shadow:0 2px 28px rgba(12,22,34,.55)}
+.hero-inner h1{color:#fff;font-size:clamp(40px,6vw,78px);font-weight:800;line-height:1;max-width:24ch;text-shadow:0 2px 28px rgba(12,22,34,.55)}
 .hero-inner h1 em{font-style:normal;color:var(--gold)}
 .hero-inner .sub{color:rgba(255,255,255,.88);font-size:clamp(16px,1.8vw,20px);max-width:52ch;text-shadow:0 1px 18px rgba(12,22,34,.6)}
 .hero-inner .ctas{display:flex;gap:12px;flex-wrap:wrap}
+/* bilingual "welcome" — written out like calligraphy, right of the title */
+.hello-art{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hello-art span{position:absolute;right:4vw;color:var(--gold);opacity:.28;filter:blur(6px);line-height:1;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:280% 100%;mask-size:280% 100%}
+.hello-art .zh{top:14%;font-family:'Ma Shan Zheng',cursive;font-size:clamp(120px,16vw,250px);-webkit-mask-image:linear-gradient(100deg,#000 46%,rgba(0,0,0,0) 54%);mask-image:linear-gradient(100deg,#000 46%,rgba(0,0,0,0) 54%);-webkit-mask-position:100% 0;mask-position:100% 0;animation:writeLTR 2.6s ease-in-out 1.4s forwards}
+.hello-art .ar{top:56%;font-family:'Aref Ruqaa',serif;font-size:clamp(56px,7vw,110px);line-height:1.5;-webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,0) 46%,#000 54%);mask-image:linear-gradient(100deg,rgba(0,0,0,0) 46%,#000 54%);-webkit-mask-position:0 0;mask-position:0 0;animation:writeRTL 2.2s ease-in-out 3.8s forwards}
+@keyframes writeLTR{to{-webkit-mask-position:0 0;mask-position:0 0;filter:blur(0)}}
+@keyframes writeRTL{to{-webkit-mask-position:100% 0;mask-position:100% 0;filter:blur(0)}}
+@media (max-width:960px){.hello-art{display:none}}
+@media (prefers-reduced-motion:reduce){.hello-art span{animation:none;-webkit-mask-image:none;mask-image:none;filter:none}}
 html.js .lede>*{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
 html.js .lede.in>*{opacity:1;transform:none}
 html.js .lede>*:nth-child(2){transition-delay:.1s}
@@ -331,6 +340,19 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .figures .fig span{display:block;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:8px}
 @media(max-width:700px){.figures .fig{flex:1 1 45%}.figures .fig:nth-child(odd){border-left:0}}
 
+/* ── our story (photo feature, L-wrap) ── */
+.story-flow::after{content:"";display:table;clear:both}
+.story-flow h2{font-size:clamp(32px,4.4vw,52px);font-weight:800;line-height:1.04;color:var(--navy-ink);margin-bottom:26px}
+.story-flow p{font-size:clamp(15.5px,1.45vw,18px);line-height:1.75;color:var(--text)}
+.story-flow p+p{margin-top:1em}
+.story-flow p b{color:var(--navy-ink);font-weight:600}
+.story-shot{position:relative;float:right;width:min(44%,470px);margin:20px 18px 26px clamp(30px,4vw,56px)}
+.story-shot img{width:100%;display:block;border-radius:14px;position:relative;z-index:1}
+.story-shot::after{content:"";position:absolute;top:-18px;right:-18px;bottom:18px;left:18px;border:2px solid var(--gold);border-radius:14px}
+.story-shot figcaption{margin-top:30px;font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--mut)}
+.story-shot figcaption i{color:var(--gold);font-style:normal;margin-right:8px}
+@media(max-width:700px){.story-shot{float:none;width:auto;margin:22px 18px 30px 0}}
+
 /* ── team roster (typographic rows + cursor photo + bio modal) ── */
 .roster{border-top:1px solid rgba(47,77,105,.18)}
 .roster-row{display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:clamp(14px,3vw,40px);width:100%;text-align:left;font:inherit;background:none;border:0;border-bottom:1px solid rgba(47,77,105,.18);padding:clamp(20px,2.8vw,32px) 10px;cursor:pointer;position:relative;transition:padding .35s cubic-bezier(.2,.7,.3,1),background .35s}
@@ -343,6 +365,14 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .roster-row .rl{text-align:right;color:var(--mut);font-size:14px;line-height:1.45}
 .roster-row .rl b{display:block;font-family:var(--disp);font-weight:700;color:var(--gold-ink);font-size:15px}
 @media(max-width:700px){.roster-row{grid-template-columns:44px 1fr}.roster-row .rl{grid-column:2;text-align:left}}
+/* homepage team spheres */
+.spheres{display:flex;gap:32px;flex-wrap:wrap;justify-content:space-between;margin-top:20px;padding:0 clamp(0px,2vw,32px)}
+.sphere{background:none;border:0;padding:0;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;text-align:center}
+.sphere img{width:clamp(170px,17vw,235px);height:clamp(170px,17vw,235px);border-radius:50%;object-fit:cover;transition:transform .45s cubic-bezier(.2,.7,.3,1),filter .45s;margin-bottom:18px}
+.sphere:hover img,.sphere:focus-visible img{transform:scale(1.035);filter:brightness(1.05)}
+.sphere .nm{font-family:var(--disp);font-weight:800;font-size:clamp(18px,1.9vw,22px);color:var(--navy-ink);line-height:1.2}
+.sphere .rl{font-size:14px;color:var(--mut);margin-top:4px}
+@media(max-width:760px){.spheres{justify-content:center;gap:36px}}
 .float-photo{position:fixed;left:0;top:0;z-index:70;width:225px;border-radius:16px;overflow:hidden;pointer-events:none;opacity:0;transform:translate(-9999px,-9999px) rotate(-4deg) scale(.9);box-shadow:0 24px 60px rgba(16,28,42,.35);will-change:transform;transition:opacity .25s}
 .float-photo img{width:100%;aspect-ratio:3/3.7;object-fit:cover;display:block}
 .float-photo.on{opacity:1}
