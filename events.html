@@ -53,7 +53,7 @@
   <div class="wrap">
     <p class="crumb"><a href="index.html">Home</a><i>→</i>Events</p>
     <h1>Real rooms. <em>Real cities.</em></h1>
-    <p class="lead">Every SGYN event since December 2024 — from a cultural evening in Shanghai to a hundred youth leaders at the United Nations. Click any event for the full story.</p>
+    <p class="lead">Every SGYN event since December 2024 — from a cultural evening in Shanghai to a hundred youth leaders at the United Nations. Click any event for the full story, or follow <a href="https://www.instagram.com/sinogulfyouthnetwork/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">@sinogulfyouthnetwork</a> for photos and recaps.</p>
   </div>
 </section>
 
@@ -61,12 +61,11 @@
   <div class="wrap">
     <div class="filters rv" id="filters">
       <button class="active" data-f="all">All</button>
-      <button data-f="Roundtables">Roundtables</button>
-      <button data-f="Cultural Exchange">Cultural Exchange</button>
       <button data-f="Language">Language Across Borders</button>
-      <button data-f="Literary Salon">Literary Salons</button>
-      <button data-f="Community">Community</button>
-      <button data-f="Partner">Partner Events</button>
+      <button data-f="Dialogues">Dialogues &amp; Roundtables</button>
+      <button data-f="Cultural">Cultural Exchange</button>
+      <button data-f="Salon">Literary Salon</button>
+      <button data-f="Community">Community &amp; Campus</button>
     </div>
     <div class="grid-3" id="evGrid"></div>
   </div>
@@ -138,68 +137,171 @@
 <script src="js/main.js"></script>
 <script>
 /* Event data — edit here to add events; newest first.
-   cat must match a filter button's data-f value. */
+   cat must match a filter button's data-f value.
+   img:null renders a typographic navy card (no photo yet).
+   Descriptions come verbatim from the Notion Event Tracker blurbs
+   (the public record) — keep them in sync when editing there. */
 var EVENTS=[
   {
-    title:"Language Across Borders Goes In-Person Across Saudi Arabia",
-    date:"Jan–Feb 2026", city:"Jeddah & Khobar", venue:"Multiple venues",
+    title:"Language Across Borders — Singapore",
+    date:"Aug 28–29, 2026", city:"Singapore", venue:"Peranakan Museum",
+    cat:"Language", badge:"Language",
+    img:"assets/EventPhotos/lab-singapore.jpg",
+    desc:"LAB crossed a new border — joining Arab Network @ Singapore at the Peranakan Museum for two days of Mandarin–Arabic exchange, bringing the roundtable to the network's eighth city.",
+    facts:["Program: Language Across Borders","Partner: Arab Network @ Singapore","SGYN's eighth city"],
+    shots:[]
+  },
+  {
+    title:"Language Across Borders at Ithra — Dammam",
+    date:"Jul 24–25, 2026", city:"Dammam", venue:"Ithra Library",
+    cat:"Language", badge:"Language",
+    img:"assets/EventPhotos/lab-dammam.jpg",
+    desc:"SGYN's first Language Across Borders session in Dammam brought Chinese and Arabic learners together at Ithra Library for an interactive exploration of the pictographic origins of Chinese characters. Through games, storytelling, and an open mic, the session created an accessible space for language learning and cross-cultural exchange, featuring Professor Jing Chai of NYU Abu Dhabi and UAE-based journalist and content creator Aya Zhang.",
+    facts:["Program: Language Across Borders","Guests: Prof. Jing Chai (NYU Abu Dhabi) · Aya Zhang","Venue: Ithra Library"],
+    shots:[]
+  },
+  {
+    title:"China-Gulf Youth Dialogue at 798",
+    date:"Jul 12, 2026", city:"Beijing", venue:"798 Art District",
+    cat:"Dialogues", badge:"Dialogue",
+    img:null,
+    desc:"A youth dialogue in the heart of Beijing's 798 Art District — Chinese and Gulf voices in open conversation on culture, careers, and connection across the two regions.",
+    facts:["Venue: 798 Art District"],
+    ig:"https://www.instagram.com/p/DbdsbIUkasF/",
+    shots:[]
+  },
+  {
+    title:"Silk-Road Roundtable — On the Ground",
+    date:"Jun 18, 2026", city:"Beijing", venue:"Peking University",
+    cat:"Dialogues", badge:"Flagship",
+    img:"assets/EventPhotos/roundtable.jpg",
+    desc:"SGYN's inaugural policy and economics forum — a practitioner-focused conversation bringing together entrepreneurs, economists, and researchers with direct, on-the-ground experience across markets connected by the Belt and Road. Four speakers — covering the Route, the Capital, the Platform, and the Bridge — shared firsthand perspectives grounded in specific markets and sectors, followed by a moderated cross-panel Q&A and open networking.",
+    facts:["Program: Silk-Road Roundtable","Hosted at the Yenching Academy, Peking University","Four speakers · moderated by Gloria Tsang"],
+    shots:[]
+  },
+  {
+    title:"Language Across Borders — Yiwu",
+    date:"May 17, 2026", city:"Yiwu", venue:"Jia Cafe",
+    cat:"Language", badge:"Language",
+    img:null,
+    desc:"LAB's first session in Yiwu — the trading hub where China and the Arab world meet every day — connected in-person and online participants for an afternoon of Mandarin–Arabic exchange.",
+    facts:["Program: Language Across Borders","First SGYN event in Yiwu"],
+    shots:[]
+  },
+  {
+    title:"Language Across Borders — Beijing",
+    date:"Apr 19, 2026", city:"Beijing", venue:"Khaleej Mandi Kitchen",
+    cat:"Language", badge:"Language",
+    img:"assets/EventPhotos/lab-beijing.jpg",
+    desc:"LAB came home to the capital for its biggest room yet — a hybrid session connecting Mandarin and Arabic speakers in Beijing and online, over Gulf food at Khaleej Mandi Kitchen.",
+    facts:["Program: Language Across Borders","Hybrid — in person & online"],
+    shots:[]
+  },
+  {
+    title:"SGYN at the Yenching Global Symposium",
+    date:"Apr 16, 2026", city:"Beijing", venue:"Yenching Academy, PKU",
+    cat:"Community", badge:"Partner",
+    img:"assets/EventPhotos/ygs.jpg",
+    desc:"SGYN was an official cultural partner of the Yenching Global Symposium 2026 at the Yenching Academy of Peking University, one of the premier youth conferences on China and the world. Our cultural station “字我 — FIND YOUR NAME” at the YGS Cultural Bazaar was done in collaboration with I Got One, a crowdsourced platform reconceptualizing Chinese characters through technology and experiential learning. International guests enjoyed traditional Arabic sweets while learning about SGYN's initiatives and exploring their Chinese identity through multimodal tech and traditional calligraphy.",
+    facts:["Official cultural partner of YGS 2026","In collaboration with I Got One","Station: 字我 — Find Your Name"],
+    shots:[]
+  },
+  {
+    title:"SGYN @ Effat University",
+    date:"Apr 13, 2026", city:"Jeddah", venue:"Effat University",
+    cat:"Community", badge:"Campus",
+    img:null,
+    desc:"SGYN visited Effat University in Jeddah to introduce the network and its programs to students — part of our growing campus partnerships across the Kingdom.",
+    facts:["Partner: Effat University","Campus engagement"],
+    shots:[]
+  },
+  {
+    title:"Language Across Borders — Khobar",
+    date:"Feb 7, 2026", city:"Khobar", venue:"KoYee Korean Cafe",
+    cat:"Language", badge:"Language",
+    img:"assets/EventPhotos/lab-khobar.jpg",
+    desc:"Held shortly after the Jeddah session, LAB's Khobar edition brought the roundtable to the Eastern Province, welcoming approximately 25 participants for an in-person gathering centered on Chinese and Arabic language exchange. The back-to-back Jeddah and Khobar sessions established LAB's model for regional reach within Saudi Arabia — running multiple city editions in close succession to build momentum and community across the Kingdom.",
+    facts:["Program: Language Across Borders","LAB's Eastern Province debut"],
+    shots:[]
+  },
+  {
+    title:"Language Across Borders — Jeddah",
+    date:"Jan 31, 2026", city:"Jeddah", venue:"Hybrid — Jeddah & online",
     cat:"Language", badge:"Language",
     img:"assets/JeddahLab3.jpg",
-    desc:"The first in-person Language Across Borders roundtables — talks, ice-breakers, and open language exchange connecting Arabic, Mandarin, and Korean speakers. Part of the LAB 2026 expansion.",
-    facts:["Program: Language Across Borders","2 cities","3 languages in one room"],
+    desc:"The first in-person LAB session brought the roundtable's signature format to Jeddah in hybrid form, gathering approximately 25 learners, heritage speakers, and native speakers of Chinese and Arabic for talks, language exchange, and cross-cultural dialogue. The event marked a significant milestone for LAB as a program — moving from concept into live community activation in Saudi Arabia.",
+    facts:["Program: Language Across Borders","First in-person LAB session","Hybrid — in person & online"],
     shots:["assets/JeddahLab3.jpg"]
   },
   {
-    title:"Sino-Gulf Youth Dialogue at the UAE Mission to the UN",
-    date:"Dec 12, 2025", city:"New York City", venue:"UAE Permanent Mission to the UN",
-    cat:"Roundtables", badge:"Flagship",
-    img:"assets/SGYN-Flagship-Event.jpeg",
-    desc:"A landmark gathering convening over one hundred youth leaders, scholars, artists, and diplomats from China and the Gulf — co-hosted with the UAE Permanent Mission to the UN and the UAE Youth Society.",
-    facts:["100+ participants","Partners: UAE Mission to the UN · UAE Youth Society","Flagship dialogue"],
-    shots:["assets/SGYN-Flagship-Event.jpeg"]
+    title:"Literary Salon — The True Story of Ah-Q",
+    date:"Dec 12, 2025", city:"Jeddah", venue:"Al Maqam Cafe",
+    cat:"Salon", badge:"Salon",
+    img:"assets/EventPhotos/salon-ahq.jpg",
+    desc:"The second Literary Salon session took Lu Xun's satirical novella The True Story of Ah-Q as its centerpiece, inviting participants to engage with one of modern Chinese literature's most enduring and provocative works. Held at Al Maqam Cafe, the discussion explored themes of self-deception, identity, and social critique — themes that resonated across cultural contexts and generated lively exchange.",
+    facts:["Program: Literary Salon","Text: Lu Xun's The True Story of Ah-Q"],
+    shots:[]
   },
   {
-    title:"UAE National Day at Yenching Academy & ECUST",
-    date:"Dec 2025", city:"Beijing & Shanghai", venue:"Yenching Academy, PKU · ECUST",
-    cat:"Partner", badge:"Partner",
+    title:"UAE Union Day at the Yenching Academy",
+    date:"Dec 7, 2025", city:"Beijing", venue:"Yenching Academy, PKU",
+    cat:"Cultural", badge:"Cultural",
     img:"assets/UAE-Union-Day-Exchange.jpeg",
-    desc:"SGYN led a UAE National Day celebration at the Yenching Academy of Peking University, and joined ECUST's celebration alongside the UAE Consulate in Shanghai.",
-    facts:["2 cities, one week","Partners: Yenching Academy · ECUST · UAE Consulate in Shanghai"],
+    desc:"SGYN hosted a UAE Union Day cultural exchange at the Yenching Academy of Peking University, bringing together Yenching scholars to explore Emirati heritage through interactive exhibits representing all seven emirates, cultural games, open dialogue, and traditional hospitality.",
+    facts:["Exhibits from all seven emirates","Hosted at the Yenching Academy, PKU"],
     shots:["assets/UAE-Union-Day-Exchange.jpeg"]
   },
   {
+    title:"UAE National Day Celebration at ECUST",
+    date:"Nov 30, 2025", city:"Shanghai", venue:"ECUST",
+    cat:"Cultural", badge:"Partner",
+    img:"assets/EventPhotos/ecust.jpg",
+    desc:"SGYN joined the 54th UAE Union Day celebrations hosted by East China University of Science and Technology in Shanghai, representing the network at a dedicated booth. The event brought together Emirati students, university representatives, and diplomatic figures — including the UAE Consul General in Shanghai — in a celebration of Emirati national identity and community.",
+    facts:["54th UAE Union Day","Guest: UAE Consul General in Shanghai","Partner: ECUST"],
+    shots:[]
+  },
+  {
+    title:"Sino-Gulf Youth Dialogue at the UAE Mission to the UN",
+    date:"Nov 19, 2025", city:"New York City", venue:"UAE Permanent Mission to the UN",
+    cat:"Dialogues", badge:"Flagship",
+    img:"assets/SGYN-Flagship-Event.jpeg",
+    desc:"Co-organized with UAE Youth Delegates to the UN and UAE Society NYC, this event brought together approximately 100 young leaders, artists, and community members in New York for an evening of cultural diplomacy — opening cultural performances, a moderated youth dialogue on culture as soft power, and interactive Emirati and Chinese cultural stations. It was SGYN's first major activation in New York.",
+    facts:["100+ participants","Partners: UAE Youth Delegates to the UN · UAE Society NYC","Flagship dialogue"],
+    shots:["assets/SGYN-Flagship-Event.jpeg"]
+  },
+  {
     title:"SGYN Beijing Launch",
-    date:"Nov 19, 2025", city:"Beijing", venue:"Private lunch, Sanlitun",
+    date:"Nov 8, 2025", city:"Beijing", venue:"Peking University",
     cat:"Community", badge:"Community",
     img:"assets/Beijing-Launch-Event.JPG",
-    desc:"SGYN officially launched its Beijing presence with a private networking lunch in Sanlitun, hosting scholars from Peking and Tsinghua University and guests from the China-Gulf community.",
-    facts:["New hub: Beijing","Scholars from PKU & Tsinghua"],
+    desc:"SGYN's official Beijing launch brought together over 60 students, scholars, and professionals at Peking University to mark the network's expansion into China's capital. The event introduced SGYN's mission and programs to the Beijing community and established the city as a core node of the network alongside its Gulf chapter.",
+    facts:["60+ attendees","New hub: Beijing"],
     shots:["assets/Beijing-Launch-Event.JPG"]
   },
   {
-    title:"Literary Salon I — Mid-Autumn Festival",
+    title:"Literary Salon — Mid-Autumn Festival",
     date:"Oct 10, 2025", city:"Jeddah", venue:"Al Maqam Cafe",
-    cat:"Literary Salon", badge:"Salon",
+    cat:"Salon", badge:"Salon",
     img:"assets/OctLitSalonImg/OctLitSalon1.jpg",
-    desc:"The first Jeddah Literary Salon: Su Shi's “Prelude to Water Melody,” mooncakes, and the art of translation — an intimate gathering at Al Maqam Cafe.",
-    facts:["Program: Literary Salon","Theme: Su Shi · Mid-Autumn","Launched the monthly series"],
+    desc:"The Literary Salon's inaugural session was held in Jeddah in celebration of the Mid-Autumn Festival, centering on Song dynasty poet Su Shi's Prelude to Water Melody (水调歌头). Guests explored the poem's themes of longing, reunion, and the passage of time through guided discussion, accompanied by a tasting of traditional mooncakes.",
+    facts:["Program: Literary Salon","Text: Su Shi's Prelude to Water Melody","Launched the series"],
     shots:["assets/OctLitSalonImg/OctLitSalon1.jpg","assets/OctLitSalonImg/OctLitSalon2.jpg"]
   },
   {
     title:"Chinese-Saudi Cultural Exchange Evening · 中沙之夜",
-    date:"Aug 16, 2025", city:"Jeddah", venue:"Qanateer",
-    cat:"Cultural Exchange", badge:"Cultural",
+    date:"Aug 16, 2025", city:"Jeddah", venue:"Qanateer · House of Wisdom",
+    cat:"Cultural", badge:"Cultural",
     img:"assets/QanateerImg/QanateerEvent1.JPG",
-    desc:"The first ever youth-led Chinese-Saudi cultural exchange evening, hosted at Qanateer with 40+ participants — the beginning of a new chapter of youth-led bilateral engagement in the Kingdom.",
-    facts:["40+ participants","First youth-led CN–SA evening in KSA"],
+    desc:"SGYN's first event in Saudi Arabia marked the network's official arrival in the Kingdom, bringing together Saudi and Chinese youth in Jeddah in partnership with Qanateer and House of Wisdom. The evening opened with a hulusi performance and a panel — “Bridges & Stories: Saudi Youth in China” — before guests moved through cultural stations spanning tea ceremony, calligraphy, abacus, traditional attire, and Saudi coffee.",
+    facts:["First SGYN event in Saudi Arabia","Partners: Qanateer · House of Wisdom","Panel: Bridges & Stories"],
     shots:["assets/QanateerImg/QanateerEvent1.JPG"]
   },
   {
     title:"Chinese-Emirati Cultural Connections Evening",
     date:"Dec 18, 2024", city:"Shanghai", venue:"NYU Shanghai",
-    cat:"Cultural Exchange", badge:"Inaugural",
+    cat:"Cultural", badge:"Inaugural",
     img:"assets/ChinaEmaritiEventImg/ChinaEmaritiEvent1.jpeg",
-    desc:"The inaugural SGYN event — international, Chinese, and Emirati students together for an evening of exchange. Supported by NYU Shanghai, NYU Abu Dhabi Global Outreach, and H.E. UAE Ambassador Hussain Alhammadi.",
+    desc:"SGYN's inaugural event brought together over 30 youth, students, and cultural practitioners from China, the UAE, and beyond for an evening of cross-cultural exchange at NYU Shanghai. The program opened with performances, a presentation on the Sino-Gulf relationship, and an overview of SGYN's vision, before transitioning into interactive cultural stations and open networking — the intimate, community-rooted gathering that set the tone for everything SGYN has become.",
     facts:["The event that started SGYN","Partners: NYU Shanghai · NYU Abu Dhabi","Guest: H.E. Ambassador Alhammadi"],
     shots:["assets/ChinaEmaritiEventImg/ChinaEmaritiEvent1.jpeg","assets/Pipa-Lady.JPG"]
   }
@@ -207,11 +309,25 @@ var EVENTS=[
 
 (function(){
   var grid=document.getElementById('evGrid');
+  function noimgHTML(e){
+    return '<span class="cat">'+e.badge+'</span><div class="txt"><b>'+e.city+'</b><span>'+e.date+'</span></div>';
+  }
   EVENTS.forEach(function(e,i){
     var el=document.createElement('button');
     el.className='ev rv'; el.dataset.cat=e.cat; el.dataset.i=i;
-    el.innerHTML='<figure><span class="cat">'+e.badge+'</span><img src="'+e.img+'" alt="" loading="lazy"/></figure>'+
-      '<div class="body"><span class="meta">'+e.date+' · '+e.city+'</span><h3>'+e.title+'</h3><p>'+e.desc.slice(0,110)+'…</p></div>';
+    if(e.img){
+      el.innerHTML='<figure><span class="cat">'+e.badge+'</span><img src="'+e.img+'" alt="" loading="lazy"/></figure>'+
+        '<div class="body"><span class="meta">'+e.date+' · '+e.city+'</span><h3>'+e.title+'</h3><p>'+e.desc.slice(0,110)+'…</p></div>';
+      var im=el.querySelector('img');
+      im.addEventListener('error',function(){
+        e.img=null;
+        var fig=el.querySelector('figure');
+        fig.className='noimg'; fig.innerHTML=noimgHTML(e);
+      });
+    }else{
+      el.innerHTML='<figure class="noimg">'+noimgHTML(e)+'</figure>'+
+        '<div class="body"><span class="meta">'+e.date+' · '+e.city+'</span><h3>'+e.title+'</h3><p>'+e.desc.slice(0,110)+'…</p></div>';
+    }
     el.addEventListener('click',function(){openModal(e)});
     grid.appendChild(el);
   });
@@ -240,11 +356,14 @@ var EVENTS=[
   /* modal */
   var veil=document.getElementById('veil');
   function openModal(e){
-    document.getElementById('mImg').src=e.img;
+    var mi=document.getElementById('mImg');
+    if(e.img){mi.src=e.img;mi.style.display=''}else{mi.removeAttribute('src');mi.style.display='none'}
     document.getElementById('mMeta').textContent=e.date+' · '+e.city+' · '+e.venue;
     document.getElementById('mTitle').textContent=e.title;
     document.getElementById('mDesc').textContent=e.desc;
-    document.getElementById('mFacts').innerHTML=e.facts.map(function(f){return '<span>'+f+'</span>'}).join('');
+    var facts=e.facts.map(function(f){return '<span>'+f+'</span>'});
+    if(e.ig){facts.push('<span><a href="'+e.ig+'" target="_blank" rel="noopener" style="color:var(--gold-ink);font-weight:600">See the recap on Instagram →</a></span>')}
+    document.getElementById('mFacts').innerHTML=facts.join('');
     document.getElementById('mShots').innerHTML=e.shots.length>1?e.shots.map(function(s){return '<img src="'+s+'" alt="" loading="lazy"/>'}).join(''):'';
     veil.classList.add('open');
     document.body.style.overflow='hidden';
