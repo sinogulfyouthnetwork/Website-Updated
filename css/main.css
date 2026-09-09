@@ -315,7 +315,7 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 
 /* team cards (homepage + team page) — cut-outs popping over colour blocks; per-card colours via --blk/--blkD */
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4.5vw,64px);padding-top:clamp(40px,5vw,72px)}
-.tcard{background:none;border:0;padding:0;cursor:pointer;font-family:inherit;text-align:left;display:block}
+.tcard{background:none;border:0;padding:0;cursor:pointer;font-family:inherit;text-align:left;display:block;min-width:0}
 .tcard .box{display:block;position:relative;aspect-ratio:1/1;background:var(--blk,var(--gold));transition:background .35s;container-type:inline-size}
 .tcard .ltr{position:absolute;top:-6%;z-index:0;font-family:var(--disp);font-weight:900;font-size:15.5em;font-size:77cqw;line-height:1;color:rgba(26,44,63,.10);user-select:none}
 .tcard .l1{left:2%}
@@ -326,11 +326,9 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .tcard .nm{font-family:var(--disp);font-weight:800;font-size:clamp(20px,2vw,25px);color:var(--navy-ink);line-height:1.2;margin-top:20px;display:block}
 .tcard .rl{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-ink);margin-top:6px;display:block}
 @media(max-width:760px){.tgrid{grid-template-columns:1fr;max-width:400px;margin:0 auto;row-gap:76px}}
-/* team page: member cards — flat photo inset on a colour block */
-.tgrid.four{grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);padding-top:24px}
-.tcard.mat .box{padding:8.5%}
-.tcard.mat .box img{position:static;transform:none;height:100%;width:100%;max-width:100%;object-fit:cover;filter:none;transition:filter .35s}
-.tcard.mat:hover .box img,.tcard.mat:focus-visible .box img{transform:none;filter:brightness(1.06)}
+/* team page: member cards — smaller pop-out squares, no initials */
+.tgrid.four{grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);padding-top:clamp(36px,4vw,56px)}
+.tcard.mat .box img{height:108%}
 .tcard.mat .nm{font-size:clamp(18px,1.7vw,21px);margin-top:16px}
 .tcard.mat .rl{font-size:11.5px}
 @media(max-width:900px){.tgrid.four{grid-template-columns:repeat(2,1fr)}}
