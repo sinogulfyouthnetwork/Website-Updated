@@ -328,7 +328,7 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 @media(max-width:760px){.tgrid{grid-template-columns:1fr;max-width:400px;margin:0 auto;row-gap:76px}}
 /* team page: member cards — smaller pop-out squares, no initials */
 .tgrid.four{grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);padding-top:clamp(36px,4vw,56px)}
-.tcard.mat .box img{height:108%}
+.tcard.mat .box img{width:100%;height:auto}
 .tcard.mat .nm{font-size:clamp(18px,1.7vw,21px);margin-top:16px}
 .tcard.mat .rl{font-size:11.5px}
 @media(max-width:900px){.tgrid.four{grid-template-columns:repeat(2,1fr)}}
