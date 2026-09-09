@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Team — Sino-Gulf Youth Network</title>
-<meta name="description" content="SGYN's core leadership and city leads — a youth-led team across Beijing, the UAE, Saudi Arabia, Shanghai, and New York." />
+<meta name="description" content="SGYN's leadership — a youth-led team across Beijing, the UAE, Saudi Arabia, Shanghai, and New York." />
 <link rel="icon" href="assets/SGYNBannerSmall.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,25 +53,60 @@
   <div class="wrap">
     <p class="crumb"><a href="index.html">Home</a><i>→</i>Team</p>
     <h1>Four time zones. <em>One mission.</em></h1>
-    <p class="lead">A youth-led team across Beijing, the UAE, Saudi Arabia, Shanghai, and New York. Hover a name to meet them — click for the full story.</p>
+    <p class="lead">A youth-led team across Beijing, the UAE, Saudi Arabia, Shanghai, and New York. Click anyone to meet them.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="sec-top rv"><h2>Core leadership</h2></div>
-    <div class="roster rv" id="rosterCore"></div>
+    <div class="tgrid rv">
+      <button class="tcard" type="button" data-i="0" style="--blk:#d6ad64;--blkD:#cda254">
+        <span class="box"><span class="ltr l1">G</span><span class="ltr l2">T</span><img src="assets/gloria_cutout.webp" alt="Gloria Tsang"/></span>
+        <span class="nm">Gloria Tsang</span>
+        <span class="rl">Founder &amp; Executive Director</span>
+      </button>
+      <button class="tcard" type="button" data-i="1" style="--blk:#b9cbdb;--blkD:#a9bfd2">
+        <span class="box"><span class="ltr l1">A</span><span class="ltr l2">A</span><img src="assets/abdulla_cutout.webp" alt="Abdulla AlHemeiri"/></span>
+        <span class="nm">Abdulla AlHemeiri</span>
+        <span class="rl">Deputy Director</span>
+      </button>
+      <button class="tcard" type="button" data-i="2" style="--blk:#e7d7b8;--blkD:#dfcba4">
+        <span class="box"><span class="ltr l1">H</span><span class="ltr l2">S</span><img src="assets/huayi_cutout.webp" alt="Huayi Shen"/></span>
+        <span class="nm">Huayi Shen</span>
+        <span class="rl">Head of Programs &amp; Partnerships</span>
+      </button>
+    </div>
   </div>
 </section>
 
 <section class="tight">
   <div class="wrap">
-    <div class="sec-top rv"><h2>City leads</h2></div>
-    <div class="roster rv" id="rosterLeads"></div>
+    <div class="sec-top rv"><h2>The team</h2></div>
+    <div class="tgrid four rv">
+      <button class="tcard mat" type="button" data-i="3" style="--blk:#b9cbdb;--blkD:#a9bfd2">
+        <span class="box"><img src="assets/salmeen_headshot_2.JPG" alt="Salmeen Binmafooz" style="object-position:50% 25%"/></span>
+        <span class="nm">Salmeen Binmafooz</span>
+        <span class="rl">KSA Chief of Staff</span>
+      </button>
+      <button class="tcard mat" type="button" data-i="4" style="--blk:#d6ad64;--blkD:#cda254">
+        <span class="box"><img src="assets/ghalia_headshot.jpg" alt="Ghalia Badokhon" style="object-position:50% 18%"/></span>
+        <span class="nm">Ghalia Badokhon</span>
+        <span class="rl">Jeddah Lead</span>
+      </button>
+      <button class="tcard mat" type="button" data-i="5" style="--blk:#e7d7b8;--blkD:#dfcba4">
+        <span class="box"><img src="assets/cindy_pfp_2.jpeg" alt="Cindy Li"/></span>
+        <span class="nm">Cindy Li</span>
+        <span class="rl">Shanghai Lead</span>
+      </button>
+      <button class="tcard mat" type="button" data-i="6" style="--blk:#b9cbdb;--blkD:#a9bfd2">
+        <span class="box"><img src="assets/Bowen_pfp.jpg" alt="Bowen Gu"/></span>
+        <span class="nm">Bowen Gu</span>
+        <span class="rl">NYC Lead</span>
+      </button>
+    </div>
   </div>
 </section>
-
-<div class="float-photo" id="teamFloat" aria-hidden="true"><img alt=""/></div>
 
 <section class="tight">
   <div class="wrap">
@@ -168,15 +203,10 @@ var TEAM=[
 ];
 
 (function(){
-  var core=document.getElementById('rosterCore'), leads=document.getElementById('rosterLeads');
-  TEAM.forEach(function(m,i){
-    var row=document.createElement('button');
-    row.className='roster-row'; row.dataset.photo=m.photo; row.type='button';
-    row.innerHTML='<span class="no">'+String(i+1).padStart(2,'0')+'</span>'+
-      '<span class="nm">'+m.name+'</span>'+
-      '<span class="rl"><b>'+m.role+'</b>'+m.city+'</span>';
-    row.addEventListener('click',function(){openBio(m)});
-    (m.tier==='core'?core:leads).appendChild(row);
+  document.querySelectorAll('.tcard').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var m=TEAM[+btn.dataset.i]; if(m)openBio(m);
+    });
   });
 
   var veil=document.getElementById('veil');
@@ -195,25 +225,6 @@ var TEAM=[
   document.getElementById('modalClose').addEventListener('click',closeBio);
   veil.addEventListener('click',function(e){if(e.target===veil)closeBio()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBio()});
-
-  /* rows are injected after main.js ran — wire the cursor photo here */
-  if(matchMedia('(hover: hover) and (pointer: fine)').matches){
-    var float=document.getElementById('teamFloat'), img=float.querySelector('img');
-    TEAM.forEach(function(m){(new Image()).src=m.photo});
-    var x=0,y=0,raf=null;
-    document.addEventListener('mousemove',function(e){
-      x=e.clientX;y=e.clientY;
-      if(!raf)raf=requestAnimationFrame(function(){
-        float.style.transform='translate('+(x+28)+'px,'+(y-130)+'px) rotate(-4deg)';raf=null;
-      });
-    });
-    document.querySelectorAll('.roster-row').forEach(function(row){
-      row.addEventListener('mouseenter',function(){
-        img.src=row.dataset.photo;float.classList.add('on');
-      });
-      row.addEventListener('mouseleave',function(){float.classList.remove('on')});
-    });
-  }
 })();
 </script>
 </body>

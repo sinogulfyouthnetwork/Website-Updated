@@ -310,19 +310,7 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .story-shot figcaption i{color:var(--gold);font-style:normal;margin-right:8px}
 @media(max-width:700px){.story-shot{float:none;width:auto;margin:22px 18px 30px 0}}
 
-/* ── team roster (typographic rows + cursor photo + bio modal) ── */
-.roster{border-top:1px solid rgba(47,77,105,.18)}
-.roster-row{display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:clamp(14px,3vw,40px);width:100%;text-align:left;font:inherit;background:none;border:0;border-bottom:1px solid rgba(47,77,105,.18);padding:clamp(20px,2.8vw,32px) 10px;cursor:pointer;position:relative;transition:padding .35s cubic-bezier(.2,.7,.3,1),background .35s}
-.roster-row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform .35s cubic-bezier(.2,.7,.3,1)}
-.roster-row:hover{background:rgba(214,173,100,.05);padding-left:26px}
-.roster-row:hover::before{transform:scaleY(1)}
-.roster-row .no{font-family:var(--disp);font-weight:700;font-size:13px;color:var(--gold-ink);letter-spacing:.08em}
-.roster-row .nm{font-family:var(--disp);font-weight:800;font-size:clamp(26px,4.4vw,52px);color:var(--navy-ink);line-height:1.05;transition:color .3s}
-.roster-row:hover .nm{color:var(--navy)}
-.roster-row .rl{text-align:right;color:var(--mut);font-size:14px;line-height:1.45}
-.roster-row .rl b{display:block;font-family:var(--disp);font-weight:700;color:var(--gold-ink);font-size:15px}
-@media(max-width:700px){.roster-row{grid-template-columns:44px 1fr}.roster-row .rl{grid-column:2;text-align:left}}
-/* homepage team cards — cut-outs popping over colour blocks; per-card colours via --blk/--blkD */
+/* team cards (homepage + team page) — cut-outs popping over colour blocks; per-card colours via --blk/--blkD */
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4.5vw,64px);padding-top:clamp(40px,5vw,72px)}
 .tcard{background:none;border:0;padding:0;cursor:pointer;font-family:inherit;text-align:left;display:block}
 .tcard .box{display:block;position:relative;aspect-ratio:1/1;background:var(--blk,var(--gold));transition:background .35s;container-type:inline-size}
@@ -335,9 +323,15 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .tcard .nm{font-family:var(--disp);font-weight:800;font-size:clamp(20px,2vw,25px);color:var(--navy-ink);line-height:1.2;margin-top:20px;display:block}
 .tcard .rl{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-ink);margin-top:6px;display:block}
 @media(max-width:760px){.tgrid{grid-template-columns:1fr;max-width:400px;margin:0 auto;row-gap:76px}}
-.float-photo{position:fixed;left:0;top:0;z-index:70;width:225px;border-radius:16px;overflow:hidden;pointer-events:none;opacity:0;transform:translate(-9999px,-9999px) rotate(-4deg) scale(.9);box-shadow:0 24px 60px rgba(16,28,42,.35);will-change:transform;transition:opacity .25s}
-.float-photo img{width:100%;aspect-ratio:3/3.7;object-fit:cover;display:block}
-.float-photo.on{opacity:1}
+/* team page: member cards — flat photo inset on a colour block */
+.tgrid.four{grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);padding-top:24px}
+.tcard.mat .box{padding:8.5%}
+.tcard.mat .box img{position:static;transform:none;height:100%;width:100%;max-width:100%;object-fit:cover;filter:none;transition:filter .35s}
+.tcard.mat:hover .box img,.tcard.mat:focus-visible .box img{transform:none;filter:brightness(1.06)}
+.tcard.mat .nm{font-size:clamp(18px,1.7vw,21px);margin-top:16px}
+.tcard.mat .rl{font-size:11.5px}
+@media(max-width:900px){.tgrid.four{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.tgrid.four{grid-template-columns:repeat(2,1fr);row-gap:40px}}
 /* bio modal layout (uses .modal-veil/.modal base) */
 .bio-grid{display:grid;grid-template-columns:230px 1fr;gap:clamp(18px,3vw,30px);align-items:start}
 .bio-grid img{width:100%;aspect-ratio:3/3.5;object-fit:cover;border-radius:16px}
