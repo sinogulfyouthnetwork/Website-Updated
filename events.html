@@ -320,7 +320,7 @@ var EVENTS=[
     el.className='ev rv'; el.dataset.cat=e.cat; el.dataset.i=i;
     if(e.img){
       el.innerHTML='<figure><img src="'+e.img+'" alt="" loading="lazy"/></figure>'+
-        '<div class="body"><span class="meta"><span class="d">'+e.date+'</span><span class="c">'+e.city+'</span></span><h3>'+e.title+'</h3><p>'+e.desc.slice(0,110)+'…</p></div>';
+        '<div class="body"><span class="meta"><span class="d">'+e.date+'</span><span class="rule"></span><span class="c">'+e.city+'</span></span><h3>'+e.title+'</h3><p>'+e.desc.slice(0,110)+'…</p></div>';
       var im=el.querySelector('img');
       im.addEventListener('error',function(){
         e.img=null;
@@ -329,7 +329,7 @@ var EVENTS=[
       });
     }else{
       el.innerHTML='<figure class="noimg">'+noimgHTML(e)+'</figure>'+
-        '<div class="body"><span class="meta"><span class="d">'+e.date+'</span><span class="c">'+e.city+'</span></span><h3>'+e.title+'</h3><p>'+e.desc.slice(0,110)+'…</p></div>';
+        '<div class="body"><span class="meta"><span class="d">'+e.date+'</span><span class="rule"></span><span class="c">'+e.city+'</span></span><h3>'+e.title+'</h3><p>'+e.desc.slice(0,110)+'…</p></div>';
     }
     el.addEventListener('click',function(){openModal(e)});
     grid.appendChild(el);
