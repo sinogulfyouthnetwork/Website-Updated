@@ -52,7 +52,7 @@
 <section class="page-hero">
   <div class="wrap">
     <p class="crumb"><a href="index.html">Home</a><i>→</i>Events</p>
-    <h1>Real rooms. <em>Real cities.</em></h1>
+    <h1>Events <em>Archive</em></h1>
     <p class="lead">Every SGYN event since December 2024 — from a cultural evening in Shanghai to a hundred youth leaders at the United Nations. Click any event for the full story, or follow <a href="https://www.instagram.com/sinogulfyouthnetwork/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">@sinogulfyouthnetwork</a> for photos and recaps.</p>
   </div>
 </section>
@@ -106,7 +106,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-logo"><img src="assets/SGYNBannerSmall.svg" alt="Sino-Gulf Youth Network"/></div>
+        <div class="foot-logo"><img src="assets/SGYNBannerSmallFooter.svg" alt="Sino-Gulf Youth Network"/></div>
         <p>The leading platform connecting emerging leaders across China and the Gulf.</p>
       </div>
       <div>
@@ -133,7 +133,6 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 Sino-Gulf Youth Network</span>
-      <span>Community · Culture · Exchange</span>
     </div>
   </div>
 </footer>
@@ -314,13 +313,13 @@ var EVENTS=[
 (function(){
   var grid=document.getElementById('evGrid');
   function noimgHTML(e){
-    return '<span class="cat">'+e.badge+'</span><div class="txt"><b>'+e.city+'</b><span>'+e.date+'</span></div>';
+    return '<div class="txt"><b>'+e.city+'</b><span>'+e.date+'</span></div>';
   }
   EVENTS.forEach(function(e,i){
     var el=document.createElement('button');
     el.className='ev rv'; el.dataset.cat=e.cat; el.dataset.i=i;
     if(e.img){
-      el.innerHTML='<figure><span class="cat">'+e.badge+'</span><img src="'+e.img+'" alt="" loading="lazy"/></figure>'+
+      el.innerHTML='<figure><img src="'+e.img+'" alt="" loading="lazy"/></figure>'+
         '<div class="body"><span class="meta">'+e.date+' · '+e.city+'</span><h3>'+e.title+'</h3><p>'+e.desc.slice(0,110)+'…</p></div>';
       var im=el.querySelector('img');
       im.addEventListener('error',function(){
