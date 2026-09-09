@@ -324,13 +324,13 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .tcard:hover .box,.tcard:focus-visible .box{background:var(--blkD,var(--blk,var(--gold)))}
 .tcard:hover .box img,.tcard:focus-visible .box img{transform:translateX(-50%) translateY(-8px)}
 .tcard .nm{font-family:var(--disp);font-weight:800;font-size:clamp(20px,2vw,25px);color:var(--navy-ink);line-height:1.2;margin-top:20px;display:block}
-.tcard .rl{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-ink);margin-top:6px;display:block}
+.tcard .rl{font-family:var(--body);font-weight:500;font-size:15px;color:var(--mut);margin-top:4px;display:block}
 @media(max-width:760px){.tgrid{grid-template-columns:1fr;max-width:400px;margin:0 auto;row-gap:76px}}
 /* team page: member cards — smaller pop-out squares, no initials */
 .tgrid.four{grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);padding-top:clamp(36px,4vw,56px)}
 .tcard.mat .box img{width:100%;height:auto}
 .tcard.mat .nm{font-size:clamp(18px,1.7vw,21px);margin-top:16px}
-.tcard.mat .rl{font-size:11.5px}
+.tcard.mat .rl{font-size:14px}
 @media(max-width:900px){.tgrid.four{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.tgrid.four{grid-template-columns:repeat(2,1fr);row-gap:40px}}
 /* bio modal layout (uses .modal-veil/.modal base) */
