@@ -96,6 +96,7 @@
     <div class="inner">
       <p class="meta" id="mMeta"></p>
       <h3 id="mTitle"></h3>
+      <p class="venue" id="mVenue"></p>
       <p id="mDesc"></p>
       <div class="facts" id="mFacts"></div>
     </div>
@@ -160,7 +161,7 @@ var EVENTS=[
     cat:"Language", badge:"Language",
     img:"assets/EventPhotos/lab-dammam-2.jpg",
     desc:"SGYN's first Language Across Borders session in Dammam brought Chinese and Arabic learners together at Ithra Library for an interactive exploration of the pictographic origins of Chinese characters. Through games, storytelling, and an open mic, the session created an accessible space for language learning and cross-cultural exchange, featuring Professor Jing Chai of NYU Abu Dhabi and UAE-based journalist and content creator Aya Zhang.",
-    facts:["Program: Language Across Borders","Guests: Prof. Jing Chai (NYU Abu Dhabi), Aya Zhang","Venue: Ithra Library"],
+    facts:["Program: Language Across Borders","Guests: Prof. Jing Chai (NYU Abu Dhabi), Aya Zhang"],
     shots:["assets/EventPhotos/lab-dammam-2.jpg","assets/EventPhotos/lab-dammam-3.jpg"]
   },
   {
@@ -169,7 +170,7 @@ var EVENTS=[
     cat:"Dialogues", badge:"Dialogue",
     img:null,
     desc:"Organized with the UAE Youth Ambassadors and the Beijing Global Shapers Hub, young Chinese and Emirati leaders came together in Beijing's 798 Art District for a keynote panel moderated by Shahad Alnuaimi, followed by focused discussions on cross-cultural communication, entrepreneurship, and the development of China–Gulf relations — joined by students from PKU's Yenching Academy and Tsinghua's Schwarzman Scholars.",
-    facts:["Partners: UAE Youth Ambassadors, Beijing Global Shapers Hub","Speakers: Gloria Tsang, Joshua Gauche, Su Jingxuan, Karen Wang","Venue: 798 Art District"],
+    facts:["Partners: UAE Youth Ambassadors, Beijing Global Shapers Hub","Speakers: Gloria Tsang, Joshua Gauche, Su Jingxuan, Karen Wang"],
     ig:"https://www.instagram.com/p/DbdsbIUkasF/",
     shots:[]
   },
@@ -392,8 +393,13 @@ var EVENTS=[
       slides.style.display='none';
       mi.removeAttribute('src');
     }
-    document.getElementById('mMeta').textContent=e.date+' · '+e.city+' · '+e.venue;
+    document.getElementById('mMeta').innerHTML='<span class="d"></span><span class="rule"></span><span class="c"></span>';
+    document.querySelector('#mMeta .d').textContent=e.date;
+    document.querySelector('#mMeta .c').textContent=e.city;
     document.getElementById('mTitle').textContent=e.title;
+    var mv=document.getElementById('mVenue');
+    mv.textContent=e.venue||'';
+    mv.style.display=e.venue?'':'none';
     document.getElementById('mDesc').textContent=e.desc;
     var facts=e.facts.map(function(f){return '<span>'+f+'</span>'});
     if(e.ig){facts.push('<span><a href="'+e.ig+'" target="_blank" rel="noopener" style="color:var(--gold-ink);font-weight:600">See the recap on Instagram →</a></span>')}
