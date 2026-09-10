@@ -90,7 +90,7 @@
         <span class="rl">KSA Chief of Staff</span>
       </button>
       <button class="tcard mat" type="button" data-i="4" style="--blk:#d6ad64;--blkD:#cda254">
-        <span class="box"><img src="assets/ghalia_cutout.webp?v=3" alt="Ghalia Badokhon"/></span>
+        <span class="box"><img src="assets/ghalia_cutout.webp?v=4" alt="Ghalia Badokhon"/></span>
         <span class="nm">Ghalia Badokhon</span>
         <span class="rl">Jeddah Lead</span>
       </button>
@@ -110,9 +110,14 @@
         <span class="rl">Administrative Lead</span>
       </button>
       <button class="tcard mat" type="button" data-i="8" style="--blk:#e7d7b8;--blkD:#dfcba4">
-        <span class="box"><img src="assets/rakan_cutout.webp" alt="Rakan Al-Shaibani"/></span>
+        <span class="box"><img src="assets/rakan_cutout.webp?v=2" alt="Rakan Al-Shaibani"/></span>
         <span class="nm">Rakan Al-Shaibani</span>
         <span class="rl">SGC Advisory, Consultant</span>
+      </button>
+      <button class="tcard mat" type="button" data-i="9" style="--blk:#b9cbdb;--blkD:#a9bfd2">
+        <span class="box noimg"><span class="stamp">RA</span></span>
+        <span class="nm">Rahaf Al-Rozah</span>
+        <span class="rl">Literary Salon Coordinator</span>
       </button>
     </div>
   </div>
@@ -215,7 +220,10 @@ var TEAM=[
    bio:"Yasser is SGYN's Administrative Lead, keeping the network's operations, records, and coordination running behind the scenes."},
   {name:"Rakan Al-Shaibani", role:"SGC Advisory, Consultant", city:"",
    photo:"assets/rakan_headshot_preferred.jpeg", link:"", tier:"lead",
-   bio:"Rakan is a consultant with SGC Advisory, supporting the institutional work of the wider Sino-Gulf Collective."}
+   bio:"Rakan is a consultant with SGC Advisory, supporting the institutional work of the wider Sino-Gulf Collective."},
+  {name:"Rahaf Al-Rozah", role:"Literary Salon Coordinator", city:"Jeddah",
+   photo:"", link:"", tier:"lead",
+   bio:"Rahaf coordinates SGYN's Literary Salon in Jeddah — the network's monthly gathering on literature, translation, and identity."}
 ];
 
 (function(){
@@ -227,8 +235,9 @@ var TEAM=[
 
   var veil=document.getElementById('veil');
   function openBio(m){
-    document.getElementById('bImg').src=m.photo;
-    document.getElementById('bImg').alt=m.name;
+    var bi=document.getElementById('bImg');
+    bi.src=m.photo; bi.alt=m.name;
+    bi.style.display=m.photo?'':'none';
     document.getElementById('bName').textContent=m.name;
     document.getElementById('bRole').textContent=m.role;
     document.getElementById('bCity').textContent=m.city;

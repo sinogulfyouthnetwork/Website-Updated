@@ -77,4 +77,39 @@
     });
   },{threshold:.5});
   document.querySelectorAll('[data-count]').forEach(function(b){mio.observe(b)});
+
+  /* text roll hover: each letter rolls up, a twin rolls in from below */
+  document.querySelectorAll('[data-roll]').forEach(function(el){
+    var txt=(el.textContent||'').trim(), arrow='';
+    if(/\s→$/.test(txt)){arrow='→';txt=txt.replace(/\s*→$/,'');}
+    var html='';
+    txt.split('').forEach(function(c,i){
+      var ch=(c===' ')?'&nbsp;':c.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      var d=' style="transition-delay:'+(i*18)+'ms"';
+      html+='<span class="tr"><i'+d+'>'+ch+'</i><i'+d+'>'+ch+'</i></span>';
+    });
+    if(arrow)html+=' <span class="roll-arrow">→</span>';
+    el.innerHTML=html;
+  });
+
+  /* navbar: pill that glides between links on hover (desktop only) */
+  var navlinks=document.querySelector('.navlinks');
+  if(navlinks && matchMedia('(hover: hover)').matches){
+    var pill=document.createElement('span');
+    pill.className='nav-pill';
+    navlinks.insertBefore(pill,navlinks.firstChild);
+    var shown=false;
+    navlinks.querySelectorAll(':scope > a, :scope > .dd > a').forEach(function(t){
+      t.addEventListener('mouseenter',function(){
+        var r=t.getBoundingClientRect(), nr=navlinks.getBoundingClientRect();
+        if(!shown){pill.classList.add('snap');}
+        pill.style.width=(r.width+20)+'px';
+        pill.style.height=(r.height+12)+'px';
+        pill.style.transform='translate('+(r.left-nr.left-10)+'px,'+(r.top-nr.top-6)+'px)';
+        if(!shown){pill.offsetWidth;pill.classList.remove('snap');shown=true;}
+        pill.classList.add('on');
+      });
+    });
+    navlinks.addEventListener('mouseleave',function(){pill.classList.remove('on');shown=false;});
+  }
 })();
