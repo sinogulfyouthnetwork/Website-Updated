@@ -90,7 +90,7 @@
         <span class="rl">KSA Chief of Staff</span>
       </button>
       <button class="tcard mat" type="button" data-i="4" style="--blk:#d6ad64;--blkD:#cda254">
-        <span class="box"><img src="assets/ghalia_cutout.webp?v=4" alt="Ghalia Badokhon"/></span>
+        <span class="box"><img src="assets/ghalia_cutout.webp?v=5" alt="Ghalia Badokhon"/></span>
         <span class="nm">Ghalia Badokhon</span>
         <span class="rl">Jeddah Lead</span>
       </button>
@@ -195,31 +195,31 @@
    team writes fuller ones. */
 var TEAM=[
   {name:"Gloria Tsang", role:"Founder & Executive Director", city:"Beijing",
-   photo:"assets/GloriaHeadshot2.jpeg", link:"https://www.linkedin.com/in/g-tsang/", tier:"core",
+   photo:"assets/gloria_cutout.webp", link:"https://www.linkedin.com/in/g-tsang/", tier:"core",
    bio:"Gloria leads SGYN with 8+ years of experience in global youth advocacy, recognised by organisations including WFUNA and Gulf Intelligence, which named her one of the Top 100 Sustainability Voices in the Middle East. Her professional experience spans fintech at Morgan Stanley in NYC, and various industries across the GCC, Hong Kong, and Southeast Asia. She's currently a Yenching Scholar at Peking University, furthering her research on China-MENA relations, Gulf geopolitics and tech cooperation."},
   {name:"Abdulla AlHemeiri", role:"Deputy Director", city:"United Arab Emirates",
-   photo:"assets/abdulla_picture.jpg", link:"https://www.linkedin.com/in/abdulla-alhemeiri-b46292215", tier:"core",
+   photo:"assets/abdulla_cutout.webp", link:"https://www.linkedin.com/in/abdulla-alhemeiri-b46292215", tier:"core",
    bio:"Abdulla is one of the few Emirati professionals with deep on-the-ground experience on both sides of the China-Gulf relationship. He joined SGYN's leadership team as a Yenching Scholar at Peking University, studying Economics and Management and was the first GCC national admitted to the programme. His research examines China's economic reach into the Gulf through the UAE as a strategic intermediary. He also previously served as a Political Analyst at the UAE Embassy in Beijing."},
   {name:"Huayi Shen", role:"Head of Programs & Partnerships", city:"Saudi Arabia",
-   photo:"assets/huayi_headshot.JPG", link:"https://www.linkedin.com/in/huayishen/", tier:"core",
+   photo:"assets/huayi_cutout.webp", link:"https://www.linkedin.com/in/huayishen/", tier:"core",
    bio:"Huayi designed and leads SGYN's LAB programme and oversees partnerships across China and Saudi Arabia. He holds a degree in Arabic with studies at UIBE, Cairo University, and AUC, and has experience in communications and media through internships at China Media Group and the UIBE Media Center. Based in Saudi Arabia, he works in logistics for a Chinese-Saudi joint venture. He also founded one of RedNote's growing communities for Chinese expats in the Gulf."},
   {name:"Salmeen Binmahfooz", role:"KSA Chief of Staff", city:"Dhahran",
-   photo:"assets/salmeen_headshot_2.JPG", link:"https://www.linkedin.com/in/salmeen-binmahfooz-84b046219/", tier:"lead",
+   photo:"assets/salmeen_cutout.webp", link:"https://www.linkedin.com/in/salmeen-binmahfooz-84b046219/", tier:"lead",
    bio:"Salmeen has been at the centre of SGYN's Saudi operations since the beginning — co-organising the network's first events in the Kingdom and building its entire digital infrastructure from the ground up. He studies Management Information Systems at KFUPM. Outside of SGYN, he's a former Youth Brazilian Jiu-Jitsu World Champion and competes with the Saudi Dodgeball Federation."},
   {name:"Ghalia Badokhon", role:"Jeddah Lead", city:"Jeddah",
-   photo:"assets/ghalia_headshot.jpg", link:"https://www.linkedin.com/in/galiah-badokhon-648659202", tier:"lead",
+   photo:"assets/ghalia_cutout.webp?v=5", link:"https://www.linkedin.com/in/galiah-badokhon-648659202", tier:"lead",
    bio:"Ghalia leads SGYN's on-the-ground presence in Jeddah, driving outreach, event logistics, and community organising in the city. She is currently a Computer Science student at Effat University, with a background in graphic design and social media."},
   {name:"Cindy Li", role:"Shanghai Lead", city:"Shanghai",
-   photo:"assets/cindy_pfp_2.jpeg", link:"https://www.linkedin.com/in/itscindyli/", tier:"lead",
+   photo:"assets/cindy_cutout.webp", link:"https://www.linkedin.com/in/itscindyli/", tier:"lead",
    bio:"Cindy leads the founding city's community — where SGYN began in December 2024 — and its events across Shanghai."},
   {name:"Bowen Gu", role:"NYC Lead", city:"New York",
-   photo:"assets/Bowen_pfp.jpg", link:"https://www.linkedin.com/in/bowengucu/", tier:"lead",
+   photo:"assets/bowen_cutout.webp", link:"https://www.linkedin.com/in/bowengucu/", tier:"lead",
    bio:"Bowen handles SGYN's operations in NYC, including the annual Sino-Gulf Youth Dialogue in partnership with the UAE Mission to the United Nations. He is an investment banker based between New York and Shanghai, with prior experience at a PIF-affiliated private equity firm and as the founder of an e-commerce venture in Saudi Arabia. He holds a Master's from Columbia University and a Bachelor's from Central South University. Outside of finance, he's a musician and DJ."},
   {name:"Yasser Mejia", role:"Administrative Lead", city:"",
-   photo:"assets/yasser_mejia_headshot.jpeg", link:"", tier:"lead",
+   photo:"assets/yasser_cutout.webp", link:"", tier:"lead",
    bio:"Yasser is SGYN's Administrative Lead, keeping the network's operations, records, and coordination running behind the scenes."},
   {name:"Rakan Al-Shaibani", role:"SGC Advisory, Consultant", city:"",
-   photo:"assets/rakan_headshot_preferred.jpeg", link:"", tier:"lead",
+   photo:"assets/rakan_cutout.webp?v=2", link:"", tier:"lead",
    bio:"Rakan is a consultant with SGC Advisory, supporting the institutional work of the wider Sino-Gulf Collective."},
   {name:"Rahaf Al-Rozah", role:"Literary Salon Coordinator", city:"Jeddah",
    photo:"", link:"", tier:"lead",
@@ -229,15 +229,16 @@ var TEAM=[
 (function(){
   document.querySelectorAll('.tcard').forEach(function(btn){
     btn.addEventListener('click',function(){
-      var m=TEAM[+btn.dataset.i]; if(m)openBio(m);
+      var m=TEAM[+btn.dataset.i]; if(m)openBio(m, btn.style.getPropertyValue('--blk'));
     });
   });
 
   var veil=document.getElementById('veil');
-  function openBio(m){
+  function openBio(m, blk){
     var bi=document.getElementById('bImg');
     bi.src=m.photo; bi.alt=m.name;
     bi.style.display=m.photo?'':'none';
+    bi.style.backgroundColor=m.photo?(blk||''):'';
     document.getElementById('bName').textContent=m.name;
     document.getElementById('bRole').textContent=m.role;
     document.getElementById('bCity').textContent=m.city;
