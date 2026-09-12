@@ -4,12 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Partner / Sponsor — Sino-Gulf Youth Network</title>
-<meta name="description" content="Why universities, missions, companies, funds, and cultural institutions work with SGYN — partnership formats and sponsorship opportunities." />
+<meta name="description" content="Join SGYN's partner ecosystem — why universities, missions, companies, and cultural institutions work with SGYN, and how to start a partnership." />
 <link rel="icon" href="assets/SGYNBannerSmall.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/partner.css" />
 </head>
 <body>
 
@@ -49,128 +50,196 @@
   </nav>
 </header>
 
-<section class="page-hero">
+<!-- hero: two-tone split + partner intake form -->
+<section class="page-hero phero">
   <div class="wrap">
     <p class="crumb"><a href="index.html">Home</a><i aria-hidden="true"></i>Partner / Sponsor</p>
-    <h1>Get a seat with <em>the next generation.</em></h1>
-    <p class="lead">China–Gulf ties will be run by people who are in university right now. SGYN is where they already meet — a youth-led platform with institutional credibility on both shores, and no corporate channel can replicate its access.</p>
-    <div class="ctas">
-      <a class="btn gold" href="mailto:info@sinogulfyouthnetwork.com?subject=Partnership%20with%20SGYN">Propose a Partnership</a>
-      <a class="btn ghost" href="mailto:info@sinogulfyouthnetwork.com?subject=Sponsoring%20SGYN">Sponsor an Event</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Join SGYN's <em>Partner Ecosystem</em></h1>
+        <p class="lead">Support a new generation of people-to-people ties across China and the Gulf.</p>
+        <p class="also">Prefer to write directly? <a href="mailto:info@sinogulfyouthnetwork.com?subject=Partnership%20with%20SGYN">info@sinogulfyouthnetwork.com</a></p>
+      </div>
+      <form class="intake" id="intakeForm" novalidate>
+        <h3>Tell us about your organization</h3>
+        <p class="fine">We reply to every serious inquiry, usually within a week.</p>
+        <div class="frow">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required /></div>
+          <div class="field"><label for="f-org">Organization</label><input id="f-org" name="org" type="text" autocomplete="organization" required /></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label for="f-role">Role / Title</label><input id="f-role" name="role" type="text" autocomplete="organization-title" /></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label for="f-type">Organization type</label>
+            <select id="f-type" name="type">
+              <option>University or academic institution</option>
+              <option>Diplomatic mission or government</option>
+              <option>Company or fund</option>
+              <option>Cultural or community organization</option>
+              <option>Media or publication</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-interest">Area of interest</label>
+            <select id="f-interest" name="interest">
+              <option>Partnership</option>
+              <option>Event sponsorship</option>
+              <option>Program sponsorship</option>
+              <option>Talent Pipeline sponsorship</option>
+              <option>Media Lab collaboration</option>
+              <option>City &amp; hub support</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Message / partnership idea</label><textarea id="f-msg" name="msg" rows="3" placeholder="What would you like to build together?"></textarea></div>
+        <button class="btn gold" type="submit">Explore a Partnership</button>
+      </form>
     </div>
   </div>
 </section>
 
+<!-- who we've worked with: heading left, drifting rows right -->
+<!-- wordmarks stand in until partner logo files are collected; swap the <b> tags for logo <img>s then -->
+<section style="background:#fff">
+  <div class="wrap">
+    <div class="orgs2 rv">
+      <div class="orgs2-head">
+        <h2>Who we've <em>worked with</em></h2>
+        <p>Since December 2024, SGYN has co-hosted and partnered with universities, diplomatic missions, youth networks, and cultural institutions across China, the Gulf, and key international hubs.</p>
+      </div>
+      <div class="orgs2-rows">
+        <div class="mrow"><div class="mtrack" style="--spd:64s">
+          <span class="mset"><b>UAE Permanent Mission to the UN</b><b>Yenching Academy, Peking University</b><b>NYU Shanghai</b><b>Effat University</b><b>UAE Society NYC</b></span>
+          <span class="mset dup" aria-hidden="true"><b>UAE Permanent Mission to the UN</b><b>Yenching Academy, Peking University</b><b>NYU Shanghai</b><b>Effat University</b><b>UAE Society NYC</b></span>
+          <span class="mset dup" aria-hidden="true"><b>UAE Permanent Mission to the UN</b><b>Yenching Academy, Peking University</b><b>NYU Shanghai</b><b>Effat University</b><b>UAE Society NYC</b></span>
+          <span class="mset dup" aria-hidden="true"><b>UAE Permanent Mission to the UN</b><b>Yenching Academy, Peking University</b><b>NYU Shanghai</b><b>Effat University</b><b>UAE Society NYC</b></span>
+        </div></div>
+        <div class="mrow rev"><div class="mtrack" style="--spd:78s">
+          <span class="mset"><b>UAE Embassy in Beijing</b><b>Shaanxi Office of Foreign Affairs</b><b>NYU Abu Dhabi</b><b>Beijing Global Shapers Hub</b></span>
+          <span class="mset dup" aria-hidden="true"><b>UAE Embassy in Beijing</b><b>Shaanxi Office of Foreign Affairs</b><b>NYU Abu Dhabi</b><b>Beijing Global Shapers Hub</b></span>
+          <span class="mset dup" aria-hidden="true"><b>UAE Embassy in Beijing</b><b>Shaanxi Office of Foreign Affairs</b><b>NYU Abu Dhabi</b><b>Beijing Global Shapers Hub</b></span>
+          <span class="mset dup" aria-hidden="true"><b>UAE Embassy in Beijing</b><b>Shaanxi Office of Foreign Affairs</b><b>NYU Abu Dhabi</b><b>Beijing Global Shapers Hub</b></span>
+        </div></div>
+        <div class="mrow"><div class="mtrack" style="--spd:70s">
+          <span class="mset"><b>UAE Consulate General in Shanghai</b><b>Tsinghua SABRI</b><b>University of Business and Technology</b><b>Qanateer</b><b>UAE Youth Ambassadors</b></span>
+          <span class="mset dup" aria-hidden="true"><b>UAE Consulate General in Shanghai</b><b>Tsinghua SABRI</b><b>University of Business and Technology</b><b>Qanateer</b><b>UAE Youth Ambassadors</b></span>
+          <span class="mset dup" aria-hidden="true"><b>UAE Consulate General in Shanghai</b><b>Tsinghua SABRI</b><b>University of Business and Technology</b><b>Qanateer</b><b>UAE Youth Ambassadors</b></span>
+          <span class="mset dup" aria-hidden="true"><b>UAE Consulate General in Shanghai</b><b>Tsinghua SABRI</b><b>University of Business and Technology</b><b>Qanateer</b><b>UAE Youth Ambassadors</b></span>
+        </div></div>
+        <div class="mrow rev"><div class="mtrack" style="--spd:84s">
+          <span class="mset"><b>ECUST</b><b>Greater China Initiative at SIPA, Columbia University</b><b>Arab Network @ Singapore</b><b>I Got One Project</b></span>
+          <span class="mset dup" aria-hidden="true"><b>ECUST</b><b>Greater China Initiative at SIPA, Columbia University</b><b>Arab Network @ Singapore</b><b>I Got One Project</b></span>
+          <span class="mset dup" aria-hidden="true"><b>ECUST</b><b>Greater China Initiative at SIPA, Columbia University</b><b>Arab Network @ Singapore</b><b>I Got One Project</b></span>
+          <span class="mset dup" aria-hidden="true"><b>ECUST</b><b>Greater China Initiative at SIPA, Columbia University</b><b>Arab Network @ Singapore</b><b>I Got One Project</b></span>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- why partner with SGYN: three colour squares -->
 <section>
   <div class="wrap">
-    <div class="sec-top rv"><h2>Who we work with</h2></div>
-    <p class="lead rv" style="margin-bottom:26px">Since December 2024, SGYN has co-hosted or partnered with twenty institutions, including:</p>
-    <!-- swap names for a logo wall once partner brand files are collected -->
-    <div class="idx rv">
-      <div class="idx-row two"><span class="no">◇</span><span class="word">UAE Permanent Mission to the UN</span><span class="side">Diplomatic — New York</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">UAE Embassy in Beijing &amp; Consulate General in Shanghai</span><span class="side">Diplomatic — China</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">Yenching Academy, Peking University</span><span class="side">Academic — Beijing</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">Shaanxi Office of Foreign Affairs</span><span class="side">Government — China</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">NYU Shanghai &amp; NYU Abu Dhabi</span><span class="side">Academic — Shanghai / Abu Dhabi</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">Tsinghua SABRI &amp; ECUST</span><span class="side">Academic — China</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">Effat University &amp; University of Business and Technology</span><span class="side">Academic — Jeddah</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">UAE Youth Ambassadors — UN &amp; Beijing</span><span class="side">Youth — Diplomatic</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">UAE Society NYC &amp; Beijing Global Shapers Hub</span><span class="side">Youth &amp; civic</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">Greater China Initiative at SIPA, Columbia University</span><span class="side">Academic — New York</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">Qanateer &amp; Arab Network @ Singapore</span><span class="side">Community — Jeddah / Singapore</span></div>
-      <div class="idx-row two"><span class="no">◇</span><span class="word">Confucius Institute at Dhaka &amp; I Got One Project</span><span class="side">Language &amp; culture</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="tight metrics-band" style="padding-top:clamp(40px,5vw,72px);padding-bottom:clamp(40px,5vw,72px)">
-  <div class="wrap">
-    <div class="figures rv">
-      <div class="fig"><b data-count="18">0</b><span>Events hosted</span></div>
-      <div class="fig"><b data-count="8">0</b><span>Cities</span></div>
-      <div class="fig"><b data-count="2">0</b><span>Continents</span></div>
-      <div class="fig"><b data-count="100" data-suffix="+">0</b><span>Members</span></div>
-      <div class="fig"><b data-count="20">0</b><span>Partner institutions</span></div>
-      <div class="fig"><b data-count="3">0</b><span>Working languages</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="tight" style="padding-top:clamp(40px,5vw,72px)">
-  <div class="wrap">
-    <div class="sec-top rv"><h2>What partners gain</h2></div>
-    <div class="idx rv">
-      <div class="idx-row big">
-        <span class="no">01</span>
-        <span class="word">Reach</span>
-        <span class="desc">Direct access to students and young professionals across <b>8 cities</b> in China, Saudi Arabia, Singapore, and New York — in English, Mandarin, and Arabic.</span>
+    <div class="why-head rv"><h2>Why partner with SGYN?</h2></div>
+    <div class="why-grid rv">
+      <div class="why c1">
+        <span class="sp"></span>
+        <h3>Reach the next generation</h3>
+        <p>Direct access to an emerging community of students, young professionals, academics, practitioners, and institutions across China, the Gulf, and key international hubs.</p>
       </div>
-      <div class="idx-row big">
-        <span class="no">02</span>
-        <span class="word">Credibility</span>
-        <span class="desc">Programming young people actually attend, with the institutional polish embassies and universities have already trusted — from the <b>UN Mission</b> to <b>Yenching Academy</b>.</span>
+      <div class="why c2">
+        <span class="sp"></span>
+        <h3>Credible engagement &amp; thought leadership</h3>
+        <p>Instead of simply placing a logo on an event, partners can participate in substantive programming that young people actually attend: dialogues, roundtables, cultural events, professional development, and exchanges.</p>
       </div>
-      <div class="idx-row big">
-        <span class="no">03</span>
-        <span class="word">Talent</span>
-        <span class="desc">Talent Pipeline partners meet <b>bilingual, cross-culturally fluent candidates</b> before anyone else does.</span>
+      <div class="why c3">
+        <span class="sp"></span>
+        <h3>Activate across markets</h3>
+        <p>SGYN provides the local networks, cultural fluency, and on-the-ground execution needed to turn strategic interest into locally grounded initiatives.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ways to work with SGYN: accordion -->
 <section class="tight">
   <div class="wrap">
     <div class="sec-top rv"><h2>Ways to work with SGYN</h2></div>
-    <div class="idx rv">
-      <a class="idx-row" href="mailto:info@sinogulfyouthnetwork.com?subject=Partnership%20with%20SGYN">
-        <span class="no">01</span>
-        <span class="word">Partnership</span>
-        <span class="desc">Co-hosted events, campus chapters, academic exchange, venue and institutional support.<span class="go-hint">Propose →</span></span>
-      </a>
-      <a class="idx-row" href="mailto:info@sinogulfyouthnetwork.com?subject=Event%20Sponsorship">
-        <span class="no">02</span>
-        <span class="word">Event sponsorship</span>
-        <span class="desc">Your name on a roundtable, cultural evening, or the flagship dialogue — visibility and community access in one evening.<span class="go-hint">Sponsor →</span></span>
-      </a>
-      <a class="idx-row" href="mailto:info@sinogulfyouthnetwork.com?subject=Program%20Sponsorship">
-        <span class="no">03</span>
-        <span class="word">Program sponsorship</span>
-        <span class="desc">Back a full season of the Silk-Road Roundtable, Language Across Borders, or the Literary Salon.<span class="go-hint">Sponsor →</span></span>
-      </a>
-      <a class="idx-row" href="mailto:info@sinogulfyouthnetwork.com?subject=Talent%20Pipeline%20Sponsorship">
-        <span class="no">04</span>
-        <span class="word">Talent Pipeline sponsorship</span>
-        <span class="desc">Fund mentorship and opportunity-matching — and meet the corridor's most motivated young talent first.<span class="go-hint">Sponsor →</span></span>
-      </a>
-      <a class="idx-row" href="mailto:info@sinogulfyouthnetwork.com?subject=Media%20Lab%20Collaboration">
-        <span class="no">05</span>
-        <span class="word">Media Lab collaboration</span>
-        <span class="desc">Commission or co-publish youth voices — essays, films, and art from both regions, with your institution's name on the series.<span class="go-hint">Collaborate →</span></span>
-      </a>
-      <a class="idx-row" href="mailto:info@sinogulfyouthnetwork.com?subject=Hub%20Support">
-        <span class="no">06</span>
-        <span class="word">City &amp; hub support</span>
-        <span class="desc">Help open SGYN's next city — venue partnerships, local sponsorship, and regional anchoring for new hubs.<span class="go-hint">Support →</span></span>
-      </a>
-      <a class="idx-row" href="https://buymeacoffee.com/sinogulfyouthnetwork" target="_blank" rel="noopener">
-        <span class="no">07</span>
-        <span class="word">Buy us a coffee ☕</span>
-        <span class="desc">The simplest way to back the mission — every cup funds venues, mooncakes, and the next event.<span class="go-hint">buymeacoffee.com →</span></span>
-      </a>
+    <div class="acc rv" id="waysAcc">
+      <div class="acc-item">
+        <button class="acc-trig" aria-expanded="false"><span>Partnership</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+        <div class="acc-panel"><div><div class="acc-body">
+          <p>Co-hosted events, campus chapters, academic exchange, venue and institutional support.</p>
+          <a href="mailto:info@sinogulfyouthnetwork.com?subject=Partnership%20with%20SGYN">Propose a partnership →</a>
+        </div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trig" aria-expanded="false"><span>Event sponsorship</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+        <div class="acc-panel"><div><div class="acc-body">
+          <p>Your name on a roundtable, cultural evening, or the flagship dialogue — visibility and community access in one evening.</p>
+          <a href="mailto:info@sinogulfyouthnetwork.com?subject=Event%20Sponsorship">Sponsor an event →</a>
+        </div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trig" aria-expanded="false"><span>Program sponsorship</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+        <div class="acc-panel"><div><div class="acc-body">
+          <p>Back a full season of the Silk-Road Roundtable, Language Across Borders, or the Literary Salon.</p>
+          <a href="mailto:info@sinogulfyouthnetwork.com?subject=Program%20Sponsorship">Sponsor a program →</a>
+        </div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trig" aria-expanded="false"><span>Talent Pipeline sponsorship</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+        <div class="acc-panel"><div><div class="acc-body">
+          <p>Fund mentorship and opportunity-matching — and meet the corridor's most motivated young talent first.</p>
+          <a href="mailto:info@sinogulfyouthnetwork.com?subject=Talent%20Pipeline%20Sponsorship">Sponsor the Talent Pipeline →</a>
+        </div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trig" aria-expanded="false"><span>Media Lab collaboration</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+        <div class="acc-panel"><div><div class="acc-body">
+          <p>Commission or co-publish youth voices — essays, films, and art from both regions, with your institution's name on the series.</p>
+          <a href="mailto:info@sinogulfyouthnetwork.com?subject=Media%20Lab%20Collaboration">Collaborate with the Media Lab →</a>
+        </div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trig" aria-expanded="false"><span>City &amp; hub support</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+        <div class="acc-panel"><div><div class="acc-body">
+          <p>Help open SGYN's next city — venue partnerships, local sponsorship, and regional anchoring for new hubs.</p>
+          <a href="mailto:info@sinogulfyouthnetwork.com?subject=Hub%20Support">Support a new hub →</a>
+        </div></div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="tight">
+<!-- buy us a coffee: coffee ticket -->
+<section class="tight" style="padding-top:clamp(40px,5vw,72px)">
   <div class="wrap">
-    <div class="cta-band rv">
-      <h2>One email starts it: <em>info@sinogulfyouthnetwork.com</em></h2>
-      <div class="ctas">
-        <a class="btn gold" href="mailto:info@sinogulfyouthnetwork.com?subject=Partnership%20with%20SGYN">Propose a Partnership</a>
-        <a class="btn ghost" href="mailto:info@sinogulfyouthnetwork.com?subject=Sponsoring%20SGYN">Sponsor an Event</a>
-      </div>
-    </div>
+    <a class="cofC rv" href="https://buymeacoffee.com/sinogulfyouthnetwork" target="_blank" rel="noopener">
+      <span class="pane">
+        <svg class="dallah" viewBox="0 0 64 84" aria-hidden="true">
+          <circle cx="33" cy="6" r="2.6"/>
+          <path d="M27 18 L33 9 L39 18"/>
+          <path d="M26 18 H40"/>
+          <path d="M28 18 C27 21 26 23 25 25"/>
+          <path d="M38 18 C39 21 40 23 41 25"/>
+          <path d="M25 25 C17 36 19 54 27 64"/>
+          <path d="M41 25 C49 36 47 54 39 64"/>
+          <path d="M27 64 L25 72 H41 L39 64"/>
+          <path d="M22 76 H44"/>
+          <path d="M25 31 C12 29 5 17 9 8 C10 6 13 6.5 12.5 9 C10.5 17 17 25 25 26"/>
+          <path d="M41 28 C53 31 54 44 42 51"/>
+        </svg>
+      </span>
+      <span class="body">
+        <h3>You can buy us a coffee</h3>
+        <p>SGYN's operations are entirely self-funded by our leadership team, and all our events and resources are free for our youth community. If you'd like to contribute to our initiative, you can "buy us a coffee" here.</p>
+        <span class="go-line">buymeacoffee.com <b>→</b></span>
+      </span>
+    </a>
   </div>
 </section>
 
@@ -210,5 +279,36 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+(function(){
+  /* ways-to-work accordion (motion-primitives Accordion port: 0.2s easeInOut, chevron -180) */
+  var acc = document.getElementById('waysAcc');
+  if(acc){
+    var items = Array.prototype.slice.call(acc.querySelectorAll('.acc-item'));
+    items.forEach(function(item){
+      var trig = item.querySelector('.acc-trig');
+      trig.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        items.forEach(function(o){ o.classList.remove('open'); o.querySelector('.acc-trig').setAttribute('aria-expanded','false'); });
+        if(!isOpen){ item.classList.add('open'); trig.setAttribute('aria-expanded','true'); }
+      });
+    });
+  }
+
+  /* intake form → pre-filled email (static site, no backend) */
+  var form = document.getElementById('intakeForm');
+  if(form){ form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var v = function(id){ return (document.getElementById(id).value||'').trim(); };
+    var name=v('f-name'), org=v('f-org'), role=v('f-role'), email=v('f-email'),
+        type=v('f-type'), interest=v('f-interest'), msg=v('f-msg');
+    if(!name||!org||!email){ if(form.reportValidity) form.reportValidity(); return; }
+    var subject = 'Partnership inquiry — ' + org;
+    var body = 'Name: '+name+'\nOrganization: '+org+'\nRole / Title: '+role+'\nEmail: '+email+
+               '\nOrganization type: '+type+'\nArea of interest: '+interest+'\n\n'+msg;
+    location.href = 'mailto:info@sinogulfyouthnetwork.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  }); }
+})();
+</script>
 </body>
 </html>

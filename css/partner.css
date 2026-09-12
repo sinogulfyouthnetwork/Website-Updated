@@ -1,0 +1,98 @@
+/* ═══════════════════════════════════════════════════════════
+   Partner / Sponsor page — page-scoped styles (loads after main.css)
+   Redesign 2026-09-12: two-tone hero + intake form, drifting partner
+   rows, Ada-style value squares, accordion, coffee ticket.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── hero: two-tone navy/gold split with intake form ── */
+.phero{background:linear-gradient(90deg,var(--navy) 0 60%,var(--gold) 60% 100%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,5vw,84px);align-items:center;margin-top:26px}
+.phero h1{max-width:14ch}
+.hero-copy .lead{max-width:42ch}
+.hero-copy .also{margin-top:30px;font-size:14px;color:rgba(255,255,255,.6)}
+.hero-copy .also a{color:var(--gold);font-weight:600}
+.hero-copy .also a:hover{text-decoration:underline}
+@media(max-width:980px){.phero{background:var(--navy)}.hero-grid{grid-template-columns:1fr;gap:40px}}
+
+/* intake form card */
+.intake{background:#fff;border-radius:calc(var(--r) + 4px);padding:clamp(24px,2.8vw,36px);color:var(--text);box-shadow:0 24px 60px rgba(10,20,32,.3)}
+.intake h3{font-family:var(--disp);font-size:19px;font-weight:800;color:var(--navy-ink);margin-bottom:4px}
+.intake .fine{font-size:13.5px;color:var(--mut);margin-bottom:18px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;min-width:0}
+.field label{font-family:var(--disp);font-weight:600;font-size:12.5px;letter-spacing:.04em;color:var(--navy)}
+.field input,.field select,.field textarea{font-family:var(--body);font-size:14.5px;color:var(--text);background:#fff;border:1.5px solid rgba(47,77,105,.22);border-radius:8px;padding:11px 13px;transition:border-color .2s,box-shadow .2s;width:100%}
+.field textarea{resize:vertical;min-height:84px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(214,173,100,.22)}
+.intake .btn{width:100%;justify-content:center;margin-top:4px}
+@media(max-width:980px){.frow{grid-template-columns:1fr}}
+
+/* ── who we've worked with: heading left, drifting wordmark rows right ── */
+/* wordmarks stand in until partner logo files are collected */
+.orgs2{display:grid;grid-template-columns:minmax(270px,.85fr) 1.5fr;gap:clamp(30px,4.5vw,70px);align-items:center}
+.orgs2-head h2{font-family:var(--disp);font-size:clamp(30px,3.8vw,48px);font-weight:800;line-height:1.05;color:var(--navy-ink);letter-spacing:-.015em}
+.orgs2-head h2 em{font-style:normal;color:var(--gold)}
+.orgs2-head p{font-size:15px;color:var(--mut);margin-top:14px;max-width:44ch}
+.orgs2-rows{display:flex;flex-direction:column;gap:clamp(18px,2.4vw,30px);overflow:hidden;min-width:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mrow{overflow:hidden}
+.mtrack{display:flex;width:max-content;animation:mdrift var(--spd,60s) linear infinite}
+.mrow.rev .mtrack{animation-direction:reverse}
+.mrow:hover .mtrack{animation-play-state:paused}
+@keyframes mdrift{to{transform:translateX(-50%)}}
+.mset{display:flex;align-items:center;white-space:nowrap;gap:clamp(28px,3.2vw,50px);padding-right:clamp(28px,3.2vw,50px)}
+.mset b{font-family:var(--disp);font-weight:700;font-size:clamp(15px,1.5vw,20px);color:var(--navy);opacity:.82;transition:color .3s,opacity .3s}
+.mset b:hover{color:var(--gold-ink);opacity:1}
+@media(max-width:900px){.orgs2{grid-template-columns:1fr}.orgs2-head p{max-width:none}}
+
+/* ── why partner: three colour squares, text pinned to the bottom ── */
+.why-head{text-align:center;margin-bottom:clamp(30px,4vw,52px)}
+.why-head h2{font-family:var(--disp);font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.05;color:var(--navy-ink)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:960px;margin:0 auto}
+.why{display:flex;flex-direction:column;padding:clamp(18px,2.2vw,26px);min-height:clamp(210px,21vw,280px)}
+.why.c1{background:var(--gold)}
+.why.c2{background:#b9cbdb}
+.why.c3{background:#e7d7b8}
+.why .sp{flex:1}
+.why h3{font-family:var(--disp);font-size:clamp(18px,1.7vw,22px);font-weight:800;color:var(--navy-ink);line-height:1.14;max-width:16ch}
+.why p{font-size:12.5px;line-height:1.55;color:rgba(26,44,63,.8);margin-top:8px;max-width:40ch}
+@media(max-width:880px){.why-grid{grid-template-columns:1fr;max-width:420px}.why{min-height:0}.why .sp{min-height:30px}}
+
+/* ── ways to work: accordion ── */
+.acc{border-top:1px solid rgba(47,77,105,.18)}
+.acc-item{border-bottom:1px solid rgba(47,77,105,.18)}
+.acc-trig{width:100%;background:none;border:0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:clamp(18px,2vw,24px) 4px;font-family:var(--disp);font-weight:700;font-size:clamp(17px,1.9vw,22px);color:var(--navy-ink);text-align:left;transition:color .2s}
+.acc-trig:hover{color:var(--navy)}
+.acc-trig .chev{width:18px;height:18px;flex:none;color:var(--navy-ink);transition:transform .2s ease}
+.acc-item.open .chev{transform:rotate(-180deg)}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .2s ease-in-out}
+.acc-item.open .acc-panel{grid-template-rows:1fr}
+.acc-panel>div{overflow:hidden}
+.acc-body{padding:0 4px 22px;font-size:15px;color:var(--mut);max-width:72ch}
+.acc-body a{display:inline-block;margin-top:10px;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--gold-ink)}
+.acc-body a:hover{text-decoration:underline}
+
+/* ── buy us a coffee: two-tone ticket, dallah tips to pour on hover ── */
+.dallah{display:block}
+.dallah path,.dallah circle{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cofC{max-width:780px;margin:0 auto;display:grid;grid-template-columns:clamp(120px,18vw,160px) 1fr;border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(26,44,63,.1)}
+.cofC .pane{background:var(--gold);display:flex;align-items:center;justify-content:center;padding:26px 0}
+.cofC .pane .dallah{width:clamp(58px,7vw,78px);color:var(--navy-ink);transition:transform .5s cubic-bezier(.34,1.3,.5,1);transform-origin:35% 75%}
+.cofC:hover .pane .dallah{transform:rotate(-16deg)}
+.cofC .body{background:#fff;padding:clamp(22px,2.8vw,34px)}
+.cofC h3{font-family:var(--disp);font-size:clamp(19px,2vw,24px);font-weight:800;color:var(--navy-ink)}
+.cofC p{color:var(--mut);font-size:14px;margin-top:8px}
+.cofC .go-line{display:inline-block;margin-top:12px;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--gold-ink)}
+.cofC .go-line b{display:inline-block;transition:transform .25s;font-weight:inherit}
+.cofC:hover .go-line b{transform:translateX(5px)}
+.cofC .go-line:hover{text-decoration:underline}
+@media(max-width:560px){.cofC{grid-template-columns:1fr}.cofC .pane{padding:20px 0}}
+
+/* ── reduced motion ── */
+@media(prefers-reduced-motion:reduce){
+  .mtrack{animation:none;width:auto;flex-wrap:wrap;justify-content:center}
+  .mset{white-space:normal;flex-wrap:wrap;justify-content:center;padding-right:0}
+  .mset.dup{display:none}
+  .acc-panel{transition:none}
+  .acc-trig .chev{transition:none}
+  .cofC:hover .pane .dallah{transform:none}
+}
