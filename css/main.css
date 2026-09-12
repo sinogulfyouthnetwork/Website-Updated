@@ -127,10 +127,13 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 
 /* ── ticker ── */
 .ticker{background:var(--navy);color:rgba(255,255,255,.9);overflow:hidden;padding:14px 0;font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:.08em}
-.ticker-track{display:flex;gap:44px;white-space:nowrap;width:max-content;animation:tick 36s linear infinite}
+.ticker-track{display:flex;gap:44px;white-space:nowrap;width:max-content;animation:tick 100s linear infinite}
 .ticker-track span{display:flex;align-items:center;gap:52px}
 .ticker-track b{font-weight:600}
 .ticker-track b:nth-child(even){color:var(--gold)}
+/* Chinese/Arabic city names dispersed in the roll — no tracking on Arabic (it breaks the joined script) */
+.ticker-track b[lang="zh"]{letter-spacing:.18em;font-size:14.5px}
+.ticker-track b[lang="ar"]{letter-spacing:0;font-size:16px;line-height:1}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* ── generic cards ── */
@@ -338,11 +341,11 @@ html.js .fit-sq.in .fsq:nth-child(4){animation-delay:.36s}
 .news-photo img{width:100%;height:100%;object-fit:cover;object-position:40% 30%}
 .news-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,58,82,.12) 0%,rgba(35,58,82,.5) 55%,var(--navy-deep) 96%)}
 .news{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center}
-.news h2{font-family:var(--disp);font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.05;color:#fff}
+.news h2{font-family:var(--disp);font-size:clamp(34px,4.8vw,62px);font-weight:800;line-height:1.05;color:#fff}
 .news h2 em{font-style:normal;color:var(--gold)}
-.news-sub{color:rgba(255,255,255,.68);font-size:15.5px;max-width:46ch;margin:10px 0 26px}
+.news-sub{color:rgba(255,255,255,.72);font-size:clamp(15.5px,1.3vw,17.5px);max-width:52ch;line-height:1.7;margin:16px 0 32px}
 .news-form .row{display:flex;gap:10px;flex-wrap:wrap}
-.news-form input{flex:1;min-width:220px;padding:14px 18px;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:rgba(255,255,255,.07);font-family:var(--body);font-size:15px;color:#fff}
+.news-form input{flex:1;min-width:220px;padding:16px 20px;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:rgba(255,255,255,.07);font-family:var(--body);font-size:16px;color:#fff}
 .news-form input::placeholder{color:rgba(255,255,255,.38)}
 .news-form input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(214,173,100,.22)}
 .news-form .btn{border:0;cursor:pointer;font-family:var(--body)}
@@ -356,23 +359,22 @@ html.js .fit-sq.in .fsq:nth-child(4){animation-delay:.36s}
   .news-photo::after{background:linear-gradient(180deg,rgba(35,58,82,.05) 40%,var(--navy-deep) 100%)}
 }
 
-/* buy us a coffee — full-width ticket after the fit squares (dallah pours on hover;
-   muted cream/white so it doesn't add colour under the four squares above) */
+/* buy us a coffee — fifth block of the fit-square grid (Option D): cream full-width
+   block with the grid's 6px gap; dallah pours on hover; text mirrors the partner ticket */
 .dallah{display:block}
 .dallah path,.dallah circle{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.cofW{display:grid;grid-template-columns:clamp(130px,16vw,180px) 1fr;border:1px solid rgba(47,77,105,.16);border-radius:12px;overflow:hidden;transition:box-shadow .35s,transform .35s}
-.cofW:hover{box-shadow:0 16px 36px rgba(26,44,63,.12);transform:translateY(-3px)}
-.cofW .pane{background:#f3efe6;display:flex;align-items:center;justify-content:center;padding:28px 0}
-.cofW .pane .dallah{width:clamp(58px,6vw,74px);color:var(--navy-ink);transition:transform .5s cubic-bezier(.34,1.3,.5,1);transform-origin:35% 75%}
-.cofW:hover .pane .dallah{transform:rotate(-16deg)}
-.cofW .body{background:#fff;padding:clamp(22px,2.8vw,36px) clamp(22px,3vw,44px)}
+.cofW{display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,3vw,44px);margin-top:6px;background:#f3efe6;color:var(--navy-ink);padding:clamp(22px,2.6vw,32px) clamp(22px,3vw,40px);transition:filter .3s}
+.cofW:hover{filter:brightness(.985)}
+.cofW .dallah{width:clamp(48px,4.5vw,58px);flex:none;color:var(--navy-ink);transition:transform .5s cubic-bezier(.34,1.3,.5,1);transform-origin:35% 75%}
+.cofW:hover .dallah{transform:rotate(-16deg)}
+.cofW .mid{flex:1}
 .cofW h3{font-family:var(--disp);font-size:clamp(19px,2.1vw,25px);font-weight:800;color:var(--navy-ink)}
-.cofW .body>p{color:var(--mut);font-size:14.5px;margin-top:8px;max-width:64ch}
-.cofW .go-line{display:inline-block;margin-top:12px;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--gold-ink)}
+.cofW .mid p{color:var(--mut);font-size:14.5px;margin-top:8px;max-width:78ch}
+.cofW .go-line{flex:none;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--gold-ink)}
 .cofW .go-line b{display:inline-block;transition:transform .25s;font-weight:inherit}
 .cofW:hover .go-line b{transform:translateX(5px)}
-@media(max-width:560px){.cofW{grid-template-columns:1fr}.cofW .pane{padding:20px 0}}
-@media(prefers-reduced-motion:reduce){.cofW:hover .pane .dallah{transform:none}}
+@media(max-width:700px){.cofW{flex-wrap:wrap;gap:16px}.cofW .mid{flex:1 1 100%;order:3}.cofW .go-line{margin-left:auto}}
+@media(prefers-reduced-motion:reduce){.cofW:hover .dallah{transform:none}}
 
 /* Sino-Gulf Institute band (homepage) */
 .sgi{display:grid;grid-template-columns:minmax(240px,1fr) 1.7fr;gap:clamp(24px,4vw,64px);margin-top:clamp(40px,5vw,68px);padding-top:clamp(24px,3vw,36px);border-top:3px solid var(--gold)}
@@ -385,9 +387,11 @@ html.js .fit-sq.in .fsq:nth-child(4){animation-delay:.36s}
 @media(max-width:760px){.sgi{grid-template-columns:1fr}}
 .sgi.three{grid-template-columns:1.25fr minmax(190px,230px) 1.05fr;align-items:start;gap:clamp(24px,3.4vw,54px)}
 .sgi.three .sgi-body{margin-top:16px}
-.cover-lift{display:block;overflow:hidden}
-.cover-lift img{width:100%;display:block;box-shadow:0 14px 34px rgba(26,44,63,.16);transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s}
-.cover-lift:hover img{transform:scale(1.035) translateY(-4px);box-shadow:0 22px 46px rgba(26,44,63,.22)}
+.cover-lift{display:block;position:relative;margin:0 14px 14px 0}
+/* textured gold panel offset behind the journal cover — grounds it in the composition */
+.cover-lift::before{content:"";position:absolute;top:16px;left:16px;right:-14px;bottom:-14px;background:repeating-linear-gradient(45deg,rgba(214,173,100,.55) 0 1.5px,transparent 1.5px 8px)}
+.cover-lift img{width:100%;display:block;position:relative;box-shadow:0 18px 40px rgba(26,44,63,.28);transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s}
+.cover-lift:hover img{transform:scale(1.035) translateY(-4px);box-shadow:0 26px 52px rgba(26,44,63,.34)}
 .jissue{font-size:14.5px;color:var(--mut)}
 .jt{font-family:var(--disp);font-weight:800;font-size:clamp(21px,2.3vw,27px);color:var(--navy-ink);line-height:1.14;margin-top:8px}
 .jdesc{color:var(--mut);font-size:15px;max-width:56ch;margin-top:10px}
