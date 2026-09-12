@@ -152,9 +152,24 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 
 /* metrics */
 #events{background:#f3efe6}
-.metrics-band{background:#fff}
+/* metrics band — flagship photo behind a navy veil (Gloria picked option C) */
+.metrics-band{position:relative;overflow:hidden;background:var(--navy-ink)}
+.mx-bg{position:absolute;inset:-5%;background:url('../assets/SGYN-Flagship-Event.jpeg') center 30%/cover no-repeat;filter:saturate(.7);animation:mxKen 30s ease-in-out infinite alternate}
+@keyframes mxKen{from{transform:scale(1)}to{transform:scale(1.09) translateX(-1.6%)}}
+.mx-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,44,63,.94),rgba(26,44,63,.87))}
+.metrics-band .wrap{position:relative;z-index:2}
 .metrics-band .sec-top{justify-content:center;text-align:center}
-.metrics-band .sec-top h2 em{font-style:normal;color:var(--gold-ink)}
+.metrics-band .sec-top h2{color:#fff}
+.metrics-band .sec-top h2 em{font-style:normal;color:var(--gold)}
+.metrics-band .figures{border-top-color:rgba(255,255,255,.16);border-bottom-color:rgba(255,255,255,.16)}
+.metrics-band .figures .fig{border-left-color:rgba(255,255,255,.12);text-align:center;position:relative;transition:transform .3s}
+.metrics-band .figures .fig b{color:var(--gold)}
+.metrics-band .figures .fig:hover b{color:var(--gold-soft)}
+.metrics-band .figures .fig span{color:rgba(255,255,255,.62)}
+.metrics-band .figures .fig:hover{transform:translateY(-5px)}
+.metrics-band .figures .fig::after{content:"";position:absolute;left:50%;bottom:14px;transform:translateX(-50%);width:0;height:2px;background:var(--gold);transition:width .35s}
+.metrics-band .figures .fig:hover::after{width:44%}
+@media (prefers-reduced-motion:reduce){.mx-bg{animation:none}}
 
 /* dark section */
 .ink{background:var(--navy-ink);color:#fff}
