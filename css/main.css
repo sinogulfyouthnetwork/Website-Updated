@@ -101,12 +101,14 @@ html.js .film .col.in{opacity:1;transform:none}
 .hero-inner .sub{color:rgba(255,255,255,.88);font-size:clamp(16px,1.8vw,20px);max-width:52ch;text-shadow:0 1px 18px rgba(12,22,34,.6)}
 .hero-inner .ctas{display:flex;gap:12px;flex-wrap:wrap}
 /* hero scroll cue (replaced the Join/Partner buttons) */
-.scroll-cue{display:inline-flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:8px;align-self:flex-start;color:rgba(255,255,255,.85);font-family:var(--disp);font-weight:600;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 1px 14px rgba(12,22,34,.6);transition:color .3s}
-.scroll-cue:hover{color:var(--gold)}
+.scroll-cue{display:inline-flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:8px;align-self:flex-start;font-family:var(--disp);font-weight:600;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}
+.scroll-cue .cue-txt{background:linear-gradient(100deg,rgba(255,255,255,.85) 38%,var(--gold) 50%,rgba(255,255,255,.85) 62%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:cueShine 3.2s linear infinite}
+.scroll-cue:hover .cue-txt{background:var(--gold);-webkit-background-clip:text;background-clip:text;animation:none}
+@keyframes cueShine{0%{background-position:125% 0}100%{background-position:-125% 0}}
 .scroll-cue .cue-line{position:relative;width:1px;height:58px;background:rgba(255,255,255,.32);overflow:hidden}
 .scroll-cue .cue-line::after{content:"";position:absolute;left:0;width:100%;height:42%;top:-42%;background:var(--gold);animation:cueDrop 2.4s cubic-bezier(.55,.08,.35,.92) infinite}
 @keyframes cueDrop{0%{top:-42%}72%,100%{top:110%}}
-@media (prefers-reduced-motion:reduce){.scroll-cue .cue-line::after{animation:none;top:58%}}
+@media (prefers-reduced-motion:reduce){.scroll-cue .cue-line::after{animation:none;top:58%}.scroll-cue .cue-txt{animation:none;background:rgba(255,255,255,.85);-webkit-background-clip:text;background-clip:text}}
 /* bilingual "welcome" — written out like calligraphy, right of the title */
 .hello-art{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .hello-art span{position:absolute;right:4vw;color:var(--gold);opacity:.28;filter:blur(6px);line-height:1;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:280% 100%;mask-size:280% 100%}
@@ -150,6 +152,7 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 /* metrics */
 .metrics-band{background:#fff}
 .metrics-band .sec-top{justify-content:center;text-align:center}
+.metrics-band .sec-top h2 em{font-style:normal;color:var(--gold-ink)}
 
 /* dark section */
 .ink{background:var(--navy-ink);color:#fff}
@@ -266,9 +269,10 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 
 /* support band (buy us a coffee) */
 /* ── newsletter (Stay in the Loop) — photo-left navy band ── */
-.news-band{position:relative;background:var(--navy-ink);color:#fff;overflow:hidden;padding:clamp(64px,8vw,110px) 0}
+.news-band{position:relative;background:var(--navy-ink);color:#fff;overflow:hidden;display:flex;align-items:center;min-height:clamp(500px,74vh,780px);padding:clamp(64px,8vw,110px) 0}
+.news-band .wrap{width:100%}
 .news-photo{position:absolute;top:0;bottom:0;left:0;width:52%}
-.news-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+.news-photo img{width:100%;height:100%;object-fit:cover;object-position:40% 30%}
 .news-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,44,63,.12) 0%,rgba(26,44,63,.5) 55%,var(--navy-ink) 96%)}
 .news{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center}
 .news h2{font-family:var(--disp);font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.05;color:#fff}
@@ -289,11 +293,11 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
   .news-photo::after{background:linear-gradient(180deg,rgba(26,44,63,.05) 40%,var(--navy-ink) 100%)}
 }
 
-.support-band{background:var(--navy-deep);border-top:3px solid var(--gold);color:#fff;padding:clamp(28px,3.5vw,44px) 0}
-.support-band .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.support-band h3{font-family:var(--disp);font-size:clamp(20px,2.4vw,28px);font-weight:800;line-height:1.2;max-width:30ch}
-.support-band h3 em{font-style:normal;color:var(--gold)}
-.support-band p{color:rgba(255,255,255,.7);font-size:14.5px;margin-top:4px}
+/* buy us a coffee — compact card (was the full-width .support-band) */
+.support-card{max-width:800px;margin:0 auto;background:var(--navy-deep);border-top:3px solid var(--gold);border-radius:10px;color:#fff;padding:26px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.support-card h3{font-family:var(--disp);font-size:clamp(18px,2vw,23px);font-weight:800;line-height:1.25;max-width:26ch}
+.support-card h3 em{font-style:normal;color:var(--gold)}
+.support-card p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px;max-width:46ch}
 
 /* Sino-Gulf Institute band (homepage) */
 .sgi{display:grid;grid-template-columns:minmax(240px,1fr) 1.7fr;gap:clamp(24px,4vw,64px);margin-top:clamp(40px,5vw,68px);padding-top:clamp(24px,3vw,36px);border-top:3px solid var(--gold)}
