@@ -346,22 +346,25 @@
 })();
 </script>
 
-<!-- newsletter — posts to the same Google Apps Script collector as the live site -->
-<section class="tight" id="newsletter">
+<!-- newsletter — photo-left navy band (echoes the original live site's section);
+     posts to the same Google Apps Script collector as the live site -->
+<section class="news-band rv" id="newsletter">
+  <div class="news-photo" aria-hidden="true"><img src="assets/Pipa-Lady.JPG" alt="" loading="lazy"/></div>
   <div class="wrap">
-    <div class="news rv">
+    <div class="news">
+      <div class="news-spacer" aria-hidden="true"></div>
       <div>
         <h2>Stay in the <em>Loop</em></h2>
         <p class="news-sub">Get event invites, program updates, and community highlights — delivered monthly to your inbox.</p>
+        <form class="news-form" id="newsForm">
+          <div class="row">
+            <input type="email" id="newsEmail" name="email" placeholder="Enter your email" required autocomplete="email" aria-label="Email address"/>
+            <button class="btn gold" type="submit" id="newsBtn">Subscribe</button>
+          </div>
+          <p class="news-msg ok" id="newsOk" hidden>Thank you for subscribing — see you in the next issue.</p>
+          <p class="news-msg err" id="newsErr" hidden>Something went wrong — please try again.</p>
+        </form>
       </div>
-      <form class="news-form" id="newsForm">
-        <div class="row">
-          <input type="email" id="newsEmail" name="email" placeholder="Enter your email" required autocomplete="email" aria-label="Email address"/>
-          <button class="btn gold" type="submit" id="newsBtn">Subscribe</button>
-        </div>
-        <p class="news-msg ok" id="newsOk" hidden>Thank you for subscribing — see you in the next issue.</p>
-        <p class="news-msg err" id="newsErr" hidden>Something went wrong — please try again.</p>
-      </form>
     </div>
   </div>
 </section>
