@@ -269,11 +269,11 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 
 /* support band (buy us a coffee) */
 /* ── newsletter (Stay in the Loop) — photo-left navy band ── */
-.news-band{position:relative;background:var(--navy-ink);color:#fff;overflow:hidden;display:flex;align-items:center;min-height:clamp(500px,74vh,780px);padding:clamp(64px,8vw,110px) 0}
+.news-band{position:relative;background:var(--navy-deep);border-bottom:3px solid var(--gold);color:#fff;overflow:hidden;display:flex;align-items:center;min-height:clamp(500px,74vh,780px);padding:clamp(64px,8vw,110px) 0}
 .news-band .wrap{width:100%}
 .news-photo{position:absolute;top:0;bottom:0;left:0;width:52%}
 .news-photo img{width:100%;height:100%;object-fit:cover;object-position:40% 30%}
-.news-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,44,63,.12) 0%,rgba(26,44,63,.5) 55%,var(--navy-ink) 96%)}
+.news-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,58,82,.12) 0%,rgba(35,58,82,.5) 55%,var(--navy-deep) 96%)}
 .news{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center}
 .news h2{font-family:var(--disp);font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.05;color:#fff}
 .news h2 em{font-style:normal;color:var(--gold)}
@@ -290,7 +290,7 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
   .news{grid-template-columns:1fr}
   .news-spacer{display:none}
   .news-photo{position:relative;width:100%;height:230px;margin:-64px 0 34px}
-  .news-photo::after{background:linear-gradient(180deg,rgba(26,44,63,.05) 40%,var(--navy-ink) 100%)}
+  .news-photo::after{background:linear-gradient(180deg,rgba(35,58,82,.05) 40%,var(--navy-deep) 100%)}
 }
 
 /* buy us a coffee — compact card (was the full-width .support-band) */
