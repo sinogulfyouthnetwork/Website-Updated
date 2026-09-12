@@ -365,7 +365,7 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 
 .bio-grid .role-line{font-family:var(--disp);font-weight:700;color:var(--gold-ink);font-size:15px;margin-bottom:2px}
 .bio-grid .city-line{font-size:13.5px;color:var(--mut);margin-bottom:14px}
-.bio-grid .lk{display:inline-block;margin-top:14px;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--navy);border-bottom:2px solid var(--gold)}
+.lk{display:inline-block;margin-top:14px;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--navy);border-bottom:2px solid var(--gold)}
 
 
 /* ── featured video (click-to-play, no iframe until asked) ── */
