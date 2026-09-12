@@ -72,17 +72,34 @@
   </div>
 </section>
 
-<!-- our story -->
+<!-- our story: two chapters with auto-flipping photo piles (script near the bottom of this file) -->
 <section id="about">
   <div class="wrap">
-    <div class="story-flow rv">
-      <h2>Our Story</h2>
-      <figure class="story-shot">
-        <img src="assets/Members-Image.JPG" alt="SGYN members gathered at a community event" loading="lazy"/>
-        <figcaption><i>◆</i>The SGYN community</figcaption>
+    <h2 class="story-h rv"><span class="hword">Our Story<svg class="swash" viewBox="0 0 300 24" aria-hidden="true"><path d="M4 15 C 62 21, 148 5, 296 11" fill="none" stroke="#d6ad64" stroke-width="5" stroke-linecap="round"/></svg></span></h2>
+    <div class="story-beat rv">
+      <div class="txt">
+        <p class="story-kick">How it started</p>
+        <p>SGYN began with a simple observation: as China and the Gulf grow closer, young people on both sides still have too few opportunities to understand and engage with one another beyond headlines and high-level diplomacy. Founded by <b>Gloria Tsang in December 2024</b>, SGYN creates these people-to-people connections through intimate conversations, language exchanges, cultural gatherings, policy dialogues, and career opportunities.</p>
+      </div>
+      <figure class="story-pile">
+        <div class="stack" title="Click to see the next photo">
+          <img class="pos0" src="assets/ChinaEmaritiEventImg/ChinaEmaritiEvent1.jpeg" alt="Calligraphy exchange at the founding evening, NYU Shanghai" loading="lazy"/>
+          <img class="pos1" src="assets/EventPhotos/ecust.jpg" alt="SGYN members at the UAE Union Day celebration at ECUST, Shanghai" loading="lazy"/>
+        </div>
       </figure>
-      <p>SGYN began with a simple observation: as China and the Gulf grow closer, young people on both sides still have too few opportunities to understand and engage with one another beyond headlines and high-level diplomacy. Founded by <b>Gloria Tsang in December 2024</b>, SGYN creates these people-to-people connections through intimate conversations, language exchanges, cultural gatherings, policy dialogues, and career opportunities.</p>
-      <p>While young people always remain at the heart of our mission and at the helm of operations, SGYN welcomes everyone committed to advancing mutual understanding between China and the Gulf. Our intergenerational network brings together students and young professionals with established academics, practitioners, diplomats, and partner institutions across language and translation, policy, finance, technology, engineering, medicine, and the arts. Within this wider community, SGYN&rsquo;s youth network includes <b>more than 100 members worldwide</b>. We engage in person across <b>more than eight cities</b>—from Shanghai and Beijing to Jeddah, Abu Dhabi, and New York—with activities conducted in <b>Chinese, Arabic, and English</b>.</p>
+    </div>
+    <div class="story-beat flip rv">
+      <figure class="story-pile">
+        <div class="stack" title="Click to see the next photo">
+          <img class="pos0" src="assets/SGYN-Flagship-Event.jpeg" alt="SGYN flagship dialogue audience in New York" loading="lazy"/>
+          <img class="pos1" src="assets/EventPhotos/nyc-dialogue-2.jpg" alt="Youth dialogue at the UAE Consulate in New York" loading="lazy"/>
+          <img class="pos2" src="assets/EventPhotos/ygs.jpg" alt="SGYN members at the Yenching Global Symposium" loading="lazy"/>
+        </div>
+      </figure>
+      <div class="txt">
+        <p class="story-kick">The network today</p>
+        <p>While young people always remain at the heart of our mission and at the helm of operations, SGYN welcomes everyone committed to advancing mutual understanding between China and the Gulf. Our intergenerational network brings together students and young professionals with established academics, practitioners, diplomats, and partner institutions across language and translation, policy, finance, technology, engineering, medicine, and the arts. Within this wider community, SGYN&rsquo;s youth network includes <b>more than 100 members worldwide</b>. We engage in person across <b>more than eight cities</b>—from Shanghai and Beijing to Jeddah, Abu Dhabi, and New York—with activities conducted in <b>Chinese, Arabic, and English</b>.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -532,6 +549,35 @@
     cols.forEach(function(col){col.classList.add('in')});
     showText();
   }
+})();
+</script>
+<script>
+/* our story photo piles: auto-advance every 4s while on screen; hover pauses; click flips and resets the clock */
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.story-pile .stack').forEach(function(st,si){
+    var n=st.children.length;
+    var hover=false,inView=false,timer=null;
+    function cycle(){
+      [].forEach.call(st.children,function(im){
+        var m=im.className.match(/pos(\d)/); if(!m)return;
+        var i=+m[1];
+        im.classList.remove('pos'+i);
+        im.classList.add('pos'+((i+n-1)%n));
+      });
+    }
+    function restart(){
+      if(timer)clearInterval(timer);
+      if(!reduce)timer=setInterval(function(){
+        if(!document.hidden&&inView&&!hover)cycle();
+      },4000);
+    }
+    new IntersectionObserver(function(e){inView=e[0].isIntersecting},{threshold:.3}).observe(st);
+    st.addEventListener('mouseenter',function(){hover=true});
+    st.addEventListener('mouseleave',function(){hover=false});
+    st.addEventListener('click',function(){cycle();restart()});
+    setTimeout(restart,si*2000); /* stagger the two piles so they don't flip together */
+  });
 })();
 </script>
 </body>
