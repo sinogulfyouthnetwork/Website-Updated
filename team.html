@@ -146,7 +146,6 @@
     <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
     <div class="inner">
       <div class="bio-grid">
-        <img id="bImg" src="" alt=""/>
         <div>
           <h3 id="bName" style="margin-bottom:4px"></h3>
           <p class="role-line" id="bRole"></p>
@@ -243,10 +242,6 @@ var TEAM=[
 
   var veil=document.getElementById('veil');
   function openBio(m, blk){
-    var bi=document.getElementById('bImg');
-    bi.src=m.photo; bi.alt=m.name;
-    bi.style.display=m.photo?'':'none';
-    bi.style.backgroundColor=m.photo?(blk||''):'';
     document.getElementById('bName').textContent=m.name;
     document.getElementById('bRole').textContent=m.role;
     document.getElementById('bCity').textContent=m.city;
