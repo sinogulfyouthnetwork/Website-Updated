@@ -100,6 +100,13 @@ html.js .film .col.in{opacity:1;transform:none}
 .hero-inner h1 em{font-style:normal;color:var(--gold)}
 .hero-inner .sub{color:rgba(255,255,255,.88);font-size:clamp(16px,1.8vw,20px);max-width:52ch;text-shadow:0 1px 18px rgba(12,22,34,.6)}
 .hero-inner .ctas{display:flex;gap:12px;flex-wrap:wrap}
+/* hero scroll cue (replaced the Join/Partner buttons) */
+.scroll-cue{display:inline-flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:8px;align-self:flex-start;color:rgba(255,255,255,.85);font-family:var(--disp);font-weight:600;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 1px 14px rgba(12,22,34,.6);transition:color .3s}
+.scroll-cue:hover{color:var(--gold)}
+.scroll-cue .cue-line{position:relative;width:1px;height:58px;background:rgba(255,255,255,.32);overflow:hidden}
+.scroll-cue .cue-line::after{content:"";position:absolute;left:0;width:100%;height:42%;top:-42%;background:var(--gold);animation:cueDrop 2.4s cubic-bezier(.55,.08,.35,.92) infinite}
+@keyframes cueDrop{0%{top:-42%}72%,100%{top:110%}}
+@media (prefers-reduced-motion:reduce){.scroll-cue .cue-line::after{animation:none;top:58%}}
 /* bilingual "welcome" — written out like calligraphy, right of the title */
 .hello-art{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .hello-art span{position:absolute;right:4vw;color:var(--gold);opacity:.28;filter:blur(6px);line-height:1;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:280% 100%;mask-size:280% 100%}
@@ -127,8 +134,8 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 /* ── ticker ── */
 .ticker{background:var(--navy);color:rgba(255,255,255,.9);overflow:hidden;padding:14px 0;font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:.08em}
 .ticker-track{display:flex;gap:44px;white-space:nowrap;width:max-content;animation:tick 36s linear infinite}
-.ticker-track span{display:flex;align-items:center;gap:44px}
-.ticker-track i{color:var(--gold);font-style:normal}
+.ticker-track span{display:flex;align-items:center;gap:52px}
+.ticker-track b{font-weight:600}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* ── generic cards ── */
@@ -320,7 +327,7 @@ footer.site a:hover{color:var(--gold)}
 .idx-row .side{font-size:13.5px;color:var(--mut);text-align:right;white-space:nowrap;justify-self:end;align-self:center}
 .idx-row.two{grid-template-columns:58px 1fr auto}
 .idx-row.prog{grid-template-columns:1.1fr 1.1fr;align-items:center}
-.idx-row.prog .word{font-size:clamp(26px,3.6vw,44px);color:var(--navy)}
+.idx-row.prog .word{font-size:clamp(22px,2.6vw,32px);color:var(--navy)}
 .idx-row.prog:hover .word{color:var(--gold-ink)}
 .idx-row.prog .tag{display:block;font-family:var(--body);font-weight:500;font-size:13px;letter-spacing:.04em;color:var(--mut);margin-top:8px}
 @media(max-width:760px){.idx-row.prog{grid-template-columns:1fr;row-gap:10px}.idx-row.prog .desc{grid-column:1}}
