@@ -243,6 +243,46 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 .fnote-seat img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;filter:drop-shadow(0 14px 24px rgba(0,0,0,.4))}
 @media(max-width:820px){.fnote-grid{grid-template-columns:1fr}.fnote-seat{height:300px;max-width:270px;margin-top:12px}}
 
+/* founder's note v2 ("B4", 2026-09-13): full-width grey band flush against the Media Lab band above,
+   quote excerpt wrapping the cut-out (shape-outside), gold seat stretched to the band bottom by JS (--ext).
+   The .fnote-band/.fnote-* block above is the retired navy-band layout, kept because the archived
+   A2 alternative (founder-note-a2-kept.html, outside the repo) may bring a navy square back. */
+section.fnote-grey{padding:0}
+.fnq{background:rgba(47,77,105,.06);border-top:1px solid rgba(47,77,105,.07);padding:clamp(44px,5.5vw,76px) 0 0}
+.fnq .sec-top{margin-bottom:clamp(40px,5vw,58px)}
+.fnq-box{position:relative}
+.fnq-box::after{content:"";display:block;clear:both}
+.fnq-fig{float:right;width:min(290px,40%);shape-outside:polygon(100% 0, 38% 0, 29% 13%, 3% 30%, 0 46%, 16% 56%, 5% 73%, 0 100%, 100% 100%);shape-margin:22px;margin:clamp(-46px,-4vw,-70px) clamp(-8px,-1vw,-18px) 0 10px;position:relative}
+.fnq-fig::before{content:"";position:absolute;left:5%;right:5%;bottom:calc(0px - var(--ext,0px));height:calc(44% + var(--ext,0px));background:var(--gold)}
+.fnq-fig img{width:100%;display:block;position:relative;filter:drop-shadow(0 16px 26px rgba(26,44,63,.22))}
+.fnq-qmark{font-family:var(--disp);font-weight:800;font-size:clamp(70px,8vw,104px);line-height:.55;color:var(--gold);display:block;height:.5em;user-select:none}
+.fnq-quote{font-family:var(--disp);font-weight:600;font-size:clamp(19px,2.1vw,24px);line-height:1.6;color:var(--navy-ink);margin-top:18px}
+.fnq-rest{color:var(--text);line-height:1.8;font-size:15.5px;margin-top:16px}
+.fnq-sig{font-family:var(--disp);font-weight:800;font-size:22px;color:var(--navy-ink);margin-top:22px;line-height:1.2}
+.fnq-sigrole{color:var(--mut);font-size:14px;margin-top:2px}
+.fnq-open{display:inline-flex;align-items:center;gap:9px;margin-top:18px;font-family:var(--disp);font-weight:700;font-size:14.5px;color:var(--navy-ink);background:none;border:1.5px solid var(--gold);border-radius:999px;padding:10px 20px;cursor:pointer;transition:.25s}
+.fnq-open:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 10px 22px rgba(214,173,100,.3)}
+@media(max-width:820px){
+  .fnq-fig{width:min(230px,52%);shape-margin:14px;margin:-30px 2px 0 8px}
+  .fnq-quote{font-size:18px}
+}
+
+/* founder's letter pop-up */
+.lveil{position:fixed;inset:0;z-index:3000;background:rgba(26,44,63,.58);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;pointer-events:none;transition:opacity .28s}
+.lveil.open{opacity:1;pointer-events:auto}
+.letter{position:relative;background:#fdfbf6;width:100%;max-width:620px;max-height:88vh;overflow:auto;border-top:4px solid var(--gold);border-radius:3px;box-shadow:0 34px 90px rgba(0,0,0,.45);padding:clamp(28px,4.5vw,54px) clamp(24px,4.5vw,56px);transform:translateY(26px) scale(.965);transition:transform .34s cubic-bezier(.2,.7,.3,1)}
+.lveil.open .letter{transform:none}
+.letter .lhead{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-bottom:18px;border-bottom:1px solid rgba(47,77,105,.14);margin-bottom:20px}
+.letter .lhead img{height:30px;display:block}
+.letter .ldate{font-size:13px;color:var(--mut);white-space:nowrap}
+.letter p{color:var(--text);line-height:1.85;font-size:15.5px;margin-top:14px}
+.letter p.salut{margin-top:0;font-weight:600;color:var(--navy-ink)}
+.letter .lsig{font-family:'Caveat',cursive;font-weight:700;font-size:42px;line-height:1;color:var(--navy-ink);margin-top:30px;transform:rotate(-2deg);display:inline-block}
+.letter .lsig-ph{display:block;font-family:var(--body);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(47,77,105,.45);margin-top:6px}
+.letter .lrole{font-size:13.5px;color:var(--mut);margin-top:10px}
+.letter .lclose{position:absolute;top:10px;right:12px;background:none;border:0;font-size:19px;color:var(--mut);cursor:pointer;padding:8px;line-height:1}
+.letter .lclose:hover{color:var(--navy-ink)}
+
 /* funnels */
 /* where do you fit — bold flat colour squares (D2, partner-page why-grid language; replaced the numbered .fun cards) */
 .fit-sq{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
