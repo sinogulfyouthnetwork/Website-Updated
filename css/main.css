@@ -361,8 +361,8 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 @media(max-width:900px){.tgrid.four{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.tgrid.four{grid-template-columns:repeat(2,1fr);row-gap:40px}}
 /* bio modal layout (uses .modal-veil/.modal base) */
-.bio-grid{display:grid;grid-template-columns:230px 1fr;gap:clamp(18px,3vw,30px);align-items:start}
-.bio-grid img{width:100%;aspect-ratio:3/3.5;object-fit:contain;object-position:50% 100%;border-radius:16px}
+.bio-grid{display:grid;grid-template-columns:230px 1fr;gap:clamp(18px,3vw,30px);align-items:stretch}
+.bio-grid img{width:100%;height:100%;min-height:300px;object-fit:contain;object-position:50% 100%;border-radius:16px}
 .bio-grid .role-line{font-family:var(--disp);font-weight:700;color:var(--gold-ink);font-size:15px;margin-bottom:2px}
 .bio-grid .city-line{font-size:13.5px;color:var(--mut);margin-bottom:14px}
 .bio-grid .lk{display:inline-block;margin-top:14px;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--navy);border-bottom:2px solid var(--gold)}
