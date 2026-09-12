@@ -11,7 +11,7 @@
 <link rel="icon" href="assets/SGYNBannerSmall.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Ma+Shan+Zheng&family=Aref+Ruqaa&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
@@ -56,10 +56,6 @@
 <section class="hero-home" id="top">
   <div class="film" id="film" aria-hidden="true"></div>
   <div class="hero-shade"></div>
-  <div class="hello-art" aria-hidden="true">
-    <span class="zh">欢迎</span>
-    <span class="ar">مرحباً</span>
-  </div>
   <div class="hero-inner">
     <div class="wrap lede" id="lede">
       <h1>Welcome to the<br/>Sino-Gulf <em>Youth Network</em></h1>
@@ -220,7 +216,6 @@
   <div class="wrap">
     <div class="sec-top rv">
       <h2>The Media Lab</h2>
-      <a class="btn ghost" href="media-lab.html">Visit the Media Lab</a>
     </div>
     <div class="split rv">
       <a class="video-shell" href="media-lab.html" aria-label="Watch Tradition in Bloom in the Media Lab">
@@ -232,9 +227,8 @@
         <h3 style="font-size:clamp(24px,3vw,36px);font-weight:800;color:#fff;margin:12px 0 10px;line-height:1.15">Tradition in Bloom</h3>
         <p style="color:rgba(255,255,255,.78);font-size:15.5px;max-width:52ch">Walking through a Shanghai park, Emirati student Mariam Al Mutawa is pulled into a circle of locals dancing and practicing kung fu — strangers become teachers in a spontaneous moment of cultural connection.</p>
         <p style="color:rgba(255,255,255,.55);font-size:13.5px;margin-top:10px">By Mariam Al Mutawa — the first voice in the Media Lab. Yours could be next.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
+        <div style="margin-top:22px">
           <a class="btn gold" href="media-lab.html">Watch in the Media Lab</a>
-          <a class="btn ghost" href="https://forms.gle/hP856wgmD7PJuvNA9" target="_blank" rel="noopener">Submit your work</a>
         </div>
       </div>
     </div>
@@ -269,9 +263,7 @@
     <button class="lclose" id="lclose" aria-label="Close">✕</button>
     <div class="lhead">
       <img src="assets/SGYNBannerNavy.svg" alt="Sino-Gulf Youth Network"/>
-      <span class="ldate">Beijing, September 2026</span>
     </div>
-    <p class="salut">Dear friend,</p>
     <p>When I founded SGYN in December 2024, my hope was simple: that young people in China and the Gulf would no longer have to learn about each other only through headlines. Watching our members share meals, languages, stages, and ideas across eight cities has been the greatest reward of this work.</p>
     <p>This network is built entirely by volunteers — the team you'll meet on this page. If you're wondering whether there's a place for you here: there is.</p>
     <span class="lsig">Gloria Tsang<span class="lsig-ph">signature placeholder — real signature to follow</span></span>
@@ -328,19 +320,6 @@
   </div>
 </section>
 
-<!-- buy us a coffee (compact card) -->
-<section class="tight" id="support">
-  <div class="wrap">
-    <div class="support-card rv">
-      <div>
-        <h3>Fuelled by our community — <em>and the occasional coffee.</em></h3>
-        <p>SGYN is volunteer-built and free to join. Every cup funds venues, mooncakes, and the next event.</p>
-      </div>
-      <a class="btn gold" href="https://buymeacoffee.com/sinogulfyouthnetwork" target="_blank" rel="noopener">Buy us a coffee ☕</a>
-    </div>
-  </div>
-</section>
-
 <!-- funnels -->
 <section class="tight" id="join">
   <div class="wrap">
@@ -371,6 +350,35 @@
         <span class="go">Support SGYN →</span>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- buy us a coffee — full-width ticket (dallah tips to pour on hover, muted to sit
+     under the colour squares above; ported from the partner page's coffee ticket) -->
+<section class="tight" id="support">
+  <div class="wrap">
+    <a class="cofW rv" href="https://buymeacoffee.com/sinogulfyouthnetwork" target="_blank" rel="noopener">
+      <span class="pane">
+        <svg class="dallah" viewBox="0 0 64 84" aria-hidden="true">
+          <circle cx="33" cy="6" r="2.6"/>
+          <path d="M27 18 L33 9 L39 18"/>
+          <path d="M26 18 H40"/>
+          <path d="M28 18 C27 21 26 23 25 25"/>
+          <path d="M38 18 C39 21 40 23 41 25"/>
+          <path d="M25 25 C17 36 19 54 27 64"/>
+          <path d="M41 25 C49 36 47 54 39 64"/>
+          <path d="M27 64 L25 72 H41 L39 64"/>
+          <path d="M22 76 H44"/>
+          <path d="M25 31 C12 29 5 17 9 8 C10 6 13 6.5 12.5 9 C10.5 17 17 25 25 26"/>
+          <path d="M41 28 C53 31 54 44 42 51"/>
+        </svg>
+      </span>
+      <span class="body">
+        <h3>You can buy us a coffee</h3>
+        <p>SGYN is volunteer-built and free to join. Every cup funds venues, mooncakes, and the next event.</p>
+        <span class="go-line">buymeacoffee.com <b>→</b></span>
+      </span>
+    </a>
   </div>
 </section>
 
