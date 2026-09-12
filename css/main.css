@@ -201,6 +201,19 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 .plist span{border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:9px 18px;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.85)}
 .note-dim{color:rgba(255,255,255,.55);font-size:13px;margin-top:16px}
 
+/* founder's note — navy band, seated cut-out on a gold block (homepage) */
+.fnote-band{background:var(--navy-ink);border-top:3px solid var(--gold);padding:clamp(40px,5vw,56px) 0 clamp(44px,5vw,60px)}
+.fnote-band h2{font-family:var(--disp);font-weight:800;font-size:clamp(24px,2.8vw,34px);color:var(--bg)}
+.fnote-band h2 em{font-style:normal;color:var(--gold)}
+.fnote-grid{display:grid;grid-template-columns:1fr minmax(230px,280px);gap:clamp(28px,4.5vw,64px);align-items:end;margin-top:6px}
+.fnote-grid .txt p{color:rgba(251,249,245,.82);line-height:1.8;max-width:60ch;margin-top:14px}
+.fnote-grid .txt .fnote-sig{font-family:var(--disp);font-weight:800;font-size:22px;color:var(--gold);margin-top:24px;line-height:1.2}
+.fnote-grid .txt .fnote-sigrole{color:rgba(251,249,245,.6);font-size:14px;margin-top:2px}
+.fnote-seat{position:relative;height:360px}
+.fnote-seat::before{content:"";position:absolute;left:0;right:0;bottom:0;height:48%;background:var(--gold)}
+.fnote-seat img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;filter:drop-shadow(0 14px 24px rgba(0,0,0,.4))}
+@media(max-width:820px){.fnote-grid{grid-template-columns:1fr}.fnote-seat{height:300px;max-width:270px;margin-top:12px}}
+
 /* funnels */
 .fun{position:relative;overflow:hidden;border-radius:var(--r);padding:26px;min-height:210px;display:flex;flex-direction:column;gap:10px;transition:.3s;background:var(--bg);border:1.5px solid rgba(47,77,105,.12)}
 .fun::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-soft));transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.3,1)}
