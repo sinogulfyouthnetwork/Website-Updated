@@ -146,22 +146,22 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 
 /* metrics */
 #events{background:#f3efe6}
-/* metrics band — flagship photo behind a navy veil (Gloria picked option C) */
+/* metrics band — crowd video behind a navy veil, big numerals (Gloria's picks 2026-09-13) */
 .metrics-band{position:relative;overflow:hidden;background:var(--navy-ink)}
-.mx-bg{position:absolute;inset:-5%;background:url('../assets/SGYN-Flagship-Event.jpeg') center 30%/cover no-repeat;filter:saturate(.7);animation:mxKen 30s ease-in-out infinite alternate}
-@keyframes mxKen{from{transform:scale(1)}to{transform:scale(1.09) translateX(-1.6%)}}
-.mx-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,44,63,.94),rgba(26,44,63,.87))}
+.mx-vid{position:absolute;inset:0;overflow:hidden}
+.mx-vid video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;filter:saturate(.7)}
+.mx-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,44,63,.86),rgba(26,44,63,.76))}
 .metrics-band .wrap{position:relative;z-index:2}
 .metrics-band .sec-top{justify-content:center;text-align:center}
 .metrics-band .sec-top h2{color:#fff}
 .metrics-band .sec-top h2 em{font-style:normal;color:var(--gold)}
 .metrics-band .figures{border-top:0;border-bottom:0}
-.metrics-band .figures .fig{border-left:0;text-align:center;transition:transform .3s}
-.metrics-band .figures .fig b{color:var(--gold)}
+.metrics-band .figures .fig{border-left:0;text-align:center;transition:transform .3s;padding-top:clamp(26px,3vw,40px);padding-bottom:clamp(26px,3vw,40px)}
+.metrics-band .figures .fig b{color:var(--gold);font-size:clamp(46px,6vw,84px);font-weight:700;letter-spacing:-.01em}
 .metrics-band .figures .fig:hover b{color:var(--gold-soft)}
-.metrics-band .figures .fig span{color:rgba(255,255,255,.62)}
+.metrics-band .figures .fig span{color:rgba(255,255,255,.72);text-transform:none;letter-spacing:0;font-size:15.5px;font-weight:400;font-family:var(--body);margin-top:10px}
 .metrics-band .figures .fig:hover{transform:translateY(-5px)}
-@media (prefers-reduced-motion:reduce){.mx-bg{animation:none}}
+@media (prefers-reduced-motion:reduce){.mx-vid video{display:none}.mx-vid{background:url('../assets/SGYN-Flagship-Event.jpeg') center 30%/cover no-repeat;filter:saturate(.7)}}
 
 /* dark section */
 .ink{background:var(--navy-ink);color:#fff}

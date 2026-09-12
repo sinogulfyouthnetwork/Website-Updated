@@ -144,9 +144,9 @@
   </div>
 </section>
 
-<!-- metrics — photo behind a navy veil, Ken Burns drift -->
+<!-- metrics — crowd video behind a navy veil (first 6s of the source clip, slowed to 75%, looping) -->
 <section class="metrics-band">
-  <div class="mx-bg" aria-hidden="true"></div>
+  <div class="mx-vid" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" src="assets/crowd-metrics.mp4"></video></div>
   <div class="mx-veil" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-top rv"><h2>A young network, <em>moving fast.</em></h2></div>
@@ -618,6 +618,12 @@
     setTimeout(restart,si*2000); /* stagger the two piles so they don't flip together */
   });
 })();
+</script>
+<script>
+/* metrics crowd video: only play while the band is on screen */
+document.querySelectorAll('.mx-vid video').forEach(function(v){
+  new IntersectionObserver(function(en){ en[0].isIntersecting?v.play().catch(function(){}):v.pause(); },{threshold:.05}).observe(v);
+});
 </script>
 </body>
 </html>
