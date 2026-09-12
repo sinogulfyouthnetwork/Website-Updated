@@ -246,12 +246,25 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 /* funnels */
 /* where do you fit — bold flat colour squares (D2, partner-page why-grid language; replaced the numbered .fun cards) */
 .fit-sq{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.fsq{display:flex;flex-direction:column;padding:clamp(20px,2.2vw,30px);min-height:clamp(250px,24vw,330px);text-decoration:none;transition:transform .3s,filter .3s}
-.fsq:hover{transform:translateY(-5px);filter:brightness(.97)}
+.fsq{position:relative;overflow:hidden;display:flex;flex-direction:column;padding:clamp(20px,2.2vw,30px);min-height:clamp(250px,24vw,330px);text-decoration:none;transition:transform .3s,filter .3s,box-shadow .3s}
+.fsq::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.3,1)}
+.fsq:hover{transform:translateY(-5px);filter:brightness(.97);box-shadow:0 14px 30px rgba(26,44,63,.16)}
+.fsq:hover::before{transform:scaleX(1)}
+.fsq.c2::before,.fsq.c4::before{background:var(--navy-ink)}
 .fsq .sp{flex:1}
 .fsq h3{font-family:var(--disp);font-size:clamp(22px,2.3vw,30px);font-weight:800;line-height:1.12;max-width:12ch}
+.fsq h3 em{font-style:normal;background:linear-gradient(transparent 66%,rgba(214,173,100,.5) 66%)}
+.fsq.c2 h3 em,.fsq.c4 h3 em{background:linear-gradient(transparent 66%,rgba(26,44,63,.16) 66%)}
 .fsq p{font-size:clamp(13.5px,1.25vw,15.5px);line-height:1.6;margin-top:12px}
-.fsq .go{font-family:var(--disp);font-weight:700;font-size:14px;margin-top:16px}
+.fsq .go{font-family:var(--disp);font-weight:700;font-size:14px;margin-top:16px;transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.fsq:hover .go{transform:translateX(6px)}
+/* staggered entrance once the section scrolls in */
+html.js .fit-sq.in .fsq{animation:fsqIn .7s cubic-bezier(.2,.7,.3,1) backwards}
+html.js .fit-sq.in .fsq:nth-child(2){animation-delay:.12s}
+html.js .fit-sq.in .fsq:nth-child(3){animation-delay:.24s}
+html.js .fit-sq.in .fsq:nth-child(4){animation-delay:.36s}
+@keyframes fsqIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){html.js .fit-sq.in .fsq{animation:none}}
 .fsq.c1{background:var(--navy)}
 .fsq.c3{background:var(--navy-deep)}
 .fsq.c1 h3,.fsq.c3 h3{color:#fff}
