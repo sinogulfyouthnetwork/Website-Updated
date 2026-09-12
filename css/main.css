@@ -136,6 +136,7 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 .ticker-track{display:flex;gap:44px;white-space:nowrap;width:max-content;animation:tick 36s linear infinite}
 .ticker-track span{display:flex;align-items:center;gap:52px}
 .ticker-track b{font-weight:600}
+.ticker-track b:nth-child(even){color:var(--gold)}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* ── generic cards ── */
@@ -283,7 +284,7 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 .cover-lift{display:block;overflow:hidden}
 .cover-lift img{width:100%;display:block;box-shadow:0 14px 34px rgba(26,44,63,.16);transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s}
 .cover-lift:hover img{transform:scale(1.035) translateY(-4px);box-shadow:0 22px 46px rgba(26,44,63,.22)}
-.jissue{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink)}
+.jissue{font-size:14.5px;color:var(--mut)}
 .jt{font-family:var(--disp);font-weight:800;font-size:clamp(21px,2.3vw,27px);color:var(--navy-ink);line-height:1.14;margin-top:8px}
 .jdesc{color:var(--mut);font-size:15px;max-width:56ch;margin-top:10px}
 .jcta{display:inline-block;margin-top:16px;font-family:var(--disp);font-weight:700;font-size:14.5px;color:var(--gold-ink)}
@@ -309,7 +310,7 @@ footer.site a:hover{color:var(--gold)}
 .foot-bottom{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:rgba(255,255,255,.4)}
 
 /* ── editorial index rows (replaces boxed info cards) ── */
-.lbl{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.lbl{font-family:var(--disp);font-weight:600;font-size:16px;color:var(--gold)}
 .lbl.dark{color:var(--gold-ink)}
 .idx{border-top:1px solid rgba(47,77,105,.18);list-style:none;margin:0;padding:0}
 .idx-row{display:grid;grid-template-columns:58px minmax(180px,.9fr) 1.4fr;gap:clamp(14px,3vw,44px);align-items:baseline;padding:clamp(18px,2.4vw,28px) 10px;border-bottom:1px solid rgba(47,77,105,.18);position:relative;transition:padding .35s cubic-bezier(.2,.7,.3,1),background .35s}
