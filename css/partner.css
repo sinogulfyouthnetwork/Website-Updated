@@ -6,6 +6,13 @@
 
 /* ── hero: two-tone navy/gold split with intake form ── */
 .phero{background:linear-gradient(90deg,var(--navy) 0 60%,var(--gold) 60% 100%)}
+.phero .wrap{position:relative;z-index:2}
+/* dimmed community photo behind the navy side, slow breathing zoom */
+.photo-bg{position:absolute;top:0;bottom:0;left:0;width:60%;z-index:1;overflow:hidden;pointer-events:none}
+.photo-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;filter:brightness(.4) saturate(.6);animation:kbzoom 34s ease-in-out infinite alternate}
+@keyframes kbzoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+.photo-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,44,63,.78) 0%,rgba(26,44,63,.5) 60%,var(--navy) 100%)}
+@media(max-width:980px){.photo-bg{width:100%}.photo-bg::after{background:rgba(26,44,63,.78)}}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,5vw,84px);align-items:center;margin-top:26px}
 .phero h1{max-width:14ch}
 .hero-copy .lead{max-width:42ch}
@@ -95,4 +102,5 @@
   .acc-panel{transition:none}
   .acc-trig .chev{transition:none}
   .cofC:hover .pane .dallah{transform:none}
+  .photo-bg img{animation:none}
 }
