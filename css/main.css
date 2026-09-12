@@ -151,6 +151,7 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 @media(max-width:560px){.grid-4{grid-template-columns:1fr}}
 
 /* metrics */
+#events{background:#f3efe6}
 .metrics-band{background:#fff}
 .metrics-band .sec-top{justify-content:center;text-align:center}
 .metrics-band .sec-top h2 em{font-style:normal;color:var(--gold-ink)}
