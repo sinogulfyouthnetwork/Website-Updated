@@ -346,6 +346,48 @@
 })();
 </script>
 
+<!-- newsletter — posts to the same Google Apps Script collector as the live site -->
+<section class="tight" id="newsletter">
+  <div class="wrap">
+    <div class="news rv">
+      <div>
+        <h2>Stay in the <em>Loop</em></h2>
+        <p class="news-sub">Get event invites, program updates, and community highlights — delivered monthly to your inbox.</p>
+      </div>
+      <form class="news-form" id="newsForm">
+        <div class="row">
+          <input type="email" id="newsEmail" name="email" placeholder="Enter your email" required autocomplete="email" aria-label="Email address"/>
+          <button class="btn gold" type="submit" id="newsBtn">Subscribe</button>
+        </div>
+        <p class="news-msg ok" id="newsOk" hidden>Thank you for subscribing — see you in the next issue.</p>
+        <p class="news-msg err" id="newsErr" hidden>Something went wrong — please try again.</p>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var URL='https://script.google.com/macros/s/AKfycby3YtUhIdsBmWyHYt0LyWNWrSLnKWU6hfX13VJV_K-KPd4Wxx2B_0GQD0K1cpy82Us/exec';
+  var form=document.getElementById('newsForm');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=document.getElementById('newsEmail').value.trim();
+    if(!email)return;
+    var btn=document.getElementById('newsBtn');
+    btn.disabled=true; btn.textContent='Subscribing…';
+    fetch(URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email})})
+      .then(function(){
+        form.querySelector('.row').style.display='none';
+        document.getElementById('newsOk').hidden=false;
+      })
+      .catch(function(){
+        document.getElementById('newsErr').hidden=false;
+        btn.disabled=false; btn.textContent='Subscribe';
+      });
+  });
+})();
+</script>
+
 <div class="support-band rv" id="support">
   <div class="wrap">
     <div>
