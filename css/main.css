@@ -290,7 +290,7 @@ section.fnote-grey{padding:0}
 /* closing line: gold highlighter draws behind it as the letter opens */
 .letter .lhl{font-weight:600;color:var(--navy-ink);background-image:linear-gradient(rgba(214,173,100,.38),rgba(214,173,100,.38));background-repeat:no-repeat;background-position:0 78%;background-size:0% .5em;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size 1.1s cubic-bezier(.25,.7,.3,1) .55s}
 .lveil.open .letter .lhl{background-size:100% .5em}
-.letter .lsig-img{display:block;width:min(250px,64%);height:auto;margin-top:26px}
+.letter .lsig-img{display:block;width:min(180px,52%);height:auto;margin-top:24px}
 @media (prefers-reduced-motion: reduce){.letter .lhl{transition:none;background-size:100% .5em}}
 .letter .lrole{font-size:13.5px;color:var(--mut);margin-top:10px}
 .letter .lclose{position:absolute;top:10px;right:12px;background:none;border:0;font-size:19px;color:var(--mut);cursor:pointer;padding:8px;line-height:1}
