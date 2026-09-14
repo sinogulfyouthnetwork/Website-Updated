@@ -282,7 +282,9 @@ section.fnote-grey{padding:0}
 .lveil.open{opacity:1;pointer-events:auto}
 .letter{position:relative;background:#fdfbf6;width:100%;max-width:620px;max-height:88vh;overflow:auto;border-top:4px solid var(--gold);border-radius:3px;box-shadow:0 34px 90px rgba(0,0,0,.45);padding:clamp(28px,4.5vw,54px) clamp(24px,4.5vw,56px);transform:translateY(26px) scale(.965);transition:transform .34s cubic-bezier(.2,.7,.3,1)}
 .lveil.open .letter{transform:none}
-.letter .lhead{padding-bottom:18px;border-bottom:1px solid rgba(47,77,105,.14);margin-bottom:20px}
+.letter .lhead{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:18px;border-bottom:1px solid rgba(47,77,105,.14);margin-bottom:20px}
+.letter .lhead-tag{font-family:var(--disp);font-weight:600;font-size:15.5px;color:var(--gold-ink);white-space:nowrap}
+@media(max-width:480px){.letter .lhead-tag{font-size:14px;margin-right:28px}}
 /* the banner SVG carries ~19% empty viewBox on its left — pull it back so the art sits flush left */
 .letter .lhead img{height:30px;display:block;margin-left:-34px}
 .letter p{color:var(--text);line-height:1.85;font-size:15.5px;margin-top:14px}
