@@ -342,11 +342,14 @@ section.fnote-grey{padding:0}
 /* support band (buy us a coffee) */
 /* ── newsletter (Stay in the Loop) — photo-left navy band ── */
 .news-band{position:relative;background:var(--navy-deep);border-bottom:3px solid var(--gold);color:#fff;overflow:hidden;display:flex;align-items:center;min-height:clamp(500px,74vh,780px);padding:clamp(64px,8vw,110px) 0}
-.news-band .wrap{width:100%}
+.news-band .wrap{width:100%;max-width:none}
 .news-photo{position:absolute;top:0;bottom:0;left:0;width:52%}
 .news-photo img{width:100%;height:100%;object-fit:cover;object-position:40% 30%}
 .news-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,58,82,.12) 0%,rgba(35,58,82,.5) 55%,var(--navy-deep) 96%)}
-.news{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+/* text centers in the navy zone right of the photo (52%), at any viewport width */
+.news{position:relative;display:flex;justify-content:center;align-items:center;margin-left:52%}
+.news-spacer{display:none}
+.news>div{width:100%;max-width:500px}
 .news h2{font-family:var(--disp);font-size:clamp(34px,4.8vw,62px);font-weight:800;line-height:1.05;color:#fff}
 .news h2 em{font-style:normal;color:var(--gold)}
 .news-sub{color:rgba(255,255,255,.72);font-size:clamp(15.5px,1.3vw,17.5px);max-width:52ch;line-height:1.7;margin:16px 0 32px}
@@ -359,8 +362,8 @@ section.fnote-grey{padding:0}
 .news-msg.ok{color:var(--gold);font-weight:600}
 .news-msg.err{color:#e2a193}
 @media (max-width:820px){
-  .news{grid-template-columns:1fr}
-  .news-spacer{display:none}
+  .news-band{display:block} /* flex row would squeeze the photo beside the text */
+  .news{margin-left:0;justify-content:flex-start}
   .news-photo{position:relative;width:100%;height:230px;margin:-64px 0 34px}
   .news-photo::after{background:linear-gradient(180deg,rgba(35,58,82,.05) 40%,var(--navy-deep) 100%)}
 }
@@ -476,9 +479,11 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .story-pile{position:relative;margin:6px 0 0}
 .story-pile .stack{position:relative;aspect-ratio:3/2}
 .story-pile .stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:12px;cursor:pointer;box-shadow:0 12px 26px rgba(26,44,63,.2);transition:transform .55s cubic-bezier(.3,.7,.3,1)}
-.story-pile .stack .pos0{z-index:3;transform:rotate(0)}
-.story-pile .stack .pos1{z-index:2;transform:rotate(-2.6deg) translate(-12px,10px)}
-.story-pile .stack .pos2{z-index:1;transform:rotate(2.2deg) translate(12px,12px)}
+.story-pile .stack .pos0{z-index:5;transform:rotate(0)}
+.story-pile .stack .pos1{z-index:4;transform:rotate(-2.6deg) translate(-12px,10px)}
+.story-pile .stack .pos2{z-index:3;transform:rotate(2.2deg) translate(12px,12px)}
+.story-pile .stack .pos3{z-index:2;transform:rotate(-1.6deg) translate(-8px,16px)}
+.story-pile .stack .pos4{z-index:1;transform:rotate(1.4deg) translate(9px,18px)}
 /* gold highlighter draws behind the chapter-2 facts on reveal */
 .story-beat.flip .txt p b{background-image:linear-gradient(rgba(214,173,100,.38),rgba(214,173,100,.38));background-repeat:no-repeat;background-position:0 82%;background-size:0% .45em;transition:background-size .9s cubic-bezier(.25,.7,.3,1) .25s}
 .story-beat.flip.in .txt p b{background-size:100% .45em}
@@ -533,6 +538,15 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .video-shell:hover .play i{transform:scale(1.08)}
 .video-shell iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
+/* film-strip frame around the homepage Media Lab thumbnail — tilted like the hero
+   film columns, straightens on hover; perforations are rectangles (no dots) */
+.filmwrap{position:relative;background:#101c2a;border-radius:10px;padding:24px 12px;transform:rotate(-1.6deg);transition:transform .5s cubic-bezier(.2,.7,.3,1);box-shadow:0 18px 42px rgba(8,16,26,.45)}
+.filmwrap:hover{transform:rotate(0deg)}
+.filmwrap::before,.filmwrap::after{content:"";position:absolute;left:16px;right:16px;height:9px;background:repeating-linear-gradient(90deg,rgba(251,249,245,.30) 0 16px,transparent 16px 32px);border-radius:2px}
+.filmwrap::before{top:8px}
+.filmwrap::after{bottom:8px}
+.filmwrap .video-shell{display:block;border-radius:4px}
+
 /* reveal on scroll */
 html.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
 html.js .rv.in{opacity:1;transform:none}
@@ -543,6 +557,7 @@ html.js .rv.in{opacity:1;transform:none}
   .col-track{animation:none!important}
   .ticker-track{animation:none}
   .hero-home .fcard img{transition:none}
+  .filmwrap{transform:none;transition:none}
   .tr i,[data-roll]:hover .tr i{transform:none;transition:none}
   .roll-arrow,[data-roll]:hover .roll-arrow{transform:none;transition:none}
   .nav-pill{transition:opacity .18s}
