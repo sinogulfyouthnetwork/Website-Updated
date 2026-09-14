@@ -287,8 +287,11 @@ section.fnote-grey{padding:0}
 .letter .lhead img{height:30px;display:block;margin-left:-34px}
 .letter p{color:var(--text);line-height:1.85;font-size:15.5px;margin-top:14px}
 .letter p:first-of-type{margin-top:0}
-.letter .lsig{font-family:'Caveat',cursive;font-weight:700;font-size:42px;line-height:1;color:var(--navy-ink);margin-top:30px;transform:rotate(-2deg);display:inline-block}
-.letter .lsig-ph{display:block;font-family:var(--body);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(47,77,105,.45);margin-top:6px}
+/* closing line: gold highlighter draws behind it as the letter opens */
+.letter .lhl{font-weight:600;color:var(--navy-ink);background-image:linear-gradient(rgba(214,173,100,.38),rgba(214,173,100,.38));background-repeat:no-repeat;background-position:0 78%;background-size:0% .5em;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size 1.1s cubic-bezier(.25,.7,.3,1) .55s}
+.lveil.open .letter .lhl{background-size:100% .5em}
+.letter .lsig-img{display:block;width:min(250px,64%);height:auto;margin-top:26px}
+@media (prefers-reduced-motion: reduce){.letter .lhl{transition:none;background-size:100% .5em}}
 .letter .lrole{font-size:13.5px;color:var(--mut);margin-top:10px}
 .letter .lclose{position:absolute;top:10px;right:12px;background:none;border:0;font-size:19px;color:var(--mut);cursor:pointer;padding:8px;line-height:1}
 .letter .lclose:hover{color:var(--navy-ink)}
