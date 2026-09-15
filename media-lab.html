@@ -163,17 +163,19 @@
 
 <script src="js/main.js" defer></script>
 <script>
-/* click-to-play: the Google Drive player only loads when asked (fast page) */
+/* click-to-play: the film is self-hosted and only downloads when asked (fast page) */
 (function(){
   var shell=document.getElementById('videoShell');
-  var DRIVE_ID='1Ctzcnyik-7FV6ZanFnjP2mZNgDtft5Sp';
   function play(){
-    var f=document.createElement('iframe');
-    f.src='https://drive.google.com/file/d/'+DRIVE_ID+'/preview';
-    f.allow='autoplay; fullscreen';
-    f.setAttribute('allowfullscreen','');
-    shell.innerHTML=''; shell.appendChild(f);
+    var v=document.createElement('video');
+    v.src='assets/tradition-in-bloom.mp4';
+    v.poster='assets/thumbnail.jpeg';
+    v.controls=true; v.autoplay=true; v.playsInline=true; v.preload='none';
+    v.setAttribute('playsinline','');
+    shell.innerHTML=''; shell.appendChild(v);
+    shell.classList.add('playing');
     shell.style.cursor='default';
+    var p=v.play(); if(p&&p.catch){p.catch(function(){});}
   }
   shell.addEventListener('click',play,{once:true});
   shell.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}},{once:true});

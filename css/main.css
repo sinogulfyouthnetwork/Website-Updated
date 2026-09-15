@@ -552,7 +552,7 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .video-shell .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .video-shell .play i{width:76px;height:76px;border-radius:50%;background:rgba(251,249,245,.92);display:flex;align-items:center;justify-content:center;font-style:normal;color:var(--navy-ink);font-size:26px;padding-left:6px;transition:transform .3s;box-shadow:0 10px 30px rgba(16,28,42,.35)}
 .video-shell:hover .play i{transform:scale(1.08)}
-.video-shell iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-shell iframe,.video-shell video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;background:var(--navy-ink)}
 
 /* film-strip frame around the homepage Media Lab thumbnail — tilted like the hero
    film columns, straightens on hover; perforations are rectangles (no dots) */
