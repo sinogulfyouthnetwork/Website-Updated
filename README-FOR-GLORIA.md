@@ -22,7 +22,8 @@ Preview: start the `sgyn-v2` preview (or `npx http-server C:\Users\glori\sgyn-we
 - **Add an event:** open `events.html`, find `var EVENTS=[` near the bottom, copy one event block `{...},` and edit its text. Newest goes first.
 - **Change a metric:** search for `data-count` in any page — the number in `data-count="8"` is what gets displayed.
 - **Replace a Media Lab placeholder:** in `media-lab.html`, each piece is an `<article>` — swap the image, title, and contributor line, and delete the `Placeholder` label.
-- **Swap the logo:** replace `assets/SGYNBannerNavy.svg` (navy version, used on white) or `assets/SGYNBannerSmall.svg` (white version, used on navy). `SGYNBannerNavy.svg` was generated from the official banner by recoloring the white lettering to brand navy — replace it if a designer makes an official one.
+- **Swap the logo:** replace `assets/SGYNBannerNavy.svg` (navy version, used in the top bar on white) or `assets/SGYNBannerSmallFooter.svg` (white version, used in the navy footer). `SGYNBannerNavy.svg` was generated from the official banner by recoloring the white lettering to brand navy — replace it if a designer makes an official one. Both files are compressed; if you drop in a new one from a designer, it may be much larger, so ask Claude to re-compress it.
+- **Swap the browser-tab icon:** replace `assets/favicon.png` — a 48×48 picture of the mountain mark on a navy square (the full wordmark is unreadable at tab size, so only the mountain is used).
 - Anything marked with a small orange **PLACEHOLDER** chip on the pages needs real content before launch.
 
 ## Before going live
