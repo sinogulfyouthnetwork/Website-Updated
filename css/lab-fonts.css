@@ -1,0 +1,80 @@
+/* ------------------------------------------------------------------
+   LAB display faces — self-hosted, subset
+   Nanum Brush Script (brush script) · Archivo Black (poster wordmark)
+   Ma Shan Zheng (Chinese) · Aref Ruqaa (Arabic)
+
+   Loaded by language-across-borders.html ONLY. It replaces the Google
+   Fonts <link> the design preview used: no third-party request, no
+   render-blocking round-trip, and reliable loading from mainland China —
+   the same reason css/fonts.css exists for the sitewide faces.
+
+   HOW THESE FILES WERE MADE
+   The four families were downloaded from Google Fonts as full TrueType
+   files and subset with the `subset-font` npm package (harfbuzz/wasm) to
+   exactly the characters this page renders:
+     • Nanum Brush Script and Archivo Black — printable ASCII, the
+       Latin-1 letters, and typographic punctuation. (Nanum Brush Script
+       ships the Korean syllabary too; dropping it takes the file from
+       2.5 MB to 14 KB.)
+     • Ma Shan Zheng — the 32 hanzi on the page: 无界语言 / 中文 /
+       字圆其说 / the six city names / the characters in the hanzi mosaic
+       behind the Mandarinizer photo / 小红书 in the footer. 5.7 MB to 23 KB.
+     • Aref Ruqaa 400 + 700 — the 19 Arabic letters on the page. The
+       subsetter keeps the font's GSUB shaping tables, so the positional
+       (initial / medial / final / isolated) forms still join correctly;
+       that is why these two shrink less than the others.
+
+   IF THE COPY CHANGES: adding a hanzi or an Arabic letter that is not in
+   the list above will fall back to a system font for that one character.
+   Re-run the subsetting step (see the build notes) rather than editing
+   this file by hand.
+
+   Weights match what the page actually asks for. Ma Shan Zheng, Nanum
+   Brush Script and Archivo Black exist in a single weight, exactly as
+   Google serves them, so bold text in those faces is synthesised by the
+   browser — unchanged from the preview's behaviour.
+   ------------------------------------------------------------------ */
+
+/* ---------- Nanum Brush Script (the brush script line) ---------- */
+@font-face {
+  font-family: 'Nanum Brush Script';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('../assets/fonts/lab/NanumBrushScript-lab.woff2') format('woff2');
+}
+
+/* ---------- Archivo Black (the LAB@CITY wordmark and display type) ---------- */
+@font-face {
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('../assets/fonts/lab/ArchivoBlack-lab.woff2') format('woff2');
+}
+
+/* ---------- Ma Shan Zheng (Chinese) ---------- */
+@font-face {
+  font-family: 'Ma Shan Zheng';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('../assets/fonts/lab/MaShanZheng-lab.woff2') format('woff2');
+}
+
+/* ---------- Aref Ruqaa (Arabic) ---------- */
+@font-face {
+  font-family: 'Aref Ruqaa';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('../assets/fonts/lab/ArefRuqaa-lab-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Aref Ruqaa';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('../assets/fonts/lab/ArefRuqaa-lab-700.woff2') format('woff2');
+}
