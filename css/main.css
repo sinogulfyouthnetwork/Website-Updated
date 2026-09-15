@@ -547,23 +547,28 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .lk{display:inline-block;margin-top:14px;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--navy);border-bottom:2px solid var(--gold)}
 
 
-/* ── featured video (click-to-play, no iframe until asked) ── */
-.video-shell{position:relative;border-radius:var(--r);overflow:hidden;background:var(--navy-ink);aspect-ratio:16/9;cursor:pointer}
-.video-shell img{width:100%;height:100%;object-fit:cover;filter:brightness(.85);transition:filter .35s,transform .5s}
-.video-shell:hover img{filter:brightness(1);transform:scale(1.02)}
-.video-shell .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.video-shell .play i{width:76px;height:76px;border-radius:50%;background:rgba(251,249,245,.92);display:flex;align-items:center;justify-content:center;font-style:normal;color:var(--navy-ink);font-size:26px;padding-left:6px;transition:transform .3s;box-shadow:0 10px 30px rgba(16,28,42,.35)}
-.video-shell:hover .play i{transform:scale(1.08)}
-.video-shell iframe,.video-shell video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;background:var(--navy-ink)}
-
-/* film-strip frame around the homepage Media Lab thumbnail — tilted like the hero
-   film columns, straightens on hover; perforations are rectangles (no dots) */
-.filmwrap{position:relative;background:#101c2a;border-radius:10px;padding:24px 12px;transform:rotate(-1.6deg);transition:transform .5s cubic-bezier(.2,.7,.3,1);box-shadow:0 18px 42px rgba(8,16,26,.45)}
-.filmwrap:hover{transform:rotate(0deg)}
-.filmwrap::before,.filmwrap::after{content:"";position:absolute;left:16px;right:16px;height:9px;background:repeating-linear-gradient(90deg,rgba(251,249,245,.30) 0 16px,transparent 16px 32px);border-radius:2px}
-.filmwrap::before{top:8px}
-.filmwrap::after{bottom:8px}
-.filmwrap .video-shell{display:block;border-radius:4px}
+/* ── media studio strip: full-height split ("2f") ──
+   text left; the loop fills the right half flush to the section's top/bottom/right.
+   play swaps in the real film with native controls (pause / scrub / fullscreen) */
+#lab{padding:0}
+.mlab-grid{display:grid;grid-template-columns:1fr 1.1fr;min-height:min(620px,72svh)}
+.mlab-txt{align-self:center;padding:clamp(48px,6vw,80px) clamp(28px,3vw,52px);padding-left:max(clamp(20px,4vw,44px),calc((100vw - 1200px)/2 + 44px))}
+.mlab-txt h2{font-size:clamp(30px,4vw,46px);font-weight:800;line-height:1.05;color:#fff;margin-bottom:18px}
+.mlab-txt .lbl{display:block}
+.mlab-title{font-family:var(--disp);font-weight:800;font-size:clamp(26px,3vw,40px);line-height:1.06;margin:8px 0 10px;color:#fff}
+.mlab-title em{font-style:normal;color:var(--gold)}
+.mlab-sub{color:rgba(255,255,255,.78);font-size:15.5px;max-width:44ch}
+.mlab-media{position:relative;overflow:hidden;cursor:pointer;background:var(--navy-ink)}
+.mlab-media video.mlab-loop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.92);transition:filter .35s}
+.mlab-media:hover video.mlab-loop{filter:brightness(1.02)}
+.mlab-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,44,63,.22) 0%,rgba(26,44,63,.08) 50%,rgba(26,44,63,.30) 100%)}
+.mlab-frame{position:absolute;inset:0;display:none;background:#000;z-index:3}
+.mlab-frame video{width:100%;height:100%;object-fit:contain;background:#000}
+.mlab-media.playing{cursor:default}
+.mlab-media.playing .mlab-frame{display:block}
+.mlab-close{position:absolute;top:14px;right:16px;z-index:4;background:rgba(26,44,63,.8);color:#fff;border:0;border-radius:8px;font-family:var(--disp);font-weight:700;font-size:13px;padding:8px 13px;cursor:pointer;display:none}
+.mlab-media.playing .mlab-close{display:block}
+@media(max-width:880px){.mlab-grid{grid-template-columns:1fr;min-height:0}.mlab-media{position:relative;height:280px;order:-1}.mlab-txt{padding:clamp(36px,7vw,56px) clamp(20px,4vw,44px)}}
 
 /* reveal on scroll */
 html.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
@@ -575,7 +580,6 @@ html.js .rv.in{opacity:1;transform:none}
   .col-track{animation:none!important}
   .ticker-track{animation:none}
   .hero-home .fcard img{transition:none}
-  .filmwrap{transform:none;transition:none}
   .tr i,[data-roll]:hover .tr i{transform:none;transition:none}
   .roll-arrow,[data-roll]:hover .roll-arrow{transform:none;transition:none}
   .nav-pill{transition:opacity .18s}
