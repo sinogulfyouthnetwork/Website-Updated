@@ -212,6 +212,11 @@ html.js .lede>*:nth-child(3){transition-delay:.2s}
 .modal p{color:var(--mut);margin-bottom:14px}
 .modal .facts{margin:16px 0;border-top:1px solid rgba(47,77,105,.14);padding-top:14px;font-size:14px;color:var(--navy);line-height:1.9}
 .modal .facts span{display:block}
+.modal .ig-btn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-family:var(--disp);font-weight:700;font-size:14.5px;color:var(--navy-ink);background:var(--gold);padding:11px 20px;border-radius:100px;transition:.25s}
+.modal .ig-btn svg{width:16px;height:16px;flex:none}
+.modal .ig-btn b{display:inline-block;font-weight:inherit;transition:transform .25s}
+.modal .ig-btn:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.modal .ig-btn:hover b{transform:translateX(4px)}
 /* modal photo slideshow */
 .modal .slides{position:relative}
 .modal .slide-nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(26,44,63,.65);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding-bottom:3px;z-index:1}
@@ -321,6 +326,15 @@ section.fnote-grey{padding:0}
 .fit-hier .row p{font-size:14.5px;line-height:1.6;color:#4a5b6d;margin-top:4px}
 .fit-hier .row .go{font-family:var(--disp);font-weight:700;font-size:13.5px;color:var(--gold-ink);white-space:nowrap;transition:transform .3s}
 .fit-hier .row:hover .go{transform:translateX(5px)}
+/* hover: inset hairline gold frame fades in + expands toward the edge (Gloria's pick "C", 2026-09-15).
+   applies to the member door, the three rows, and the coffee block */
+.fit-hier .big,.fit-hier .row,.cofW{position:relative}
+.fit-hier .big::before,.fit-hier .row::before,.cofW::before{
+  content:"";position:absolute;inset:12px;pointer-events:none;
+  border:1px solid var(--gold-ink);opacity:0;transition:opacity .28s ease,inset .28s ease}
+.fit-hier .big:hover::before,.fit-hier .row:hover::before,.cofW:hover::before{opacity:1;inset:7px}
+@media(prefers-reduced-motion:reduce){
+  .fit-hier .big::before,.fit-hier .row::before,.cofW::before{transition:none}}
 @media(max-width:880px){.fit-hier{grid-template-columns:1fr}}
 
 /* checklist / detail blocks for program pages */

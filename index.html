@@ -88,10 +88,9 @@
       <figure class="story-pile">
         <div class="stack" title="Click to see the next photo">
           <img class="pos0" src="assets/EventPhotos/beijing-launch-cake.webp" alt="Cutting the SGYN cake at the Beijing launch" loading="lazy"/>
-          <img class="pos1" data-src="assets/EventPhotos/uae-embassy-beijing.webp" alt="SGYN members at the Embassy of the United Arab Emirates in Beijing"/>
+          <img class="pos1" data-src="assets/EventPhotos/uae-embassy-beijing-crop.webp" alt="SGYN members at the Embassy of the United Arab Emirates in Beijing"/>
           <img class="pos2" data-src="assets/SGYN-Flagship-Event.webp" alt="SGYN flagship dialogue audience in New York"/>
-          <img class="pos3" data-src="assets/EventPhotos/nyc-dialogue-2.webp" alt="Youth dialogue at the UAE Consulate in New York"/>
-          <img class="pos4" data-src="assets/EventPhotos/ygs.webp" alt="SGYN members at the Yenching Global Symposium"/>
+          <img class="pos3" data-src="assets/EventPhotos/ygs.webp" alt="SGYN members at the Yenching Global Symposium"/>
         </div>
       </figure>
       <div class="txt">
@@ -212,27 +211,26 @@
 </section>
 
 <!-- media lab -->
+<!-- media studio strip: full-height split ("2f") — the loop fills the right half top-to-bottom;
+     play swaps in the real film with native controls (pause / scrub / fullscreen) -->
 <section class="ink on-ink" id="lab">
-  <div class="wrap">
-    <div class="sec-top rv">
+  <div class="mlab-grid rv">
+    <div class="mlab-txt">
       <h2>The Media Studio</h2>
+      <span class="lbl">Currently showing</span>
+      <h3 class="mlab-title">Tradition <em>in Bloom.</em></h3>
+      <p class="mlab-sub">A film by Mariam Al Mutawa — the first voice in the Media Studio. Walking through a Shanghai park, she is pulled into a circle of locals dancing and practicing kung fu.</p>
+      <div class="cine-playrow">
+        <button class="cine-play" id="labPlay" aria-label="Play Tradition in Bloom">▶</button>
+        <p class="cine-playlbl">Watch the film<small>2 min 45 s — with sound</small></p>
+        <a class="btn gold" style="margin-left:8px" href="media-lab.html">Visit the Media Studio</a>
+      </div>
     </div>
-    <div class="split rv">
-      <div class="filmwrap">
-        <div class="video-shell" id="homeVideoShell" role="button" tabindex="0" aria-label="Play Tradition in Bloom">
-          <img src="assets/tradition-still.webp" alt="Still from Tradition in Bloom — dancers in a Shanghai park" loading="lazy"/>
-          <span class="play"><i>▶</i></span>
-        </div>
-      </div>
-      <div>
-        <span class="lbl">Featured film — Shanghai, 2025</span>
-        <h3 style="font-size:clamp(24px,3vw,36px);font-weight:800;color:#fff;margin:12px 0 10px;line-height:1.15">Tradition in Bloom</h3>
-        <p style="color:rgba(255,255,255,.78);font-size:15.5px;max-width:52ch">Walking through a Shanghai park, Emirati student Mariam Al Mutawa is pulled into a circle of locals dancing and practicing kung fu — strangers become teachers in a spontaneous moment of cultural connection.</p>
-        <p style="color:rgba(255,255,255,.55);font-size:13.5px;margin-top:10px">By Mariam Al Mutawa — the first voice in the Media Studio. Yours could be next.</p>
-        <div style="margin-top:22px">
-          <a class="btn gold" href="media-lab.html">Watch in the Media Studio</a>
-        </div>
-      </div>
+    <div class="mlab-media" id="labMedia" role="button" tabindex="0" aria-label="Play Tradition in Bloom">
+      <video class="mlab-loop" data-src="assets/tradition-loop.mp4" poster="assets/tradition-loop-poster.jpg" muted loop playsinline preload="none"></video>
+      <div class="mlab-veil"></div>
+      <div class="mlab-frame" id="labFrame"></div>
+      <button class="mlab-close" id="labClose">✕ Back</button>
     </div>
   </div>
 </section>
@@ -493,22 +491,33 @@
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var base='assets/hero/';
   var photos=[
-    {f:'SGYN-Flagship-Event.webp', c:'New York, Dec 2025'},
-    {f:'QanateerEvent1.webp',      c:'Jeddah, Aug 2025'},
-    {f:'ChinaEmaritiEvent1.webp',  c:'Shanghai, Dec 2024'},
-    {f:'OctLitSalon1.webp',        c:'Jeddah, Oct 2025'},
-    {f:'Beijing-Launch-Event.webp',c:'Beijing, Nov 2025'},
-    {f:'JeddahLab3.webp',          c:'Jeddah, Jan 2026'},
-    {f:'uae-union-day.webp',       c:'Beijing, Dec 2025'},
-    {f:'Pipa-Lady.webp',           c:'Cultural evening'},
-    {f:'Members-Image.webp',       c:'SGYN community'},
-    {f:'GridImage2.webp',          c:'SGYN community'},
-    {f:'GridImage3.webp',          c:'SGYN community'},
-    {f:'GridImage4.webp',          c:'SGYN community'},
-    {f:'OctLitSalon2.webp',        c:'Jeddah, Oct 2025'}
+    {f:'SGYN-Flagship-Event.webp', c:'New York, Nov 2025'},
+    {f:'QanateerEvent1.webp', c:'Jeddah, Aug 2025'},
+    {f:'lab-beijing.webp', c:'Beijing, Apr 2026'},
+    {f:'ChinaEmaritiEvent1.webp', c:'Shanghai, Dec 2024'},
+    {f:'dialogue-798.webp', c:'Beijing, Jul 2026'},
+    {f:'JeddahLab3.webp', c:'Jeddah, Jan 2026'},
+    {f:'ecust.webp', c:'Shanghai, Nov 2025'},
+    {f:'lab-singapore.webp', c:'Singapore, Aug 2026'},
+    {f:'uae-union-day.webp', c:'Beijing, Dec 2025'},
+    {f:'salon-ahq.webp', c:'Jeddah, Dec 2025'},
+    {f:'qanateer-oud.webp', c:'Jeddah, Aug 2025'},
+    {f:'ygs.webp', c:'Beijing, Apr 2026'},
+    {f:'lab-dammam-2.webp', c:'Dammam, Jul 2026'},
+    {f:'OctLitSalon1.webp', c:'Jeddah, Oct 2025'},
+    {f:'qanateer-calligraphy.webp', c:'Jeddah, Aug 2025'},
+    {f:'lab-yiwu.webp', c:'Yiwu, May 2026'},
+    {f:'Beijing-Launch-Event.webp', c:'Beijing, Nov 2025', op:'50% 32%'},
+    {f:'qanateer-mic.webp', c:'Jeddah, Aug 2025'},
+    {f:'kfupm.webp', c:'Dhahran, Dec 2025'},
+    {f:'salon-midautumn-2.webp', c:'Jeddah, Oct 2025'},
+    {f:'Pipa-Lady.webp', c:'Cultural evening'},
+    {f:'qanateer-speaker.webp', c:'Jeddah, Aug 2025'},
+    {f:'uae-embassy-beijing.webp', c:'Beijing, 2025'},
+    {f:'Members-Image.webp', c:'SGYN community'}
   ];
 
-  var COLS=5, PER=4;
+  var COLS=5, PER=5;
   // columns 4-5 are display:none at <=760px, so don't build them there at all
   var BUILD = matchMedia('(max-width:760px)').matches ? 3 : COLS;
   var film=document.getElementById('film');
@@ -519,12 +528,12 @@
     col.style.setProperty('--spd',(58+c*9)+'s');
     var track=document.createElement('div');
     track.className='col-track';
-    var lazy=(c>=3)?'lazy':'eager';
     var cards=[];
     for(var i=0;i<PER;i++){
       var idx=(c*PER+i);
       var p=photos[idx%photos.length];
-      cards.push('<div class="fcard"><img src="'+base+p.f+'" alt="" loading="'+lazy+'" style="object-position:'+(20+(idx*19)%60)+'% '+(28+(idx*11)%44)+'%"><span class="chip">'+p.c+'</span></div>');
+      var op=p.op||((20+(idx*19)%60)+'% '+(28+(idx*11)%44)+'%');
+      cards.push('<div class="fcard"><img src="'+base+p.f+'" alt="" loading="'+((c<3&&i<3)?'eager':'lazy')+'" style="object-position:'+op+'"><span class="chip">'+p.c+'</span></div>');
     }
     track.innerHTML=cards.join('')+cards.join('');
     col._cards=cards.join('');
@@ -636,22 +645,40 @@
 })();
 </script>
 <script>
-/* media lab: play Tradition in Bloom right here — the film only downloads when asked */
+/* media studio strip: the loop only loads when the section nears the viewport;
+   play swaps in the real film with native controls (pause / scrub / fullscreen) */
 (function(){
-  var shell=document.getElementById('homeVideoShell');
-  if(!shell)return;
+  var media=document.getElementById('labMedia');
+  if(!media)return;
+  var loop=media.querySelector('video.mlab-loop'),frame=document.getElementById('labFrame');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  new IntersectionObserver(function(en){
+    if(!en[0].isIntersecting){ if(loop.src)loop.pause(); return; }
+    if(reduce||media.classList.contains('playing'))return;
+    if(!loop.src){ loop.src=loop.dataset.src; }
+    loop.play().catch(function(){});
+  },{threshold:.05,rootMargin:'400px 0px'}).observe(media);
   function play(){
+    if(media.classList.contains('playing'))return;
     var v=document.createElement('video');
     v.src='assets/tradition-in-bloom.mp4';
     v.poster='assets/tradition-still.webp';
     v.controls=true; v.autoplay=true; v.playsInline=true; v.preload='none';
     v.setAttribute('playsinline','');
-    shell.innerHTML=''; shell.appendChild(v);
-    shell.style.cursor='default';
+    frame.innerHTML=''; frame.appendChild(v);
+    media.classList.add('playing');
+    loop.pause();
+    v.addEventListener('ended',stop);
     var p=v.play(); if(p&&p.catch){p.catch(function(){});}
   }
-  shell.addEventListener('click',play,{once:true});
-  shell.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}},{once:true});
+  function stop(){
+    frame.innerHTML=''; media.classList.remove('playing');
+    if(loop.src)loop.play().catch(function(){});
+  }
+  document.getElementById('labPlay').addEventListener('click',play);
+  media.addEventListener('click',function(){ if(!media.classList.contains('playing'))play(); });
+  media.addEventListener('keydown',function(e){ if((e.key==='Enter'||e.key===' ')&&!media.classList.contains('playing')){e.preventDefault();play();} });
+  document.getElementById('labClose').addEventListener('click',function(e){ e.stopPropagation(); stop(); });
 })();
 </script>
 </body>
