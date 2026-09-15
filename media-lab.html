@@ -47,33 +47,42 @@
   </nav>
 </header>
 
-<section class="page-hero">
-  <div class="wrap">
-    <p class="crumb"><a href="index.html">Home</a><i aria-hidden="true"></i>Media Lab</p>
-    <h1>Voices from <em>both shores.</em></h1>
-    <p class="lead">The Media Lab is where the SGYN community publishes — films, essays, photography, audio, and art from young people moving between China and the Gulf. It's just getting started, and the first voice sets the tone.</p>
-    <div class="ctas">
-      <a class="btn gold" href="https://forms.gle/hP856wgmD7PJuvNA9" target="_blank" rel="noopener">Submit your work</a>
+<!-- full-cinema layout: the film loops fixed behind the page; content scrolls over it -->
+<div class="cine-bg" aria-hidden="true">
+  <video src="assets/tradition-loop.mp4" poster="assets/tradition-loop-poster.jpg" autoplay muted loop playsinline></video>
+  <div class="cine-veil"></div>
+</div>
+
+<section class="cine-panel cine-open">
+  <div class="cine-inner">
+    <p class="cine-kick">Voices from both shores</p>
+    <h1>The SGYN <em>Media Lab.</em></h1>
+    <p class="cine-scroll">Scroll ↓</p>
+  </div>
+</section>
+
+<section class="cine-panel">
+  <div class="cine-inner">
+    <div class="cine-card rv">
+      <p class="cine-kick">Currently showing</p>
+      <h2>Tradition in Bloom</h2>
+      <p>While walking through a park, Mariam discovers a group of locals dancing and practicing kung fu. What follows is a beautiful and spontaneous exchange — where strangers became teachers, warmly inviting her to join and experience their traditions firsthand. This video captures that meaningful moment of cultural connection and shared joy.</p>
+      <p class="cine-bio"><b>Mariam Al Mutawa</b> is an Emirati student currently studying in Shanghai with a deep interest in exploring cultures beyond her own.</p>
+      <div class="cine-playrow">
+        <button class="cine-play" id="filmPlay" aria-label="Play Tradition in Bloom">▶</button>
+        <p class="cine-playlbl">Watch the film<small>2 min 45 s — with sound</small></p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- featured film -->
-<section>
+<div class="cine-solid">
+
+<!-- what the lab is -->
+<section class="tight">
   <div class="wrap">
-    <div class="sec-top rv"><h2>Now showing</h2></div>
-    <div class="split rv">
-      <div class="video-shell" id="videoShell" role="button" tabindex="0" aria-label="Play Tradition in Bloom">
-        <img src="assets/tradition-still.webp" alt="Still from Tradition in Bloom — dancers in a Shanghai park"/>
-        <span class="play"><i>▶</i></span>
-      </div>
-      <div>
-        <span class="lbl dark">Film — Shanghai, 2025</span>
-        <h3 style="font-family:var(--disp);font-size:clamp(26px,3.4vw,42px);font-weight:800;color:var(--navy-ink);line-height:1.08;margin:12px 0 12px">Tradition in Bloom</h3>
-        <p style="color:var(--mut)">While walking through a park, Mariam discovers a group of locals dancing and practicing kung fu. What follows is a beautiful and spontaneous exchange — where strangers became teachers, warmly inviting her to join and experience their traditions firsthand. This video captures that meaningful moment of cultural connection and shared joy.</p>
-        <p style="color:var(--text);font-size:15px;margin-top:16px;border-top:1px solid rgba(47,77,105,.14);padding-top:16px"><b style="font-family:var(--disp)">Mariam Al Mutawa</b> is an Emirati student currently studying in Shanghai with a deep interest in exploring cultures beyond her own.</p>
-      </div>
-    </div>
+    <div class="sec-top rv"><h2>What is <em>the Lab?</em></h2></div>
+    <p class="cine-lead rv">The Media Lab is where the SGYN community publishes — films, essays, photography, audio, and art from young people moving between China and the Gulf. It's just getting started, and the first voice sets the tone.</p>
   </div>
 </section>
 
@@ -108,6 +117,9 @@
   </div>
 </section>
 
+</div><!-- /cine-solid -->
+
+<div class="cine-float">
 <section class="tight">
   <div class="wrap">
     <div class="cta-band rv">
@@ -118,6 +130,7 @@
     </div>
   </div>
 </section>
+</div><!-- /cine-float -->
 
 <footer class="site">
   <div class="wrap">
@@ -134,18 +147,18 @@
         <a href="https://xhslink.cn/o/1uGecgAg4KB" target="_blank" rel="noopener">RedBook 小红书</a>
       </div>
       <div>
-        <h4>Programs</h4>
+        <h4>Explore</h4>
         <a href="silk-road-roundtable.html">Silk-Road Roundtable</a>
         <a href="language-across-borders.html">Language Across Borders</a>
         <a href="literary-salon.html">Literary Salon</a>
         <a href="talent-pipeline.html">Talent Pipeline</a>
+        <a href="events.html">Events</a>
       </div>
       <div>
         <h4>Get involved</h4>
         <a href="mailto:info@sinogulfyouthnetwork.com?subject=Contacting%20SGYN">Contact Us</a>
         <a href="media-lab.html">Submit to the Media Lab</a>
         <a href="partner.html">Partner / Sponsor</a>
-        <a href="events.html">Events</a>
         <a href="https://buymeacoffee.com/sinogulfyouthnetwork" target="_blank" rel="noopener">Buy us a coffee ☕</a>
       </div>
     </div>
@@ -155,24 +168,41 @@
   </div>
 </footer>
 
+<div class="cinema" id="cinema" role="dialog" aria-label="Tradition in Bloom">
+  <button class="cinema-close" id="cinemaClose">✕ Close</button>
+  <div class="cinema-screen">
+    <div id="cinemaSlot"></div>
+    <p class="cinema-credit">Tradition in Bloom <span>a film by Mariam Al Mutawa — Shanghai, 2025</span></p>
+  </div>
+</div>
+
 <script src="js/main.js" defer></script>
 <script>
-/* click-to-play: the film is self-hosted and only downloads when asked (fast page) */
+/* cinema light-box: the film is self-hosted and only downloads when asked (fast page) */
 (function(){
-  var shell=document.getElementById('videoShell');
-  function play(){
+  var cinema=document.getElementById('cinema'),slot=document.getElementById('cinemaSlot');
+  var loop=document.querySelector('.cine-bg video');
+  function open(){
     var v=document.createElement('video');
     v.src='assets/tradition-in-bloom.mp4';
     v.poster='assets/tradition-still.webp';
     v.controls=true; v.autoplay=true; v.playsInline=true; v.preload='none';
     v.setAttribute('playsinline','');
-    shell.innerHTML=''; shell.appendChild(v);
-    shell.classList.add('playing');
-    shell.style.cursor='default';
+    slot.innerHTML=''; slot.appendChild(v);
+    cinema.classList.add('open');
+    document.body.style.overflow='hidden';
+    if(loop)loop.pause();
     var p=v.play(); if(p&&p.catch){p.catch(function(){});}
   }
-  shell.addEventListener('click',play,{once:true});
-  shell.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}},{once:true});
+  function close(){
+    slot.innerHTML=''; cinema.classList.remove('open');
+    document.body.style.overflow='';
+    if(loop)loop.play().catch(function(){});
+  }
+  document.getElementById('filmPlay').addEventListener('click',open);
+  document.getElementById('cinemaClose').addEventListener('click',close);
+  cinema.addEventListener('click',function(e){ if(e.target===cinema)close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape')close(); });
 })();
 </script>
 </body>
