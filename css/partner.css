@@ -79,8 +79,7 @@
 .acc-body a:hover{text-decoration:underline}
 
 /* ── buy us a coffee: two-tone ticket, dallah tips to pour on hover ── */
-.dallah{display:block}
-.dallah path,.dallah circle{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+/* the base .dallah rules live in main.css, which loads before this file */
 .cofC{max-width:780px;margin:0 auto;display:grid;grid-template-columns:clamp(120px,18vw,160px) 1fr;border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(26,44,63,.1)}
 .cofC .pane{background:var(--gold);display:flex;align-items:center;justify-content:center;padding:26px 0}
 .cofC .pane .dallah{width:clamp(58px,7vw,78px);color:var(--navy-ink);transition:transform .5s cubic-bezier(.34,1.3,.5,1);transform-origin:35% 75%}

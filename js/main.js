@@ -38,30 +38,6 @@
     setTimeout(function(){rvs.forEach(function(el){el.classList.add('in')})},6000);
   }
 
-  /* team roster: photo follows the cursor (fine pointers only; touch gets tap→bio) */
-  if(matchMedia('(hover: hover) and (pointer: fine)').matches){
-    document.querySelectorAll('.roster').forEach(function(roster){
-      var float=roster.parentElement.querySelector('.float-photo');
-      if(!float)return;
-      var img=float.querySelector('img');
-      roster.querySelectorAll('[data-photo]').forEach(function(r){(new Image()).src=r.dataset.photo});
-      var x=0,y=0,raf=null;
-      roster.addEventListener('mousemove',function(e){
-        x=e.clientX;y=e.clientY;
-        if(!raf)raf=requestAnimationFrame(function(){
-          float.style.transform='translate('+(x+28)+'px,'+(y-130)+'px) rotate(-4deg)';raf=null;
-        });
-      });
-      roster.querySelectorAll('.roster-row').forEach(function(row){
-        row.addEventListener('mouseenter',function(){
-          if(row.dataset.photo){img.src=row.dataset.photo;float.classList.add('on');}
-        });
-        row.addEventListener('mouseleave',function(){float.classList.remove('on')});
-      });
-      roster.addEventListener('mouseleave',function(){float.classList.remove('on')});
-    });
-  }
-
   /* metric count-up */
   var mio=new IntersectionObserver(function(es){
     es.forEach(function(e){

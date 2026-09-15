@@ -86,7 +86,7 @@
   <div class="modal gallery" id="modal">
     <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
     <div class="slides" id="mSlides">
-      <img class="cover" id="mImg" src="" alt=""/>
+      <img class="cover" id="mImg" alt=""/>
       <button class="slide-nav prev" id="mPrev" aria-label="Previous photo">‹</button>
       <button class="slide-nav next" id="mNext" aria-label="Next photo">›</button>
       <span class="slide-count" id="mCount"></span>
@@ -378,6 +378,10 @@ var EVENTS=[
     gIdx=(i+gallery.length)%gallery.length;
     mi.src=gallery[gIdx];
     mCount.textContent=(gIdx+1)+' / '+gallery.length;
+    if(gallery.length>1){ /* warm both neighbours so an arrow tap paints instantly */
+      new Image().src=gallery[(gIdx+1)%gallery.length];
+      new Image().src=gallery[(gIdx+gallery.length-1)%gallery.length];
+    }
   }
   mi.addEventListener('error',function(){
     if(!gallery.length)return;

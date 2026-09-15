@@ -289,7 +289,7 @@
     var e=box.getBoundingClientRect().bottom - fig.getBoundingClientRect().bottom;
     fig.style.setProperty('--ext',Math.max(0,Math.round(e))+'px');
   }
-  fit();
+  requestAnimationFrame(fit); /* off the parse: avoids a synchronous reflow while the page is still building */
   addEventListener('load',fit);
   var t;addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,150)});
   var lveil=document.getElementById('lveil');
@@ -403,39 +403,6 @@
     </div>
   </div>
 </div>
-<script>
-/* homepage team cards → bio modal (bios mirror team.html) */
-(function(){
-  var CORE=[
-    {name:"Gloria Tsang", role:"Founder & Executive Director", city:"Beijing",
-     photo:"assets/gloria_cutout.webp", link:"https://www.linkedin.com/in/g-tsang/",
-     bio:"Gloria leads SGYN with 8+ years of experience in global youth advocacy, recognised by organisations including WFUNA and Gulf Intelligence, which named her one of the Top 100 Sustainability Voices in the Middle East. Her professional experience spans fintech at Morgan Stanley in NYC, and various industries across the GCC, Hong Kong, and Southeast Asia. She's currently a Yenching Scholar at Peking University, furthering her research on China-MENA relations, Gulf geopolitics and tech cooperation."},
-    {name:"Abdulla AlHemeiri", role:"Deputy Director", city:"United Arab Emirates",
-     photo:"assets/abdulla_cutout.webp", link:"https://www.linkedin.com/in/abdulla-alhemeiri-b46292215",
-     bio:"Abdulla is one of the few Emirati professionals with deep on-the-ground experience on both sides of the China-Gulf relationship. He joined SGYN's leadership team as a Yenching Scholar at Peking University, studying Economics and Management and was the first GCC national admitted to the programme. His research examines China's economic reach into the Gulf through the UAE as a strategic intermediary. He also previously served as a Political Analyst at the UAE Embassy in Beijing."},
-    {name:"Huayi Shen", role:"Head of Programs & Partnerships", city:"Saudi Arabia",
-     photo:"assets/huayi_cutout.webp", link:"https://www.linkedin.com/in/huayishen/",
-     bio:"Huayi designed and leads SGYN's LAB programme and oversees partnerships across China and Saudi Arabia. He holds a degree in Arabic with studies at UIBE, Cairo University, and AUC, and has experience in communications and media through internships at China Media Group and the UIBE Media Center. Based in Saudi Arabia, he works in logistics for a Chinese-Saudi joint venture. He also founded one of RedNote's growing communities for Chinese expats in the Gulf."}
-  ];
-  var veil=document.getElementById('veil');
-  document.querySelectorAll('.tcard').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var m=CORE[+btn.dataset.i]; if(!m)return;
-      document.getElementById('bName').textContent=m.name;
-      document.getElementById('bRole').textContent=m.role;
-      document.getElementById('bCity').textContent=m.city;
-      document.getElementById('bBio').textContent=m.bio;
-      document.getElementById('bLink').href=m.link;
-      veil.classList.add('open');
-      document.body.style.overflow='hidden';
-    });
-  });
-  function closeBio(){veil.classList.remove('open');document.body.style.overflow=''}
-  document.getElementById('modalClose').addEventListener('click',closeBio);
-  veil.addEventListener('click',function(e){if(e.target===veil)closeBio()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBio()});
-})();
-</script>
 
 <!-- newsletter — photo-left navy band (echoes the original live site's section);
      posts to the same Google Apps Script collector as the live site -->
@@ -519,6 +486,7 @@
 </footer>
 
 <script src="js/main.js" defer></script>
+<script src="js/team-data.js" defer></script>
 <script>
 /* home hero: drifting film columns (photos local in assets/) */
 (function(){
