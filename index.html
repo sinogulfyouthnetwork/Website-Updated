@@ -219,10 +219,10 @@
     </div>
     <div class="split rv">
       <div class="filmwrap">
-        <a class="video-shell" href="media-lab.html" aria-label="Watch Tradition in Bloom in the Media Lab">
-          <img src="assets/thumbnail.jpeg" alt="Still from Tradition in Bloom — dancers in a Shanghai park" loading="lazy"/>
+        <div class="video-shell" id="homeVideoShell" role="button" tabindex="0" aria-label="Play Tradition in Bloom">
+          <img src="assets/tradition-still.webp" alt="Still from Tradition in Bloom — dancers in a Shanghai park" loading="lazy"/>
           <span class="play"><i>▶</i></span>
-        </a>
+        </div>
       </div>
       <div>
         <span class="lbl">Featured film — Shanghai, 2025</span>
@@ -633,6 +633,25 @@
       v.play().catch(function(){});
     },{threshold:.05,rootMargin:'400px 0px'}).observe(v);
   });
+})();
+</script>
+<script>
+/* media lab: play Tradition in Bloom right here — the film only downloads when asked */
+(function(){
+  var shell=document.getElementById('homeVideoShell');
+  if(!shell)return;
+  function play(){
+    var v=document.createElement('video');
+    v.src='assets/tradition-in-bloom.mp4';
+    v.poster='assets/tradition-still.webp';
+    v.controls=true; v.autoplay=true; v.playsInline=true; v.preload='none';
+    v.setAttribute('playsinline','');
+    shell.innerHTML=''; shell.appendChild(v);
+    shell.style.cursor='default';
+    var p=v.play(); if(p&&p.catch){p.catch(function(){});}
+  }
+  shell.addEventListener('click',play,{once:true});
+  shell.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}},{once:true});
 })();
 </script>
 </body>

@@ -64,7 +64,7 @@
     <div class="sec-top rv"><h2>Now showing</h2></div>
     <div class="split rv">
       <div class="video-shell" id="videoShell" role="button" tabindex="0" aria-label="Play Tradition in Bloom">
-        <img src="assets/thumbnail.jpeg" alt="Still from Tradition in Bloom — dancers in a Shanghai park"/>
+        <img src="assets/tradition-still.webp" alt="Still from Tradition in Bloom — dancers in a Shanghai park"/>
         <span class="play"><i>▶</i></span>
       </div>
       <div>
@@ -82,31 +82,25 @@
   <div class="wrap">
     <div class="sec-top rv">
       <h2>What the Lab publishes</h2>
-      <a class="btn line" href="https://forms.gle/hP856wgmD7PJuvNA9" target="_blank" rel="noopener">Send us yours</a>
     </div>
     <div class="idx rv">
-      <div class="idx-row">
-        <span class="no">01</span>
+      <div class="idx-row plain">
         <span class="word">Films</span>
         <span class="desc">Documentary moments, video essays, and visual stories — like <b>Tradition in Bloom</b> above.</span>
       </div>
-      <div class="idx-row">
-        <span class="no">02</span>
+      <div class="idx-row plain">
         <span class="word">Essays &amp; reflections</span>
         <span class="desc">Writing on culture, identity, language, and life between two regions — in English, 中文, or العربية.</span>
       </div>
-      <div class="idx-row">
-        <span class="no">03</span>
+      <div class="idx-row plain">
         <span class="word">Photo essays</span>
         <span class="desc">Photography that carries a story — an event, a street, a festival, a journey.</span>
       </div>
-      <div class="idx-row">
-        <span class="no">04</span>
+      <div class="idx-row plain">
         <span class="word">Audio</span>
         <span class="desc">Conversations, soundscapes, and spoken-word from either shore.</span>
       </div>
-      <div class="idx-row">
-        <span class="no">05</span>
+      <div class="idx-row plain">
         <span class="word">Art</span>
         <span class="desc">Calligraphy, illustration, design — anything made by hand or screen that bridges the two worlds.</span>
       </div>
@@ -169,7 +163,7 @@
   function play(){
     var v=document.createElement('video');
     v.src='assets/tradition-in-bloom.mp4';
-    v.poster='assets/thumbnail.jpeg';
+    v.poster='assets/tradition-still.webp';
     v.controls=true; v.autoplay=true; v.playsInline=true; v.preload='none';
     v.setAttribute('playsinline','');
     shell.innerHTML=''; shell.appendChild(v);
