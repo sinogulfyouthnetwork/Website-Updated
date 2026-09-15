@@ -13,7 +13,7 @@ var SGYN_TEAM=[
   {name:"Abdulla AlHemeiri", role:"Deputy Director", city:"United Arab Emirates",
    link:"https://www.linkedin.com/in/abdulla-alhemeiri-b46292215",
    bio:"Abdulla is one of the few Emirati professionals with deep on-the-ground experience on both sides of the China-Gulf relationship. He joined SGYN's leadership team as a Yenching Scholar at Peking University, studying Economics and Management and was the first GCC national admitted to the programme. His research examines China's economic reach into the Gulf through the UAE as a strategic intermediary. He also previously served as a Political Analyst at the UAE Embassy in Beijing."},
-  {name:"Huayi Shen", role:"Head of Programs & Partnerships", city:"Saudi Arabia",
+  {name:"Huayi Shen", role:"Director, Programming & Partnerships", city:"Saudi Arabia",
    link:"https://www.linkedin.com/in/huayishen/",
    bio:"Huayi designed and leads SGYN's LAB programme and oversees partnerships across China and Saudi Arabia. He holds a degree in Arabic with studies at UIBE, Cairo University, and AUC, and has experience in communications and media through internships at China Media Group and the UIBE Media Center. Based in Saudi Arabia, he works in logistics for a Chinese-Saudi joint venture. He also founded one of RedNote's growing communities for Chinese expats in the Gulf."},
   {name:"Salmeen Binmahfooz", role:"KSA Chief of Staff", city:"Dhahran",
