@@ -651,6 +651,7 @@
   var media=document.getElementById('labMedia');
   if(!media)return;
   var loop=media.querySelector('video.mlab-loop'),frame=document.getElementById('labFrame');
+  var btn=document.getElementById('labPlay'),film=null;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   new IntersectionObserver(function(en){
     if(!en[0].isIntersecting){ if(loop.src)loop.pause(); return; }
@@ -658,6 +659,12 @@
     if(!loop.src){ loop.src=loop.dataset.src; }
     loop.play().catch(function(){});
   },{threshold:.05,rootMargin:'400px 0px'}).observe(media);
+  function updateBtn(){
+    var pause=film&&!film.paused&&!film.ended;
+    btn.textContent=pause?'❚❚':'▶';
+    btn.classList.toggle('is-pause',!!pause);
+    btn.setAttribute('aria-label',pause?'Pause Tradition in Bloom':'Play Tradition in Bloom');
+  }
   function play(){
     if(media.classList.contains('playing'))return;
     var v=document.createElement('video');
@@ -668,14 +675,22 @@
     frame.innerHTML=''; frame.appendChild(v);
     media.classList.add('playing');
     loop.pause();
+    film=v;
+    v.addEventListener('play',updateBtn);
+    v.addEventListener('pause',updateBtn);
     v.addEventListener('ended',stop);
     var p=v.play(); if(p&&p.catch){p.catch(function(){});}
+    updateBtn();
   }
   function stop(){
     frame.innerHTML=''; media.classList.remove('playing');
+    film=null; updateBtn();
     if(loop.src)loop.play().catch(function(){});
   }
-  document.getElementById('labPlay').addEventListener('click',play);
+  btn.addEventListener('click',function(){
+    if(!media.classList.contains('playing')){ play(); return; }
+    if(film){ if(film.paused){ film.play().catch(function(){}); } else { film.pause(); } }
+  });
   media.addEventListener('click',function(){ if(!media.classList.contains('playing'))play(); });
   media.addEventListener('keydown',function(e){ if((e.key==='Enter'||e.key===' ')&&!media.classList.contains('playing')){e.preventDefault();play();} });
   document.getElementById('labClose').addEventListener('click',function(e){ e.stopPropagation(); stop(); });
