@@ -259,7 +259,7 @@ section.fnote-grey{padding:0}
 .fnq-box::after{content:"";display:block;clear:both}
 .fnq-fig{float:right;width:min(290px,40%);shape-outside:polygon(100% 0, 38% 0, 29% 13%, 3% 30%, 0 46%, 16% 56%, 5% 73%, 0 100%, 100% 100%);shape-margin:22px;margin:clamp(-46px,-4vw,-70px) clamp(-8px,-1vw,-18px) 0 10px;position:relative}
 .fnq-fig::before{content:"";position:absolute;left:5%;right:5%;bottom:calc(0px - var(--ext,0px));height:calc(44% + var(--ext,0px));background:var(--gold)}
-.fnq-fig img{width:100%;display:block;position:relative;filter:drop-shadow(0 16px 26px rgba(26,44,63,.22));transition:filter .45s}
+.fnq-fig img{width:100%;height:auto;display:block;position:relative;filter:drop-shadow(0 16px 26px rgba(26,44,63,.22));transition:filter .45s}
 /* hover: soft gold trace on the silhouette + museum caption on the seat */
 .fnq-fig:hover img{filter:drop-shadow(0 16px 26px rgba(26,44,63,.22)) drop-shadow(0 0 1px rgba(214,173,100,.95)) drop-shadow(0 0 7px rgba(214,173,100,.55))}
 .fig-cap{position:absolute;left:-4%;bottom:26%;z-index:4;background:#fdfbf6;border:1px solid rgba(47,77,105,.14);border-left:3px solid var(--gold);border-radius:3px;padding:8px 16px 9px;box-shadow:0 10px 24px rgba(26,44,63,.16);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;pointer-events:none;white-space:nowrap}
