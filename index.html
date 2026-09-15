@@ -148,7 +148,7 @@
 
 <!-- metrics — crowd video behind a navy veil (first 6s of the source clip, slowed to 75%, looping) -->
 <section class="metrics-band">
-  <div class="mx-vid" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" src="assets/crowd-metrics.mp4"></video></div>
+  <div class="mx-vid" aria-hidden="true"><video muted loop playsinline preload="none" poster="assets/crowd-poster.jpg" data-src="assets/crowd-metrics.mp4"></video></div>
   <div class="mx-veil" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-top rv"><h2>A young network, <em>moving fast.</em></h2></div>
@@ -512,7 +512,7 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 <script>
 /* home hero: drifting film columns (photos local in assets/) */
 (function(){
@@ -631,10 +631,18 @@
 })();
 </script>
 <script>
-/* metrics crowd video: only play while the band is on screen */
-document.querySelectorAll('.mx-vid video').forEach(function(v){
-  new IntersectionObserver(function(en){ en[0].isIntersecting?v.play().catch(function(){}):v.pause(); },{threshold:.05}).observe(v);
-});
+/* metrics crowd video: poster only until the band nears the viewport, then load + play while on screen */
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.mx-vid video').forEach(function(v){
+    new IntersectionObserver(function(en){
+      if(!en[0].isIntersecting){ if(v.src)v.pause(); return; }
+      if(reduce)return;                                  /* reduced motion: video is hidden, never fetch it */
+      if(!v.src){ v.src=v.dataset.src; }
+      v.play().catch(function(){});
+    },{threshold:.05,rootMargin:'400px 0px'}).observe(v);
+  });
+})();
 </script>
 </body>
 </html>
