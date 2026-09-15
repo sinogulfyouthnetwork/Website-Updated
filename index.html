@@ -77,21 +77,21 @@
       </div>
       <figure class="story-pile">
         <div class="stack" title="Click to see the next photo">
-          <img class="pos0" src="assets/EventPhotos/founding-evening-3.jpg" alt="Panel session at the founding evening, NYU Shanghai" loading="lazy"/>
-          <img class="pos1" src="assets/EventPhotos/founding-evening-2.jpg" alt="Emirati guests in traditional dress at the founding evening, NYU Shanghai" loading="lazy"/>
-          <img class="pos2" src="assets/ChinaEmaritiEventImg/ChinaEmaritiEvent1.jpeg" alt="Calligraphy exchange at the founding evening, NYU Shanghai" loading="lazy"/>
-          <img class="pos3" src="assets/EventPhotos/ecust.jpg" alt="SGYN members at the UAE Union Day celebration at ECUST, Shanghai" loading="lazy"/>
+          <img class="pos0" src="assets/EventPhotos/founding-evening-3.webp" alt="Panel session at the founding evening, NYU Shanghai" loading="lazy"/>
+          <img class="pos1" data-src="assets/EventPhotos/founding-evening-2.webp" alt="Emirati guests in traditional dress at the founding evening, NYU Shanghai"/>
+          <img class="pos2" data-src="assets/ChinaEmaritiEventImg/ChinaEmaritiEvent1.webp" alt="Calligraphy exchange at the founding evening, NYU Shanghai"/>
+          <img class="pos3" data-src="assets/EventPhotos/ecust.webp" alt="SGYN members at the UAE Union Day celebration at ECUST, Shanghai"/>
         </div>
       </figure>
     </div>
     <div class="story-beat flip rv">
       <figure class="story-pile">
         <div class="stack" title="Click to see the next photo">
-          <img class="pos0" src="assets/EventPhotos/beijing-launch-cake.jpg" alt="Cutting the SGYN cake at the Beijing launch" loading="lazy"/>
-          <img class="pos1" src="assets/EventPhotos/uae-embassy-beijing.jpg" alt="SGYN members at the Embassy of the United Arab Emirates in Beijing" loading="lazy"/>
-          <img class="pos2" src="assets/SGYN-Flagship-Event.jpeg" alt="SGYN flagship dialogue audience in New York" loading="lazy"/>
-          <img class="pos3" src="assets/EventPhotos/nyc-dialogue-2.jpg" alt="Youth dialogue at the UAE Consulate in New York" loading="lazy"/>
-          <img class="pos4" src="assets/EventPhotos/ygs.jpg" alt="SGYN members at the Yenching Global Symposium" loading="lazy"/>
+          <img class="pos0" src="assets/EventPhotos/beijing-launch-cake.webp" alt="Cutting the SGYN cake at the Beijing launch" loading="lazy"/>
+          <img class="pos1" data-src="assets/EventPhotos/uae-embassy-beijing.webp" alt="SGYN members at the Embassy of the United Arab Emirates in Beijing"/>
+          <img class="pos2" data-src="assets/SGYN-Flagship-Event.webp" alt="SGYN flagship dialogue audience in New York"/>
+          <img class="pos3" data-src="assets/EventPhotos/nyc-dialogue-2.webp" alt="Youth dialogue at the UAE Consulate in New York"/>
+          <img class="pos4" data-src="assets/EventPhotos/ygs.webp" alt="SGYN members at the Yenching Global Symposium"/>
         </div>
       </figure>
       <div class="txt">
@@ -263,7 +263,7 @@
   <div class="letter">
     <button class="lclose" id="lclose" aria-label="Close">✕</button>
     <div class="lhead">
-      <img src="assets/SGYNBannerNavy.svg" alt="Sino-Gulf Youth Network"/>
+      <img data-src="assets/SGYNBannerNavy.svg" alt="Sino-Gulf Youth Network" loading="lazy"/>
       <span class="lhead-tag">Founder&rsquo;s Note</span>
     </div>
     <p>China and the Gulf — and, more broadly, the Middle East — have been interconnected for far longer, and in far more ways, than modern conversations about trade or conflict tend to suggest.</p>
@@ -275,7 +275,7 @@
     <p>My goal was simple: that young people in China and the Gulf would no longer have to learn about each other only through headlines. I wanted us to have a community where young people could engage with China–Gulf relations outside the usual formalities: not only across conference tables or through institutions, but over meals, through language, in honest conversations, and eventually through friendships and opportunities that continue long after an event ends.</p>
     <p>Since then, I&rsquo;ve watched members teach each other phrases, debate ideas, share stages, travel across cities, and open doors for one another around the world. That, more than anything, has been the greatest reward of this work — watching SGYN become what I hoped it could be.</p>
     <p><span class="lhl">This network belongs to all the young people who have a stake in what the Sino-Gulf relationship becomes next.</span></p>
-    <img class="lsig-img" src="assets/gloria-signature.webp?v=2" alt="Gloria Tsang&rsquo;s signature"/>
+    <img class="lsig-img" data-src="assets/gloria-signature.webp?v=2" alt="Gloria Tsang&rsquo;s signature" loading="lazy"/>
     <p class="lrole">Founder &amp; Executive Director, Sino-Gulf Youth Network</p>
   </div>
 </div>
@@ -293,7 +293,12 @@
   addEventListener('load',fit);
   var t;addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,150)});
   var lveil=document.getElementById('lveil');
-  function openL(){lveil.classList.add('open');document.body.style.overflow='hidden'}
+  /* the closed veil is only opacity:0, so it still counts as on-screen and loading="lazy" alone
+     would not hold the letterhead and signature back — hydrate them on the first open instead */
+  function fillL(){
+    lveil.querySelectorAll('img[data-src]').forEach(function(im){im.src=im.dataset.src;im.removeAttribute('data-src')});
+  }
+  function openL(){fillL();lveil.classList.add('open');document.body.style.overflow='hidden'}
   function closeL(){lveil.classList.remove('open');document.body.style.overflow=''}
   document.querySelectorAll('.fnq-open').forEach(function(b){b.addEventListener('click',openL)});
   document.getElementById('lclose').addEventListener('click',closeL);
@@ -481,7 +486,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-logo"><img src="assets/SGYNBannerSmallFooter.svg" alt="Sino-Gulf Youth Network"/></div>
+        <div class="foot-logo"><img src="assets/SGYNBannerSmallFooter.svg" alt="Sino-Gulf Youth Network" loading="lazy"/></div>
         <p>The leading platform connecting emerging leaders across China and the Gulf.</p>
       </div>
       <div>
@@ -606,12 +611,21 @@
 })();
 </script>
 <script>
-/* our story photo piles: auto-advance every 4s while on screen; hover pauses; click flips and resets the clock */
+/* our story photo piles: auto-advance every 4s while on screen; hover pauses; click flips and resets the clock.
+   only the top photo of each pile ships a src — the rest carry data-src and are hydrated one step
+   ahead of being shown (or in one go on idle / pointerenter), so a first paint costs two photos, not nine. */
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var idle=window.requestIdleCallback||function(f){return setTimeout(f,4000)};
   document.querySelectorAll('.story-pile .stack').forEach(function(st,si){
     var n=st.children.length;
-    var hover=false,inView=false,timer=null;
+    var hover=false,inView=false,timer=null,queued=false;
+    function load(im){ if(im&&!im.getAttribute('src')&&im.dataset.src)im.src=im.dataset.src }
+    function warm(){ /* the pos1 photo is the one the next flip reveals */
+      [].forEach.call(st.children,function(im){ if(/(^|\s)pos1(\s|$)/.test(im.className))load(im) });
+    }
+    function loadAll(){ [].forEach.call(st.children,load) }
+    function idleAll(){ if(queued)return; queued=true; idle(loadAll) }
     function cycle(){
       [].forEach.call(st.children,function(im){
         var m=im.className.match(/pos(\d)/); if(!m)return;
@@ -619,6 +633,7 @@
         im.classList.remove('pos'+i);
         im.classList.add('pos'+((i+n-1)%n));
       });
+      warm(); /* stay one photo ahead so a flip never lands on an empty frame */
     }
     function restart(){
       if(timer)clearInterval(timer);
@@ -626,10 +641,14 @@
         if(!document.hidden&&inView&&!hover)cycle();
       },4000);
     }
-    new IntersectionObserver(function(e){inView=e[0].isIntersecting},{threshold:.3}).observe(st);
+    new IntersectionObserver(function(e){
+      inView=e[0].isIntersecting;
+      if(inView){warm();idleAll()}          /* reduced motion included: the pile still fills in on idle */
+    },{threshold:.3}).observe(st);
+    st.addEventListener('pointerenter',loadAll); /* cheap warm-up once a pointer is on the pile */
     st.addEventListener('mouseenter',function(){hover=true});
     st.addEventListener('mouseleave',function(){hover=false});
-    st.addEventListener('click',function(){cycle();restart()});
+    st.addEventListener('click',function(){warm();cycle();restart()});
     setTimeout(restart,si*2000); /* stagger the two piles so they don't flip together */
   });
 })();

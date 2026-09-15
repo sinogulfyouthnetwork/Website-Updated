@@ -495,6 +495,8 @@ a.idx-row:hover .desc .go-hint{transform:translateX(5px)}
 .story-pile{position:relative;margin:6px 0 0}
 .story-pile .stack{position:relative;aspect-ratio:3/2}
 .story-pile .stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:12px;cursor:pointer;box-shadow:0 12px 26px rgba(26,44,63,.2);transition:transform .55s cubic-bezier(.3,.7,.3,1)}
+/* photos below the top one carry data-src until hydrated — hide the empty frame until a src lands */
+.story-pile .stack img:not([src]){visibility:hidden;box-shadow:none}
 .story-pile .stack .pos0{z-index:5;transform:rotate(0)}
 .story-pile .stack .pos1{z-index:4;transform:rotate(-2.6deg) translate(-12px,10px)}
 .story-pile .stack .pos2{z-index:3;transform:rotate(2.2deg) translate(12px,12px)}
