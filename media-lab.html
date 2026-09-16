@@ -51,7 +51,7 @@
 
 <!-- full-cinema layout: the film loops fixed behind the page; content scrolls over it -->
 <div class="cine-bg" aria-hidden="true">
-  <video src="assets/tradition-loop.mp4" poster="assets/tradition-loop-poster.jpg" autoplay muted loop playsinline></video>
+  <video data-src="assets/tradition-loop.mp4" poster="assets/tradition-loop-poster.webp" muted loop playsinline preload="none"></video>
   <div class="cine-veil"></div>
 </div>
 
@@ -182,6 +182,17 @@
 </div>
 
 <script src="js/main.js" defer></script>
+<script>
+/* background loop: waits for the page's images to finish (load event) so it never
+   starves them on slow connections; the poster stands in until then */
+(function(){
+  var v=document.querySelector('.cine-bg video');
+  if(!v||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  function go(){ if(!v.src){ v.src=v.dataset.src; v.play().catch(function(){}); } }
+  if(document.readyState==='complete')go();
+  else addEventListener('load',go);
+})();
+</script>
 <script>
 /* cinema light-box: the film is self-hosted and only downloads when asked (fast page) */
 (function(){

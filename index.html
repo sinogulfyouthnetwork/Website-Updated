@@ -201,7 +201,7 @@
         </div>
       </div>
       <a class="cover-lift" href="https://sinogulfinstitute.com/journal.html" target="_blank" rel="noopener" aria-label="Read the first issue of the SGI Journal">
-        <img src="assets/sgi-journal-vol1-cover.jpg" alt="Cover of the SGI Journal, Volume 1 Issue 1: China and the Gulf in a Changing World" loading="lazy" />
+        <img src="assets/sgi-journal-vol1-cover.webp" alt="Cover of the SGI Journal, Volume 1 Issue 1: China and the Gulf in a Changing World" loading="lazy" />
       </a>
       <div>
         <span class="jissue">SGI Journal — Volume 1, Issue 1</span>
@@ -230,7 +230,7 @@
       </div>
     </div>
     <div class="mlab-media" id="labMedia" role="button" tabindex="0" aria-label="Play Tradition in Bloom">
-      <video class="mlab-loop" data-src="assets/tradition-loop.mp4" poster="assets/tradition-loop-poster.jpg" muted loop playsinline preload="none"></video>
+      <video class="mlab-loop" data-src="assets/tradition-loop.mp4" poster="assets/tradition-loop-poster.webp" muted loop playsinline preload="none"></video>
       <div class="mlab-veil"></div>
       <div class="mlab-frame" id="labFrame"></div>
       <button class="mlab-close" id="labClose">✕ Back</button>
@@ -658,12 +658,16 @@
   var loop=media.querySelector('video.mlab-loop'),frame=document.getElementById('labFrame');
   var btn=document.getElementById('labPlay'),film=null;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  new IntersectionObserver(function(en){
+  /* the loop waits for the page's images to finish (load event) and for the strip
+     to actually be on screen — on slow connections it must never starve the photos */
+  var lio=new IntersectionObserver(function(en){
     if(!en[0].isIntersecting){ if(loop.src)loop.pause(); return; }
     if(reduce||media.classList.contains('playing'))return;
     if(!loop.src){ loop.src=loop.dataset.src; }
     loop.play().catch(function(){});
-  },{threshold:.05,rootMargin:'400px 0px'}).observe(media);
+  },{threshold:.2});
+  if(document.readyState==='complete')lio.observe(media);
+  else addEventListener('load',function(){lio.observe(media)});
   function updateBtn(){
     var pause=film&&!film.paused&&!film.ended;
     btn.textContent=pause?'❚❚':'▶';
